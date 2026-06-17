@@ -1,0 +1,4255 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://www.semanticweb.org/ayca/ontologies/2026/3/university-kg#"
+     xml:base="http://www.semanticweb.org/ayca/ontologies/2026/3/university-kg"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:ukg="ukg:"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:university-kg="http://www.semanticweb.org/ayca/ontologies/2026/3/university-kg#">
+    <owl:Ontology rdf:about="http://www.semanticweb.org/ayca/ontologies/2026/3/university-kg">
+        <rdfs:comment xml:lang="en">Extended ontology for Manisa Celal Bayar University Engineering Faculty. Models courses, academic staff, departments, and sub-fields. Version 2 adds MandatoryCourse/ElectiveCourse subclasses, ResearchAssistant class, SubField class, extended data properties, and real data from CSE, MEE, and IE departments.</rdfs:comment>
+        <rdfs:label xml:lang="en">University Knowledge Graph Ontology v2</rdfs:label>
+        <rdfs:label xml:lang="tr">Üniversite Bilgi Grafiği Ontolojisi v2</rdfs:label>
+        <owl:versionInfo>2.0</owl:versionInfo>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+
+    
+
+
+    <!-- http://www.semanticweb.org/ayca/ontologies/2026/3/university-kg#GPA -->
+
+
+    <owl:AnnotationProperty rdf:about="http://www.semanticweb.org/ayca/ontologies/2026/3/university-kg#GPA"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ayca/ontologies/2026/3/university-kg#avesisURL -->
+
+
+    <owl:AnnotationProperty rdf:about="http://www.semanticweb.org/ayca/ontologies/2026/3/university-kg#avesisURL"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ayca/ontologies/2026/3/university-kg#belongsTo -->
+
+
+    <owl:AnnotationProperty rdf:about="http://www.semanticweb.org/ayca/ontologies/2026/3/university-kg#belongsTo"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ayca/ontologies/2026/3/university-kg#courseCode -->
+
+
+    <owl:AnnotationProperty rdf:about="http://www.semanticweb.org/ayca/ontologies/2026/3/university-kg#courseCode"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ayca/ontologies/2026/3/university-kg#courseName -->
+
+
+    <owl:AnnotationProperty rdf:about="http://www.semanticweb.org/ayca/ontologies/2026/3/university-kg#courseName"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ayca/ontologies/2026/3/university-kg#departmentName -->
+
+
+    <owl:AnnotationProperty rdf:about="http://www.semanticweb.org/ayca/ontologies/2026/3/university-kg#departmentName"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ayca/ontologies/2026/3/university-kg#email -->
+
+
+    <owl:AnnotationProperty rdf:about="http://www.semanticweb.org/ayca/ontologies/2026/3/university-kg#email"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ayca/ontologies/2026/3/university-kg#fullName -->
+
+
+    <owl:AnnotationProperty rdf:about="http://www.semanticweb.org/ayca/ontologies/2026/3/university-kg#fullName"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ayca/ontologies/2026/3/university-kg#hasCourse -->
+
+
+    <owl:AnnotationProperty rdf:about="http://www.semanticweb.org/ayca/ontologies/2026/3/university-kg#hasCourse"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ayca/ontologies/2026/3/university-kg#hasPrerequisite -->
+
+
+    <owl:AnnotationProperty rdf:about="http://www.semanticweb.org/ayca/ontologies/2026/3/university-kg#hasPrerequisite"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ayca/ontologies/2026/3/university-kg#hasSubField -->
+
+
+    <owl:AnnotationProperty rdf:about="http://www.semanticweb.org/ayca/ontologies/2026/3/university-kg#hasSubField"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ayca/ontologies/2026/3/university-kg#isEnrolledIn -->
+
+
+    <owl:AnnotationProperty rdf:about="http://www.semanticweb.org/ayca/ontologies/2026/3/university-kg#isEnrolledIn"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ayca/ontologies/2026/3/university-kg#offeredIn -->
+
+
+    <owl:AnnotationProperty rdf:about="http://www.semanticweb.org/ayca/ontologies/2026/3/university-kg#offeredIn"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ayca/ontologies/2026/3/university-kg#semester -->
+
+
+    <owl:AnnotationProperty rdf:about="http://www.semanticweb.org/ayca/ontologies/2026/3/university-kg#semester"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ayca/ontologies/2026/3/university-kg#studentID -->
+
+
+    <owl:AnnotationProperty rdf:about="http://www.semanticweb.org/ayca/ontologies/2026/3/university-kg#studentID"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ayca/ontologies/2026/3/university-kg#subFieldName -->
+
+
+    <owl:AnnotationProperty rdf:about="http://www.semanticweb.org/ayca/ontologies/2026/3/university-kg#subFieldName"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ayca/ontologies/2026/3/university-kg#teaches -->
+
+
+    <owl:AnnotationProperty rdf:about="http://www.semanticweb.org/ayca/ontologies/2026/3/university-kg#teaches"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ayca/ontologies/2026/3/university-kg#title -->
+
+
+    <owl:AnnotationProperty rdf:about="http://www.semanticweb.org/ayca/ontologies/2026/3/university-kg#title"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ayca/ontologies/2026/3/university-kg#worksIn -->
+
+
+    <owl:AnnotationProperty rdf:about="http://www.semanticweb.org/ayca/ontologies/2026/3/university-kg#worksIn"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+
+    
+
+
+    <!-- ukg:GPA -->
+
+
+    <owl:ObjectProperty rdf:about="ukg:GPA">
+        <rdfs:domain rdf:resource="ukg:student"/>
+        <rdfs:range rdf:resource="xsd:float"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- ukg:avesisURL -->
+
+
+    <owl:ObjectProperty rdf:about="ukg:avesisURL">
+        <rdfs:domain rdf:resource="ukg:academicStaff"/>
+        <rdfs:range rdf:resource="xsd:anyURI"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- ukg:belongsTo -->
+
+
+    <owl:ObjectProperty rdf:about="ukg:belongsTo">
+        <rdfs:domain rdf:resource="ukg:person"/>
+        <rdfs:range rdf:resource="ukg:department"/>
+        <rdfs:comment xml:lang="en">Relates a person to their department.</rdfs:comment>
+        <rdfs:label xml:lang="en">belongs to</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- ukg:courseCode -->
+
+
+    <owl:ObjectProperty rdf:about="ukg:courseCode">
+        <rdfs:domain rdf:resource="ukg:course"/>
+        <rdfs:range rdf:resource="xsd:string"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- ukg:courseName -->
+
+
+    <owl:ObjectProperty rdf:about="ukg:courseName">
+        <rdfs:domain rdf:resource="ukg:course"/>
+        <rdfs:range rdf:resource="xsd:string"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- ukg:departmentName -->
+
+
+    <owl:ObjectProperty rdf:about="ukg:departmentName">
+        <rdfs:domain rdf:resource="ukg:department"/>
+        <rdfs:range rdf:resource="xsd:string"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- ukg:email -->
+
+
+    <owl:ObjectProperty rdf:about="ukg:email">
+        <rdfs:domain rdf:resource="ukg:person"/>
+        <rdfs:range rdf:resource="xsd:string"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- ukg:fullName -->
+
+
+    <owl:ObjectProperty rdf:about="ukg:fullName">
+        <rdfs:domain rdf:resource="ukg:person"/>
+        <rdfs:range rdf:resource="xsd:string"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- ukg:hasCourse -->
+
+
+    <owl:ObjectProperty rdf:about="ukg:hasCourse">
+        <rdfs:domain rdf:resource="ukg:department"/>
+        <rdfs:range rdf:resource="ukg:course"/>
+        <rdfs:comment xml:lang="en">Relates a department to the courses it offers.</rdfs:comment>
+        <rdfs:label xml:lang="en">has course</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- ukg:hasPrerequisite -->
+
+
+    <owl:ObjectProperty rdf:about="ukg:hasPrerequisite">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#TransitiveProperty"/>
+        <rdfs:domain rdf:resource="ukg:course"/>
+        <rdfs:range rdf:resource="ukg:course"/>
+        <rdfs:comment xml:lang="en">A course requires another course as prerequisite. Transitive.</rdfs:comment>
+        <rdfs:label xml:lang="en">has prerequisite</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- ukg:hasSubField -->
+
+
+    <owl:ObjectProperty rdf:about="ukg:hasSubField">
+        <rdfs:domain rdf:resource="ukg:department"/>
+        <rdfs:range rdf:resource="ukg:subField"/>
+        <rdfs:comment xml:lang="en">Relates a department to its academic sub-fields.</rdfs:comment>
+        <rdfs:label xml:lang="en">has sub-field</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- ukg:isEnrolledIn -->
+
+
+    <owl:ObjectProperty rdf:about="ukg:isEnrolledIn">
+        <rdfs:domain rdf:resource="ukg:student"/>
+        <rdfs:range rdf:resource="ukg:course"/>
+        <rdfs:label xml:lang="en">is enrolled in</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- ukg:offeredIn -->
+
+
+    <owl:ObjectProperty rdf:about="ukg:offeredIn">
+        <rdfs:domain rdf:resource="ukg:course"/>
+        <rdfs:range rdf:resource="ukg:academicTerm"/>
+        <rdfs:comment xml:lang="en">Relates a course to the academic term it is offered in.</rdfs:comment>
+        <rdfs:label xml:lang="en">offered in</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- ukg:semester -->
+
+
+    <owl:ObjectProperty rdf:about="ukg:semester">
+        <rdfs:domain rdf:resource="ukg:course"/>
+        <rdfs:range rdf:resource="xsd:integer"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- ukg:studentID -->
+
+
+    <owl:ObjectProperty rdf:about="ukg:studentID">
+        <rdfs:domain rdf:resource="ukg:student"/>
+        <rdfs:range rdf:resource="xsd:string"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- ukg:subFieldName -->
+
+
+    <owl:ObjectProperty rdf:about="ukg:subFieldName">
+        <rdfs:domain rdf:resource="ukg:subField"/>
+        <rdfs:range rdf:resource="xsd:string"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- ukg:supervises -->
+
+
+    <owl:ObjectProperty rdf:about="ukg:supervises">
+        <rdfs:domain rdf:resource="ukg:professor"/>
+        <rdfs:range rdf:resource="ukg:researchAssistant"/>
+        <rdfs:label xml:lang="en">supervises</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- ukg:teaches -->
+
+
+    <owl:ObjectProperty rdf:about="ukg:teaches">
+        <rdfs:domain rdf:resource="ukg:professor"/>
+        <rdfs:range rdf:resource="ukg:course"/>
+        <rdfs:label xml:lang="en">teaches</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- ukg:title -->
+
+
+    <owl:ObjectProperty rdf:about="ukg:title">
+        <rdfs:domain rdf:resource="ukg:academicStaff"/>
+        <rdfs:range rdf:resource="xsd:string"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- ukg:worksIn -->
+
+
+    <owl:ObjectProperty rdf:about="ukg:worksIn">
+        <rdfs:domain rdf:resource="ukg:academicStaff"/>
+        <rdfs:range rdf:resource="ukg:subField"/>
+        <rdfs:comment xml:lang="en">Relates an academic staff member to their sub-field (anabilim dalı).</rdfs:comment>
+        <rdfs:label xml:lang="en">works in</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+
+    
+
+
+    <!-- ukg:GPA -->
+
+
+    <owl:DatatypeProperty rdf:about="ukg:GPA"/>
+    
+
+
+    <!-- ukg:avesisURL -->
+
+
+    <owl:DatatypeProperty rdf:about="ukg:avesisURL"/>
+    
+
+
+    <!-- ukg:courseCode -->
+
+
+    <owl:DatatypeProperty rdf:about="ukg:courseCode"/>
+    
+
+
+    <!-- ukg:courseName -->
+
+
+    <owl:DatatypeProperty rdf:about="ukg:courseName"/>
+    
+
+
+    <!-- ukg:departmentName -->
+
+
+    <owl:DatatypeProperty rdf:about="ukg:departmentName"/>
+    
+
+
+    <!-- ukg:email -->
+
+
+    <owl:DatatypeProperty rdf:about="ukg:email"/>
+    
+
+
+    <!-- ukg:fullName -->
+
+
+    <owl:DatatypeProperty rdf:about="ukg:fullName"/>
+    
+
+
+    <!-- ukg:semester -->
+
+
+    <owl:DatatypeProperty rdf:about="ukg:semester"/>
+    
+
+
+    <!-- ukg:studentID -->
+
+
+    <owl:DatatypeProperty rdf:about="ukg:studentID"/>
+    
+
+
+    <!-- ukg:subFieldName -->
+
+
+    <owl:DatatypeProperty rdf:about="ukg:subFieldName"/>
+    
+
+
+    <!-- ukg:title -->
+
+
+    <owl:DatatypeProperty rdf:about="ukg:title"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+
+    
+
+
+    <!-- http://www.semanticweb.org/ayca/ontologies/2026/3/university-kg#academicTerm -->
+
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ayca/ontologies/2026/3/university-kg#academicTerm"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ayca/ontologies/2026/3/university-kg#department -->
+
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ayca/ontologies/2026/3/university-kg#department"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ayca/ontologies/2026/3/university-kg#electiveCourse -->
+
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ayca/ontologies/2026/3/university-kg#electiveCourse"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ayca/ontologies/2026/3/university-kg#mandatoryCourse -->
+
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ayca/ontologies/2026/3/university-kg#mandatoryCourse"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ayca/ontologies/2026/3/university-kg#professor -->
+
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ayca/ontologies/2026/3/university-kg#professor"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ayca/ontologies/2026/3/university-kg#researchAssistant -->
+
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ayca/ontologies/2026/3/university-kg#researchAssistant"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ayca/ontologies/2026/3/university-kg#student -->
+
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ayca/ontologies/2026/3/university-kg#student"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ayca/ontologies/2026/3/university-kg#subField -->
+
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ayca/ontologies/2026/3/university-kg#subField"/>
+    
+
+
+    <!-- ukg:academicStaff -->
+
+
+    <owl:Class rdf:about="ukg:academicStaff">
+        <rdfs:subClassOf rdf:resource="ukg:person"/>
+        <rdfs:label xml:lang="en">Academic Staff</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- ukg:academicTerm -->
+
+
+    <owl:Class rdf:about="ukg:academicTerm">
+        <rdfs:comment xml:lang="en">A semester or academic period (Fall, Spring).</rdfs:comment>
+        <rdfs:label xml:lang="en">Academic Term</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- ukg:course -->
+
+
+    <owl:Class rdf:about="ukg:course">
+        <rdfs:comment xml:lang="en">A course offered by a department.</rdfs:comment>
+        <rdfs:label xml:lang="en">Course</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- ukg:department -->
+
+
+    <owl:Class rdf:about="ukg:department">
+        <rdfs:comment xml:lang="en">An engineering department at MCBU.</rdfs:comment>
+        <rdfs:label xml:lang="en">Department</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- ukg:electiveCourse -->
+
+
+    <owl:Class rdf:about="ukg:electiveCourse">
+        <rdfs:subClassOf rdf:resource="ukg:course"/>
+        <owl:disjointWith rdf:resource="ukg:mandatoryCourse"/>
+        <rdfs:comment xml:lang="en">A course that students can optionally select (Seçmeli).</rdfs:comment>
+        <rdfs:label xml:lang="en">Elective Course</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- ukg:mandatoryCourse -->
+
+
+    <owl:Class rdf:about="ukg:mandatoryCourse">
+        <rdfs:subClassOf rdf:resource="ukg:course"/>
+        <rdfs:comment xml:lang="en">A course that is compulsory for students (Zorunlu).</rdfs:comment>
+        <rdfs:label xml:lang="en">Mandatory Course</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- ukg:person -->
+
+
+    <owl:Class rdf:about="ukg:person">
+        <rdfs:label xml:lang="en">Person</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- ukg:professor -->
+
+
+    <owl:Class rdf:about="ukg:professor">
+        <rdfs:subClassOf rdf:resource="ukg:academicStaff"/>
+        <rdfs:comment xml:lang="en">Full professor, associate professor, or assistant professor (Öğretim Üyesi).</rdfs:comment>
+        <rdfs:label xml:lang="en">Professor / Lecturer</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- ukg:researchAssistant -->
+
+
+    <owl:Class rdf:about="ukg:researchAssistant">
+        <rdfs:subClassOf rdf:resource="ukg:academicStaff"/>
+        <rdfs:label xml:lang="en">Research Assistant (Araştırma Görevlisi)</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- ukg:student -->
+
+
+    <owl:Class rdf:about="ukg:student">
+        <rdfs:subClassOf rdf:resource="ukg:person"/>
+        <rdfs:label xml:lang="en">Student</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- ukg:subField -->
+
+
+    <owl:Class rdf:about="ukg:subField">
+        <rdfs:comment xml:lang="en">Academic sub-field within a department.</rdfs:comment>
+        <rdfs:label xml:lang="en">Sub-Field (Anabilim Dalı)</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- xsd:string -->
+
+
+    <owl:Class rdf:about="xsd:string"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+
+    
+
+
+    <!-- http://www.semanticweb.org/ayca/ontologies/2026/3/university-kg#wrong_student -->
+
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ayca/ontologies/2026/3/university-kg#wrong_student">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ayca/ontologies/2026/3/university-kg#student"/>
+        <ukg:GPA rdf:datatype="xsd:float">4.5</ukg:GPA>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- ukg:Ahmet_Cahit_Yasa -->
+
+
+    <owl:NamedIndividual rdf:about="ukg:Ahmet_Cahit_Yasa">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ayca/ontologies/2026/3/university-kg#researchAssistant"/>
+        <belongsTo rdf:resource="ukg:CSE_Dept"/>
+        <email>ahmet.yasa@cbu.edu.tr</email>
+        <fullName>Arş. Gör. Dr. Ahmet Cahit YAŞA</fullName>
+        <title>Araştırma Görevlisi</title>
+        <worksIn rdf:resource="ukg:SF_Software"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- ukg:Ali_Yilmaz -->
+
+
+    <owl:NamedIndividual rdf:about="ukg:Ali_Yilmaz">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ayca/ontologies/2026/3/university-kg#student"/>
+        <GPA rdf:datatype="xsd:float">2.80</GPA>
+        <belongsTo rdf:resource="ukg:IE_Dept"/>
+        <fullName>Ali Yılmaz</fullName>
+        <isEnrolledIn rdf:resource="ukg:END4267"/>
+        <isEnrolledIn rdf:resource="ukg:IND2118"/>
+        <isEnrolledIn rdf:resource="ukg:IND3101"/>
+        <studentID>20220011</studentID>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- ukg:Ali_Yurddas -->
+
+
+    <owl:NamedIndividual rdf:about="ukg:Ali_Yurddas">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ayca/ontologies/2026/3/university-kg#professor"/>
+        <belongsTo rdf:resource="ukg:MEE_Dept"/>
+        <email>ali.yurddas@cbu.edu.tr</email>
+        <fullName>Prof. Dr. Ali YURDDAŞ</fullName>
+        <title>Prof. Dr.</title>
+        <worksIn rdf:resource="ukg:SF_Thermodynamics"/>
+        <rdfs:comment xml:lang="tr">Bölüm Başkanı</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- ukg:Alp_Eren -->
+
+
+    <owl:NamedIndividual rdf:about="ukg:Alp_Eren">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ayca/ontologies/2026/3/university-kg#researchAssistant"/>
+        <belongsTo rdf:resource="ukg:MEE_Dept"/>
+        <email>alp.eren@cbu.edu.tr</email>
+        <fullName>Arş. Gör. Alp EREN</fullName>
+        <title>Araştırma Görevlisi</title>
+        <worksIn rdf:resource="ukg:SF_Mechanics"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- ukg:Anil_Basaran -->
+
+
+    <owl:NamedIndividual rdf:about="ukg:Anil_Basaran">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ayca/ontologies/2026/3/university-kg#professor"/>
+        <belongsTo rdf:resource="ukg:MEE_Dept"/>
+        <email>anil.basaran@cbu.edu.tr</email>
+        <fullName>Doç. Dr. Anıl BAŞARAN</fullName>
+        <title>Doç. Dr.</title>
+        <worksIn rdf:resource="ukg:SF_Thermodynamics"/>
+        <rdfs:comment xml:lang="tr">Termodinamik Anabilim Dalı Öğretim Üyesi</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- ukg:Ayca_Keskin -->
+
+
+    <owl:NamedIndividual rdf:about="ukg:Ayca_Keskin">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ayca/ontologies/2026/3/university-kg#student"/>
+        <GPA rdf:datatype="xsd:float">3.45</GPA>
+        <belongsTo rdf:resource="ukg:CSE_Dept"/>
+        <fullName>Ayca_Keskin</fullName>
+        <isEnrolledIn rdf:resource="ukg:CSE3131"/>
+        <isEnrolledIn rdf:resource="ukg:CSE3217"/>
+        <isEnrolledIn rdf:resource="ukg:CSE3226"/>
+        <studentID>20210001</studentID>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- ukg:Aykan_Akincilar -->
+
+
+    <owl:NamedIndividual rdf:about="ukg:Aykan_Akincilar">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ayca/ontologies/2026/3/university-kg#researchAssistant"/>
+        <belongsTo rdf:resource="ukg:IE_Dept"/>
+        <email>aykan.akincilar@cbu.edu.tr</email>
+        <fullName>Arş. Gör. Dr. Aykan AKINCILAR</fullName>
+        <title>Araştırma Görevlisi</title>
+        <worksIn rdf:resource="ukg:SF_IndustrialEngineering"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- ukg:Aykut_Karakor -->
+
+
+    <owl:NamedIndividual rdf:about="ukg:Aykut_Karakor">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ayca/ontologies/2026/3/university-kg#researchAssistant"/>
+        <belongsTo rdf:resource="ukg:MEE_Dept"/>
+        <email>aykut.karakor@cbu.edu.tr</email>
+        <fullName>Arş. Gör. Aykut KARAKOR</fullName>
+        <title>Araştırma Görevlisi</title>
+        <worksIn rdf:resource="ukg:SF_Thermodynamics"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- ukg:Bahattin_Akgul -->
+
+
+    <owl:NamedIndividual rdf:about="ukg:Bahattin_Akgul">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ayca/ontologies/2026/3/university-kg#professor"/>
+        <belongsTo rdf:resource="ukg:MEE_Dept"/>
+        <email>mbakgul@cbu.edu.tr</email>
+        <fullName>Doç. Dr. M. Bahattin AKGÜL</fullName>
+        <title>Doç. Dr.</title>
+        <worksIn rdf:resource="ukg:SF_Energy"/>
+        <rdfs:comment xml:lang="tr">Enerji Anabilim Dalı Başkanı</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- ukg:Birim_Balci -->
+
+
+    <owl:NamedIndividual rdf:about="ukg:Birim_Balci">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ayca/ontologies/2026/3/university-kg#professor"/>
+        <avesisURL rdf:datatype="xsd:anyURI">https://avesis.mcbu.edu.tr/birim.balci</avesisURL>
+        <belongsTo rdf:resource="ukg:CSE_Dept"/>
+        <email>birim.balci@cbu.edu.tr</email>
+        <fullName>Doç. Dr. Birim BALCI</fullName>
+        <teaches rdf:resource="ukg:CSE3221"/>
+        <teaches rdf:resource="ukg:CSE3222"/>
+        <teaches rdf:resource="ukg:CSE3252"/>
+        <title>Doç. Dr.</title>
+        <worksIn rdf:resource="ukg:SF_ComputerScience"/>
+        <rdfs:comment xml:lang="tr">Bilgisayar Bilimleri Anabilim Dalı Öğretim Üyesi</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- ukg:Bora_Canbula -->
+
+
+    <owl:NamedIndividual rdf:about="ukg:Bora_Canbula">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ayca/ontologies/2026/3/university-kg#professor"/>
+        <avesisURL rdf:datatype="xsd:anyURI">https://avesis.mcbu.edu.tr/bora.canbula</avesisURL>
+        <belongsTo rdf:resource="ukg:CSE_Dept"/>
+        <email>bora.canbula@cbu.edu.tr</email>
+        <fullName>Doç. Dr. Bora CANBULA</fullName>
+        <teaches rdf:resource="ukg:CSE3223"/>
+        <teaches rdf:resource="ukg:CSE3234"/>
+        <teaches rdf:resource="ukg:CSE3248"/>
+        <title>Doç. Dr.</title>
+        <worksIn rdf:resource="ukg:SF_Software"/>
+        <rdfs:comment xml:lang="tr">Yazılım Anabilim Dalı Öğretim Üyesi</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- ukg:Burak_Ozhan -->
+
+
+    <owl:NamedIndividual rdf:about="ukg:Burak_Ozhan">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ayca/ontologies/2026/3/university-kg#professor"/>
+        <belongsTo rdf:resource="ukg:MEE_Dept"/>
+        <email>burak.ozhan@cbu.edu.tr</email>
+        <fullName>Prof. Dr. B. Burak ÖZHAN</fullName>
+        <teaches rdf:resource="ukg:MAK2119"/>
+        <teaches rdf:resource="ukg:MAK2120"/>
+        <title>Prof. Dr.</title>
+        <worksIn rdf:resource="ukg:SF_Mechanics"/>
+        <rdfs:comment xml:lang="tr">Mekanik Anabilim Dalı Başkanı</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- ukg:Buse_Aksoy -->
+
+
+    <owl:NamedIndividual rdf:about="ukg:Buse_Aksoy">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ayca/ontologies/2026/3/university-kg#student"/>
+        <GPA rdf:datatype="xsd:float">3.90</GPA>
+        <belongsTo rdf:resource="ukg:MEE_Dept"/>
+        <fullName>Buse Aksoy</fullName>
+        <isEnrolledIn rdf:resource="ukg:MAK3119"/>
+        <isEnrolledIn rdf:resource="ukg:MAK3127"/>
+        <isEnrolledIn rdf:resource="ukg:MAK3151"/>
+        <studentID>20220013</studentID>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- ukg:CBU4403_IE -->
+
+
+    <owl:NamedIndividual rdf:about="ukg:CBU4403_IE">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ayca/ontologies/2026/3/university-kg#mandatoryCourse"/>
+        <courseCode>CBU4403_IE</courseCode>
+        <courseName>İş Sağlığı ve Güvenliği I</courseName>
+        <hasCourse rdf:resource="ukg:IE_Dept"/>
+        <offeredIn rdf:resource="ukg:Spring"/>
+        <semester rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">9</semester>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- ukg:CBU4403_MEE -->
+
+
+    <owl:NamedIndividual rdf:about="ukg:CBU4403_MEE">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ayca/ontologies/2026/3/university-kg#mandatoryCourse"/>
+        <courseCode>CBU4403_MEE</courseCode>
+        <courseName>İş Sağlığı ve Güvenliği I</courseName>
+        <hasCourse rdf:resource="ukg:MEE_Dept"/>
+        <offeredIn rdf:resource="ukg:Spring"/>
+        <semester rdf:datatype="xsd:integer">6</semester>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- ukg:CBU4404_MEE -->
+
+
+    <owl:NamedIndividual rdf:about="ukg:CBU4404_MEE">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ayca/ontologies/2026/3/university-kg#mandatoryCourse"/>
+        <courseCode>CBU4404_MEE</courseCode>
+        <courseName>İş Sağlığı ve Güvenliği II</courseName>
+        <hasCourse rdf:resource="ukg:MEE_Dept"/>
+        <offeredIn rdf:resource="ukg:Fall"/>
+        <semester rdf:datatype="xsd:integer">7</semester>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- ukg:CBU4405 -->
+
+
+    <owl:NamedIndividual rdf:about="ukg:CBU4405">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ayca/ontologies/2026/3/university-kg#mandatoryCourse"/>
+        <courseCode>CBU4405</courseCode>
+        <courseName>Job Safety and Workers Health I</courseName>
+        <hasCourse rdf:resource="ukg:CSE_Dept"/>
+        <offeredIn rdf:resource="ukg:Spring"/>
+        <semester rdf:datatype="xsd:integer">6</semester>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- ukg:CBU4406 -->
+
+
+    <owl:NamedIndividual rdf:about="ukg:CBU4406">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ayca/ontologies/2026/3/university-kg#mandatoryCourse"/>
+        <courseCode>CBU4406</courseCode>
+        <courseName>Job Safety and Workers Health II</courseName>
+        <hasCourse rdf:resource="ukg:CSE_Dept"/>
+        <offeredIn rdf:resource="ukg:Fall"/>
+        <semester rdf:datatype="xsd:integer">7</semester>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- ukg:CSE1120 -->
+
+
+    <owl:NamedIndividual rdf:about="ukg:CSE1120">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ayca/ontologies/2026/3/university-kg#mandatoryCourse"/>
+        <courseCode>CSE1120</courseCode>
+        <courseName>Discrete Structures</courseName>
+        <hasCourse rdf:resource="ukg:CSE_Dept"/>
+        <offeredIn rdf:resource="ukg:Spring"/>
+        <semester rdf:datatype="xsd:integer">2</semester>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- ukg:CSE1124 -->
+
+
+    <owl:NamedIndividual rdf:about="ukg:CSE1124">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ayca/ontologies/2026/3/university-kg#mandatoryCourse"/>
+        <courseCode>CSE1124</courseCode>
+        <courseName>Object Oriented Programming</courseName>
+        <hasCourse rdf:resource="ukg:CSE_Dept"/>
+        <offeredIn rdf:resource="ukg:Spring"/>
+        <semester rdf:datatype="xsd:integer">2</semester>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- ukg:CSE1131 -->
+
+
+    <owl:NamedIndividual rdf:about="ukg:CSE1131">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ayca/ontologies/2026/3/university-kg#mandatoryCourse"/>
+        <courseCode>CSE1131</courseCode>
+        <courseName>Molecular Biology for Computer Scientists</courseName>
+        <hasCourse rdf:resource="ukg:CSE_Dept"/>
+        <offeredIn rdf:resource="ukg:Fall"/>
+        <semester rdf:datatype="xsd:integer">1</semester>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- ukg:CSE1133 -->
+
+
+    <owl:NamedIndividual rdf:about="ukg:CSE1133">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ayca/ontologies/2026/3/university-kg#mandatoryCourse"/>
+        <courseCode>CSE1133</courseCode>
+        <courseName>Introduction to Programming</courseName>
+        <hasCourse rdf:resource="ukg:CSE_Dept"/>
+        <offeredIn rdf:resource="ukg:Fall"/>
+        <semester rdf:datatype="xsd:integer">1</semester>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- ukg:CSE1141 -->
+
+
+    <owl:NamedIndividual rdf:about="ukg:CSE1141">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ayca/ontologies/2026/3/university-kg#mandatoryCourse"/>
+        <courseCode>CSE1141</courseCode>
+        <courseName>Introduction to Computer Engineering</courseName>
+        <hasCourse rdf:resource="ukg:CSE_Dept"/>
+        <offeredIn rdf:resource="ukg:Fall"/>
+        <semester rdf:datatype="xsd:integer">1</semester>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- ukg:CSE1143 -->
+
+
+    <owl:NamedIndividual rdf:about="ukg:CSE1143">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ayca/ontologies/2026/3/university-kg#mandatoryCourse"/>
+        <courseCode>CSE1143</courseCode>
+        <courseName>Introduction to Computer Engineering and Career Planning</courseName>
+        <hasCourse rdf:resource="ukg:CSE_Dept"/>
+        <offeredIn rdf:resource="ukg:Fall"/>
+        <semester rdf:datatype="xsd:integer">1</semester>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- ukg:CSE2101 -->
+
+
+    <owl:NamedIndividual rdf:about="ukg:CSE2101">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ayca/ontologies/2026/3/university-kg#mandatoryCourse"/>
+        <courseCode>CSE2101</courseCode>
+        <courseName>Electrical Circuits and Electronics</courseName>
+        <hasCourse rdf:resource="ukg:CSE_Dept"/>
+        <offeredIn rdf:resource="ukg:Fall"/>
+        <semester rdf:datatype="xsd:integer">3</semester>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- ukg:CSE2105 -->
+
+
+    <owl:NamedIndividual rdf:about="ukg:CSE2105">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ayca/ontologies/2026/3/university-kg#mandatoryCourse"/>
+        <courseCode>CSE2105</courseCode>
+        <courseName>Data Structures</courseName>
+        <hasCourse rdf:resource="ukg:CSE_Dept"/>
+        <hasPrerequisite rdf:resource="ukg:CSE1133"/>
+        <offeredIn rdf:resource="ukg:Fall"/>
+        <semester rdf:datatype="xsd:integer">3</semester>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- ukg:CSE2113 -->
+
+
+    <owl:NamedIndividual rdf:about="ukg:CSE2113">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ayca/ontologies/2026/3/university-kg#mandatoryCourse"/>
+        <courseCode>CSE2113</courseCode>
+        <courseName>Formal Languages and Abstract Machines</courseName>
+        <hasCourse rdf:resource="ukg:CSE_Dept"/>
+        <hasPrerequisite rdf:resource="ukg:CSE1120"/>
+        <offeredIn rdf:resource="ukg:Fall"/>
+        <semester rdf:datatype="xsd:integer">3</semester>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- ukg:CSE2118 -->
+
+
+    <owl:NamedIndividual rdf:about="ukg:CSE2118">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ayca/ontologies/2026/3/university-kg#mandatoryCourse"/>
+        <courseCode>CSE2118</courseCode>
+        <courseName>Programming Languages</courseName>
+        <hasCourse rdf:resource="ukg:CSE_Dept"/>
+        <hasPrerequisite rdf:resource="ukg:CSE1133"/>
+        <offeredIn rdf:resource="ukg:Spring"/>
+        <semester rdf:datatype="xsd:integer">4</semester>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- ukg:CSE2122 -->
+
+
+    <owl:NamedIndividual rdf:about="ukg:CSE2122">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ayca/ontologies/2026/3/university-kg#mandatoryCourse"/>
+        <courseCode>CSE2122</courseCode>
+        <courseName>Design and Analysis of Algorithms</courseName>
+        <hasCourse rdf:resource="ukg:CSE_Dept"/>
+        <hasPrerequisite rdf:resource="ukg:CSE2105"/>
+        <offeredIn rdf:resource="ukg:Spring"/>
+        <semester rdf:datatype="xsd:integer">4</semester>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- ukg:CSE2136 -->
+
+
+    <owl:NamedIndividual rdf:about="ukg:CSE2136">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ayca/ontologies/2026/3/university-kg#mandatoryCourse"/>
+        <courseCode>CSE2136</courseCode>
+        <courseName>Logic Design</courseName>
+        <hasCourse rdf:resource="ukg:CSE_Dept"/>
+        <offeredIn rdf:resource="ukg:Spring"/>
+        <semester rdf:datatype="xsd:integer">4</semester>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- ukg:CSE3131 -->
+
+
+    <owl:NamedIndividual rdf:about="ukg:CSE3131">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ayca/ontologies/2026/3/university-kg#mandatoryCourse"/>
+        <courseCode>CSE3131</courseCode>
+        <courseName>Computer Organization</courseName>
+        <hasCourse rdf:resource="ukg:CSE_Dept"/>
+        <hasPrerequisite rdf:resource="ukg:CSE2136"/>
+        <offeredIn rdf:resource="ukg:Fall"/>
+        <semester rdf:datatype="xsd:integer">5</semester>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- ukg:CSE3134 -->
+
+
+    <owl:NamedIndividual rdf:about="ukg:CSE3134">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ayca/ontologies/2026/3/university-kg#mandatoryCourse"/>
+        <courseCode>CSE3134</courseCode>
+        <courseName>Microprocessor and Embedded Systems</courseName>
+        <hasCourse rdf:resource="ukg:CSE_Dept"/>
+        <offeredIn rdf:resource="ukg:Spring"/>
+        <semester rdf:datatype="xsd:integer">6</semester>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- ukg:CSE3136 -->
+
+
+    <owl:NamedIndividual rdf:about="ukg:CSE3136">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ayca/ontologies/2026/3/university-kg#mandatoryCourse"/>
+        <courseCode>CSE3136</courseCode>
+        <courseName>Computer Networks</courseName>
+        <hasCourse rdf:resource="ukg:CSE_Dept"/>
+        <offeredIn rdf:resource="ukg:Spring"/>
+        <semester rdf:datatype="xsd:integer">6</semester>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- ukg:CSE3137 -->
+
+
+    <owl:NamedIndividual rdf:about="ukg:CSE3137">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ayca/ontologies/2026/3/university-kg#mandatoryCourse"/>
+        <courseCode>CSE3137</courseCode>
+        <courseName>Object Oriented Analysis and Design</courseName>
+        <hasCourse rdf:resource="ukg:CSE_Dept"/>
+        <hasPrerequisite rdf:resource="ukg:CSE2118"/>
+        <offeredIn rdf:resource="ukg:Fall"/>
+        <semester rdf:datatype="xsd:integer">5</semester>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- ukg:CSE3139 -->
+
+
+    <owl:NamedIndividual rdf:about="ukg:CSE3139">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ayca/ontologies/2026/3/university-kg#mandatoryCourse"/>
+        <courseCode>CSE3139</courseCode>
+        <courseName>Database Management Systems</courseName>
+        <hasCourse rdf:resource="ukg:CSE_Dept"/>
+        <hasPrerequisite rdf:resource="ukg:CSE2105"/>
+        <offeredIn rdf:resource="ukg:Fall"/>
+        <semester rdf:datatype="xsd:integer">5</semester>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- ukg:CSE3207 -->
+
+
+    <owl:NamedIndividual rdf:about="ukg:CSE3207">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ayca/ontologies/2026/3/university-kg#electiveCourse"/>
+        <courseCode>CSE3207</courseCode>
+        <courseName>.Net Programming</courseName>
+        <hasCourse rdf:resource="ukg:CSE_Dept"/>
+        <offeredIn rdf:resource="ukg:Fall"/>
+        <semester rdf:datatype="xsd:integer">5</semester>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- ukg:CSE3209 -->
+
+
+    <owl:NamedIndividual rdf:about="ukg:CSE3209">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ayca/ontologies/2026/3/university-kg#electiveCourse"/>
+        <courseCode>CSE3209</courseCode>
+        <courseName>.Net Web Programming</courseName>
+        <hasCourse rdf:resource="ukg:CSE_Dept"/>
+        <offeredIn rdf:resource="ukg:Fall"/>
+        <semester rdf:datatype="xsd:integer">5</semester>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- ukg:CSE3211 -->
+
+
+    <owl:NamedIndividual rdf:about="ukg:CSE3211">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ayca/ontologies/2026/3/university-kg#electiveCourse"/>
+        <courseCode>CSE3211</courseCode>
+        <courseName>Advanced Computer Networks</courseName>
+        <hasCourse rdf:resource="ukg:CSE_Dept"/>
+        <offeredIn rdf:resource="ukg:Fall"/>
+        <semester rdf:datatype="xsd:integer">5</semester>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- ukg:CSE3213 -->
+
+
+    <owl:NamedIndividual rdf:about="ukg:CSE3213">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ayca/ontologies/2026/3/university-kg#electiveCourse"/>
+        <courseCode>CSE3213</courseCode>
+        <courseName>Artificial Intelligence</courseName>
+        <hasCourse rdf:resource="ukg:CSE_Dept"/>
+        <hasPrerequisite rdf:resource="ukg:CSE2122"/>
+        <offeredIn rdf:resource="ukg:Fall"/>
+        <semester rdf:datatype="xsd:integer">5</semester>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- ukg:CSE3214 -->
+
+
+    <owl:NamedIndividual rdf:about="ukg:CSE3214">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ayca/ontologies/2026/3/university-kg#electiveCourse"/>
+        <courseCode>CSE3214</courseCode>
+        <courseName>Introduction to Digital Image Processing</courseName>
+        <hasCourse rdf:resource="ukg:CSE_Dept"/>
+        <offeredIn rdf:resource="ukg:Fall"/>
+        <semester rdf:datatype="xsd:integer">5</semester>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- ukg:CSE3216 -->
+
+
+    <owl:NamedIndividual rdf:about="ukg:CSE3216">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ayca/ontologies/2026/3/university-kg#electiveCourse"/>
+        <courseCode>CSE3216</courseCode>
+        <courseName>Simulation and Modelling</courseName>
+        <hasCourse rdf:resource="ukg:CSE_Dept"/>
+        <offeredIn rdf:resource="ukg:Fall"/>
+        <semester rdf:datatype="xsd:integer">5</semester>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- ukg:CSE3217 -->
+
+
+    <owl:NamedIndividual rdf:about="ukg:CSE3217">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ayca/ontologies/2026/3/university-kg#electiveCourse"/>
+        <courseCode>CSE3217</courseCode>
+        <courseName>Automata Theory</courseName>
+        <hasCourse rdf:resource="ukg:CSE_Dept"/>
+        <offeredIn rdf:resource="ukg:Fall"/>
+        <semester rdf:datatype="xsd:integer">5</semester>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- ukg:CSE3218 -->
+
+
+    <owl:NamedIndividual rdf:about="ukg:CSE3218">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ayca/ontologies/2026/3/university-kg#electiveCourse"/>
+        <courseCode>CSE3218</courseCode>
+        <courseName>Prolog Programming and Expert Systems</courseName>
+        <hasCourse rdf:resource="ukg:CSE_Dept"/>
+        <offeredIn rdf:resource="ukg:Fall"/>
+        <semester rdf:datatype="xsd:integer">5</semester>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- ukg:CSE3219 -->
+
+
+    <owl:NamedIndividual rdf:about="ukg:CSE3219">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ayca/ontologies/2026/3/university-kg#electiveCourse"/>
+        <courseCode>CSE3219</courseCode>
+        <courseName>Computer Graphics</courseName>
+        <hasCourse rdf:resource="ukg:CSE_Dept"/>
+        <offeredIn rdf:resource="ukg:Fall"/>
+        <semester rdf:datatype="xsd:integer">5</semester>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- ukg:CSE3220 -->
+
+
+    <owl:NamedIndividual rdf:about="ukg:CSE3220">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ayca/ontologies/2026/3/university-kg#electiveCourse"/>
+        <courseCode>CSE3220</courseCode>
+        <courseName>Machine Learning</courseName>
+        <hasCourse rdf:resource="ukg:CSE_Dept"/>
+        <hasPrerequisite rdf:resource="ukg:CSE3213"/>
+        <offeredIn rdf:resource="ukg:Fall"/>
+        <semester rdf:datatype="xsd:integer">5</semester>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- ukg:CSE3221 -->
+
+
+    <owl:NamedIndividual rdf:about="ukg:CSE3221">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ayca/ontologies/2026/3/university-kg#electiveCourse"/>
+        <courseCode>CSE3221</courseCode>
+        <courseName>Distributed Systems and Algorithms</courseName>
+        <hasCourse rdf:resource="ukg:CSE_Dept"/>
+        <offeredIn rdf:resource="ukg:Fall"/>
+        <semester rdf:datatype="xsd:integer">5</semester>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- ukg:CSE3222 -->
+
+
+    <owl:NamedIndividual rdf:about="ukg:CSE3222">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ayca/ontologies/2026/3/university-kg#electiveCourse"/>
+        <courseCode>CSE3222</courseCode>
+        <courseName>Data Mining</courseName>
+        <hasCourse rdf:resource="ukg:CSE_Dept"/>
+        <offeredIn rdf:resource="ukg:Fall"/>
+        <semester rdf:datatype="xsd:integer">5</semester>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- ukg:CSE3223 -->
+
+
+    <owl:NamedIndividual rdf:about="ukg:CSE3223">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ayca/ontologies/2026/3/university-kg#electiveCourse"/>
+        <courseCode>CSE3223</courseCode>
+        <courseName>Web Programming</courseName>
+        <hasCourse rdf:resource="ukg:CSE_Dept"/>
+        <offeredIn rdf:resource="ukg:Fall"/>
+        <semester rdf:datatype="xsd:integer">5</semester>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- ukg:CSE3225 -->
+
+
+    <owl:NamedIndividual rdf:about="ukg:CSE3225">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ayca/ontologies/2026/3/university-kg#electiveCourse"/>
+        <courseCode>CSE3225</courseCode>
+        <courseName>Mobile Computing with iOS and Android</courseName>
+        <hasCourse rdf:resource="ukg:CSE_Dept"/>
+        <offeredIn rdf:resource="ukg:Fall"/>
+        <semester rdf:datatype="xsd:integer">5</semester>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- ukg:CSE3226 -->
+
+
+    <owl:NamedIndividual rdf:about="ukg:CSE3226">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ayca/ontologies/2026/3/university-kg#electiveCourse"/>
+        <courseCode>CSE3226</courseCode>
+        <courseName>Knowledge Engineering and Ontologies</courseName>
+        <hasCourse rdf:resource="ukg:CSE_Dept"/>
+        <hasPrerequisite rdf:resource="ukg:CSE3217"/>
+        <offeredIn rdf:resource="ukg:Fall"/>
+        <semester rdf:datatype="xsd:integer">5</semester>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- ukg:CSE3228 -->
+
+
+    <owl:NamedIndividual rdf:about="ukg:CSE3228">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ayca/ontologies/2026/3/university-kg#electiveCourse"/>
+        <courseCode>CSE3228</courseCode>
+        <courseName>Artificial Neural Networks</courseName>
+        <hasCourse rdf:resource="ukg:CSE_Dept"/>
+        <hasPrerequisite rdf:resource="ukg:CSE3213"/>
+        <offeredIn rdf:resource="ukg:Fall"/>
+        <semester rdf:datatype="xsd:integer">5</semester>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- ukg:CSE3229 -->
+
+
+    <owl:NamedIndividual rdf:about="ukg:CSE3229">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ayca/ontologies/2026/3/university-kg#electiveCourse"/>
+        <courseCode>CSE3229</courseCode>
+        <courseName>Introduction to Robotics</courseName>
+        <hasCourse rdf:resource="ukg:CSE_Dept"/>
+        <offeredIn rdf:resource="ukg:Fall"/>
+        <semester rdf:datatype="xsd:integer">5</semester>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- ukg:CSE3230 -->
+
+
+    <owl:NamedIndividual rdf:about="ukg:CSE3230">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ayca/ontologies/2026/3/university-kg#electiveCourse"/>
+        <courseCode>CSE3230</courseCode>
+        <courseName>Compiler Design</courseName>
+        <hasCourse rdf:resource="ukg:CSE_Dept"/>
+        <offeredIn rdf:resource="ukg:Fall"/>
+        <semester rdf:datatype="xsd:integer">5</semester>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- ukg:CSE3231 -->
+
+
+    <owl:NamedIndividual rdf:about="ukg:CSE3231">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ayca/ontologies/2026/3/university-kg#electiveCourse"/>
+        <courseCode>CSE3231</courseCode>
+        <courseName>System Programming</courseName>
+        <hasCourse rdf:resource="ukg:CSE_Dept"/>
+        <offeredIn rdf:resource="ukg:Fall"/>
+        <semester rdf:datatype="xsd:integer">5</semester>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- ukg:CSE3232 -->
+
+
+    <owl:NamedIndividual rdf:about="ukg:CSE3232">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ayca/ontologies/2026/3/university-kg#electiveCourse"/>
+        <courseCode>CSE3232</courseCode>
+        <courseName>Semantic Web Technologies</courseName>
+        <hasCourse rdf:resource="ukg:CSE_Dept"/>
+        <hasPrerequisite rdf:resource="ukg:CSE3226"/>
+        <offeredIn rdf:resource="ukg:Fall"/>
+        <semester rdf:datatype="xsd:integer">5</semester>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- ukg:CSE3233 -->
+
+
+    <owl:NamedIndividual rdf:about="ukg:CSE3233">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ayca/ontologies/2026/3/university-kg#electiveCourse"/>
+        <courseCode>CSE3233</courseCode>
+        <courseName>Computer Network Programming</courseName>
+        <hasCourse rdf:resource="ukg:CSE_Dept"/>
+        <offeredIn rdf:resource="ukg:Fall"/>
+        <semester rdf:datatype="xsd:integer">5</semester>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- ukg:CSE3234 -->
+
+
+    <owl:NamedIndividual rdf:about="ukg:CSE3234">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ayca/ontologies/2026/3/university-kg#electiveCourse"/>
+        <courseCode>CSE3234</courseCode>
+        <courseName>Game Programming</courseName>
+        <hasCourse rdf:resource="ukg:CSE_Dept"/>
+        <offeredIn rdf:resource="ukg:Fall"/>
+        <semester rdf:datatype="xsd:integer">5</semester>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- ukg:CSE3236 -->
+
+
+    <owl:NamedIndividual rdf:about="ukg:CSE3236">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ayca/ontologies/2026/3/university-kg#electiveCourse"/>
+        <courseCode>CSE3236</courseCode>
+        <courseName>Human-Computer Interaction Design</courseName>
+        <hasCourse rdf:resource="ukg:CSE_Dept"/>
+        <offeredIn rdf:resource="ukg:Fall"/>
+        <semester rdf:datatype="xsd:integer">5</semester>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- ukg:CSE3238 -->
+
+
+    <owl:NamedIndividual rdf:about="ukg:CSE3238">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ayca/ontologies/2026/3/university-kg#electiveCourse"/>
+        <courseCode>CSE3238</courseCode>
+        <courseName>Software Testing</courseName>
+        <hasCourse rdf:resource="ukg:CSE_Dept"/>
+        <offeredIn rdf:resource="ukg:Fall"/>
+        <semester rdf:datatype="xsd:integer">5</semester>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- ukg:CSE3240 -->
+
+
+    <owl:NamedIndividual rdf:about="ukg:CSE3240">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ayca/ontologies/2026/3/university-kg#electiveCourse"/>
+        <courseCode>CSE3240</courseCode>
+        <courseName>Network Security</courseName>
+        <hasCourse rdf:resource="ukg:CSE_Dept"/>
+        <offeredIn rdf:resource="ukg:Fall"/>
+        <semester rdf:datatype="xsd:integer">5</semester>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- ukg:CSE3242 -->
+
+
+    <owl:NamedIndividual rdf:about="ukg:CSE3242">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ayca/ontologies/2026/3/university-kg#electiveCourse"/>
+        <courseCode>CSE3242</courseCode>
+        <courseName>Advanced Database Management Systems</courseName>
+        <hasCourse rdf:resource="ukg:CSE_Dept"/>
+        <hasPrerequisite rdf:resource="ukg:CSE3139"/>
+        <offeredIn rdf:resource="ukg:Fall"/>
+        <semester rdf:datatype="xsd:integer">5</semester>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- ukg:CSE3246 -->
+
+
+    <owl:NamedIndividual rdf:about="ukg:CSE3246">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ayca/ontologies/2026/3/university-kg#electiveCourse"/>
+        <courseCode>CSE3246</courseCode>
+        <courseName>Cyber Security</courseName>
+        <hasCourse rdf:resource="ukg:CSE_Dept"/>
+        <offeredIn rdf:resource="ukg:Fall"/>
+        <semester rdf:datatype="xsd:integer">5</semester>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- ukg:CSE3248 -->
+
+
+    <owl:NamedIndividual rdf:about="ukg:CSE3248">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ayca/ontologies/2026/3/university-kg#electiveCourse"/>
+        <courseCode>CSE3248</courseCode>
+        <courseName>Cloud Computing</courseName>
+        <hasCourse rdf:resource="ukg:CSE_Dept"/>
+        <offeredIn rdf:resource="ukg:Fall"/>
+        <semester rdf:datatype="xsd:integer">5</semester>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- ukg:CSE3250 -->
+
+
+    <owl:NamedIndividual rdf:about="ukg:CSE3250">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ayca/ontologies/2026/3/university-kg#electiveCourse"/>
+        <courseCode>CSE3250</courseCode>
+        <courseName>Data Visualization</courseName>
+        <hasCourse rdf:resource="ukg:CSE_Dept"/>
+        <offeredIn rdf:resource="ukg:Fall"/>
+        <semester rdf:datatype="xsd:integer">5</semester>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- ukg:CSE3252 -->
+
+
+    <owl:NamedIndividual rdf:about="ukg:CSE3252">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ayca/ontologies/2026/3/university-kg#electiveCourse"/>
+        <courseCode>CSE3252</courseCode>
+        <courseName>Natural Language Processing</courseName>
+        <hasCourse rdf:resource="ukg:CSE_Dept"/>
+        <offeredIn rdf:resource="ukg:Fall"/>
+        <semester rdf:datatype="xsd:integer">5</semester>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- ukg:CSE3254 -->
+
+
+    <owl:NamedIndividual rdf:about="ukg:CSE3254">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ayca/ontologies/2026/3/university-kg#electiveCourse"/>
+        <courseCode>CSE3254</courseCode>
+        <courseName>Microservices Architecture</courseName>
+        <hasCourse rdf:resource="ukg:CSE_Dept"/>
+        <offeredIn rdf:resource="ukg:Spring"/>
+        <semester rdf:datatype="xsd:integer">6</semester>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- ukg:CSE4123 -->
+
+
+    <owl:NamedIndividual rdf:about="ukg:CSE4123">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ayca/ontologies/2026/3/university-kg#mandatoryCourse"/>
+        <courseCode>CSE4123</courseCode>
+        <courseName>Software Engineering</courseName>
+        <hasCourse rdf:resource="ukg:CSE_Dept"/>
+        <hasPrerequisite rdf:resource="ukg:CSE3137"/>
+        <offeredIn rdf:resource="ukg:Fall"/>
+        <semester rdf:datatype="xsd:integer">7</semester>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- ukg:CSE4124 -->
+
+
+    <owl:NamedIndividual rdf:about="ukg:CSE4124">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ayca/ontologies/2026/3/university-kg#mandatoryCourse"/>
+        <courseCode>CSE4124</courseCode>
+        <courseName>Vocational Training in Workplace</courseName>
+        <hasCourse rdf:resource="ukg:CSE_Dept"/>
+        <offeredIn rdf:resource="ukg:Spring"/>
+        <semester rdf:datatype="xsd:integer">8</semester>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- ukg:CSE4127 -->
+
+
+    <owl:NamedIndividual rdf:about="ukg:CSE4127">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ayca/ontologies/2026/3/university-kg#mandatoryCourse"/>
+        <courseCode>CSE4127</courseCode>
+        <courseName>Graduation Project I</courseName>
+        <hasCourse rdf:resource="ukg:CSE_Dept"/>
+        <offeredIn rdf:resource="ukg:Fall"/>
+        <semester rdf:datatype="xsd:integer">7</semester>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- ukg:CSE4130 -->
+
+
+    <owl:NamedIndividual rdf:about="ukg:CSE4130">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ayca/ontologies/2026/3/university-kg#mandatoryCourse"/>
+        <courseCode>CSE4130</courseCode>
+        <courseName>Graduation Project II</courseName>
+        <hasCourse rdf:resource="ukg:CSE_Dept"/>
+        <offeredIn rdf:resource="ukg:Spring"/>
+        <semester rdf:datatype="xsd:integer">8</semester>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- ukg:CSE_Dept -->
+
+
+    <owl:NamedIndividual rdf:about="ukg:CSE_Dept">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ayca/ontologies/2026/3/university-kg#department"/>
+        <departmentName>Computer Engineering</departmentName>
+        <hasSubField rdf:resource="ukg:SF_ComputerScience"/>
+        <hasSubField rdf:resource="ukg:SF_Hardware"/>
+        <hasSubField rdf:resource="ukg:SF_Software"/>
+        <rdfs:label xml:lang="tr">Bilgisayar Mühendisliği Bölümü</rdfs:label>
+        <rdfs:label xml:lang="en">Computer Engineering Department</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- ukg:Can_Civi -->
+
+
+    <owl:NamedIndividual rdf:about="ukg:Can_Civi">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ayca/ontologies/2026/3/university-kg#professor"/>
+        <belongsTo rdf:resource="ukg:MEE_Dept"/>
+        <email>can.civi@cbu.edu.tr</email>
+        <fullName>Doç. Dr. Can ÇİVİ</fullName>
+        <title>Doç. Dr.</title>
+        <worksIn rdf:resource="ukg:SF_ConstructionManufacturing"/>
+        <rdfs:comment xml:lang="tr">Toz Metalurjisi</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- ukg:Cansu_Apaydin -->
+
+
+    <owl:NamedIndividual rdf:about="ukg:Cansu_Apaydin">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ayca/ontologies/2026/3/university-kg#researchAssistant"/>
+        <belongsTo rdf:resource="ukg:MEE_Dept"/>
+        <email>cansu.apaydin@cbu.edu.tr</email>
+        <fullName>Pr. Arş. Gör. Cansu APAYDIN</fullName>
+        <title>Araştırma Görevlisi</title>
+        <worksIn rdf:resource="ukg:SF_ConstructionManufacturing"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- ukg:Didem_Abidin -->
+
+
+    <owl:NamedIndividual rdf:about="ukg:Didem_Abidin">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ayca/ontologies/2026/3/university-kg#professor"/>
+        <avesisURL rdf:datatype="xsd:anyURI">https://avesis.mcbu.edu.tr/didem.abidin</avesisURL>
+        <belongsTo rdf:resource="ukg:CSE_Dept"/>
+        <email>didem.abidin@cbu.edu.tr</email>
+        <fullName>Dr. Öğr. Üyesi Didem ABİDİN</fullName>
+        <teaches rdf:resource="ukg:CSE2101"/>
+        <teaches rdf:resource="ukg:CSE3134"/>
+        <title>Dr. Öğr. Üyesi</title>
+        <worksIn rdf:resource="ukg:SF_Hardware"/>
+        <rdfs:comment xml:lang="tr">Donanım Anabilim Dalı Öğretim Üyesi</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- ukg:Didem_Ari -->
+
+
+    <owl:NamedIndividual rdf:about="ukg:Didem_Ari">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ayca/ontologies/2026/3/university-kg#researchAssistant"/>
+        <belongsTo rdf:resource="ukg:IE_Dept"/>
+        <email>didem.ari@cbu.edu.tr</email>
+        <fullName>Arş. Gör. Didem ARI</fullName>
+        <title>Araştırma Görevlisi</title>
+        <worksIn rdf:resource="ukg:SF_AppliedStatistics"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- ukg:END1106 -->
+
+
+    <owl:NamedIndividual rdf:about="ukg:END1106">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ayca/ontologies/2026/3/university-kg#mandatoryCourse"/>
+        <courseCode>END1106</courseCode>
+        <courseName>Endüstri Mühendisliğine Giriş</courseName>
+        <hasCourse rdf:resource="ukg:IE_Dept"/>
+        <offeredIn rdf:resource="ukg:Spring"/>
+        <semester rdf:datatype="xsd:integer">2</semester>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- ukg:END1132 -->
+
+
+    <owl:NamedIndividual rdf:about="ukg:END1132">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ayca/ontologies/2026/3/university-kg#mandatoryCourse"/>
+        <courseCode>END1132</courseCode>
+        <courseName>Üretim Yöntemleri</courseName>
+        <hasCourse rdf:resource="ukg:IE_Dept"/>
+        <offeredIn rdf:resource="ukg:Spring"/>
+        <semester rdf:datatype="xsd:integer">2</semester>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- ukg:END1134 -->
+
+
+    <owl:NamedIndividual rdf:about="ukg:END1134">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ayca/ontologies/2026/3/university-kg#mandatoryCourse"/>
+        <courseCode>END1134</courseCode>
+        <courseName>Ekonominin Temelleri</courseName>
+        <hasCourse rdf:resource="ukg:IE_Dept"/>
+        <offeredIn rdf:resource="ukg:Spring"/>
+        <semester rdf:datatype="xsd:integer">2</semester>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- ukg:END2124 -->
+
+
+    <owl:NamedIndividual rdf:about="ukg:END2124">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ayca/ontologies/2026/3/university-kg#mandatoryCourse"/>
+        <courseCode>END2124</courseCode>
+        <courseName>Uygulamalı Mühendislik Ekonomisi</courseName>
+        <hasCourse rdf:resource="ukg:IE_Dept"/>
+        <offeredIn rdf:resource="ukg:Spring"/>
+        <semester rdf:datatype="xsd:integer">4</semester>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- ukg:END2126 -->
+
+
+    <owl:NamedIndividual rdf:about="ukg:END2126">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ayca/ontologies/2026/3/university-kg#mandatoryCourse"/>
+        <courseCode>END2126</courseCode>
+        <courseName>Mühendisler İçin Yönetim</courseName>
+        <hasCourse rdf:resource="ukg:IE_Dept"/>
+        <offeredIn rdf:resource="ukg:Spring"/>
+        <semester rdf:datatype="xsd:integer">4</semester>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- ukg:END2138 -->
+
+
+    <owl:NamedIndividual rdf:about="ukg:END2138">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ayca/ontologies/2026/3/university-kg#mandatoryCourse"/>
+        <courseCode>END2138</courseCode>
+        <courseName>Maliyet Analizi</courseName>
+        <hasCourse rdf:resource="ukg:IE_Dept"/>
+        <offeredIn rdf:resource="ukg:Spring"/>
+        <semester rdf:datatype="xsd:integer">4</semester>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- ukg:END3111 -->
+
+
+    <owl:NamedIndividual rdf:about="ukg:END3111">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ayca/ontologies/2026/3/university-kg#mandatoryCourse"/>
+        <courseCode>END3111</courseCode>
+        <courseName>Üretim Stajı</courseName>
+        <hasCourse rdf:resource="ukg:IE_Dept"/>
+        <offeredIn rdf:resource="ukg:Fall"/>
+        <semester rdf:datatype="xsd:integer">5</semester>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- ukg:END3127 -->
+
+
+    <owl:NamedIndividual rdf:about="ukg:END3127">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ayca/ontologies/2026/3/university-kg#mandatoryCourse"/>
+        <courseCode>END3127</courseCode>
+        <courseName>Sistem Analizi</courseName>
+        <hasCourse rdf:resource="ukg:IE_Dept"/>
+        <offeredIn rdf:resource="ukg:Fall"/>
+        <semester rdf:datatype="xsd:integer">5</semester>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- ukg:END3177 -->
+
+
+    <owl:NamedIndividual rdf:about="ukg:END3177">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ayca/ontologies/2026/3/university-kg#mandatoryCourse"/>
+        <courseCode>END3177</courseCode>
+        <courseName>Kalite Planlama ve Kontrol</courseName>
+        <hasCourse rdf:resource="ukg:IE_Dept"/>
+        <offeredIn rdf:resource="ukg:Fall"/>
+        <semester rdf:datatype="xsd:integer">5</semester>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- ukg:END4107 -->
+
+
+    <owl:NamedIndividual rdf:about="ukg:END4107">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ayca/ontologies/2026/3/university-kg#mandatoryCourse"/>
+        <courseCode>END4107</courseCode>
+        <courseName>Seminer</courseName>
+        <hasCourse rdf:resource="ukg:IE_Dept"/>
+        <offeredIn rdf:resource="ukg:Fall"/>
+        <semester rdf:datatype="xsd:integer">7</semester>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- ukg:END4114 -->
+
+
+    <owl:NamedIndividual rdf:about="ukg:END4114">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ayca/ontologies/2026/3/university-kg#mandatoryCourse"/>
+        <courseCode>END4114</courseCode>
+        <courseName>Endüstri Sistemleri Tasarımı II</courseName>
+        <hasCourse rdf:resource="ukg:IE_Dept"/>
+        <offeredIn rdf:resource="ukg:Spring"/>
+        <semester rdf:datatype="xsd:integer">8</semester>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- ukg:END4116 -->
+
+
+    <owl:NamedIndividual rdf:about="ukg:END4116">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ayca/ontologies/2026/3/university-kg#mandatoryCourse"/>
+        <courseCode>END4116</courseCode>
+        <courseName>İşletmede Mesleki Eğitim</courseName>
+        <hasCourse rdf:resource="ukg:IE_Dept"/>
+        <offeredIn rdf:resource="ukg:Spring"/>
+        <semester rdf:datatype="xsd:integer">8</semester>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- ukg:END4121 -->
+
+
+    <owl:NamedIndividual rdf:about="ukg:END4121">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ayca/ontologies/2026/3/university-kg#mandatoryCourse"/>
+        <courseCode>END4121</courseCode>
+        <courseName>Endüstriyel Sistem Tasarımı I</courseName>
+        <hasCourse rdf:resource="ukg:IE_Dept"/>
+        <offeredIn rdf:resource="ukg:Fall"/>
+        <semester rdf:datatype="xsd:integer">7</semester>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- ukg:END4242 -->
+
+
+    <owl:NamedIndividual rdf:about="ukg:END4242">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ayca/ontologies/2026/3/university-kg#electiveCourse"/>
+        <courseCode>END4242</courseCode>
+        <courseName>Bulanık Mantık ve Endüstri Uygulamaları</courseName>
+        <hasCourse rdf:resource="ukg:IE_Dept"/>
+        <offeredIn rdf:resource="ukg:Fall"/>
+        <semester rdf:datatype="xsd:integer">5</semester>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- ukg:END4244 -->
+
+
+    <owl:NamedIndividual rdf:about="ukg:END4244">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ayca/ontologies/2026/3/university-kg#electiveCourse"/>
+        <courseCode>END4244</courseCode>
+        <courseName>Yapay Sinir Ağları</courseName>
+        <hasCourse rdf:resource="ukg:IE_Dept"/>
+        <offeredIn rdf:resource="ukg:Fall"/>
+        <semester rdf:datatype="xsd:integer">5</semester>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- ukg:END4248 -->
+
+
+    <owl:NamedIndividual rdf:about="ukg:END4248">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ayca/ontologies/2026/3/university-kg#electiveCourse"/>
+        <courseCode>END4248</courseCode>
+        <courseName>Kesikli Optimizasyon Modelleri ve Algoritmaları</courseName>
+        <hasCourse rdf:resource="ukg:IE_Dept"/>
+        <offeredIn rdf:resource="ukg:Fall"/>
+        <semester rdf:datatype="xsd:integer">5</semester>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- ukg:END4250 -->
+
+
+    <owl:NamedIndividual rdf:about="ukg:END4250">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ayca/ontologies/2026/3/university-kg#electiveCourse"/>
+        <courseCode>END4250</courseCode>
+        <courseName>Stratejik Yönetim</courseName>
+        <hasCourse rdf:resource="ukg:IE_Dept"/>
+        <offeredIn rdf:resource="ukg:Fall"/>
+        <semester rdf:datatype="xsd:integer">5</semester>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- ukg:END4251 -->
+
+
+    <owl:NamedIndividual rdf:about="ukg:END4251">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ayca/ontologies/2026/3/university-kg#electiveCourse"/>
+        <courseCode>END4251</courseCode>
+        <courseName>Uzman Sistemler</courseName>
+        <hasCourse rdf:resource="ukg:IE_Dept"/>
+        <offeredIn rdf:resource="ukg:Fall"/>
+        <semester rdf:datatype="xsd:integer">5</semester>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- ukg:END4256 -->
+
+
+    <owl:NamedIndividual rdf:about="ukg:END4256">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ayca/ontologies/2026/3/university-kg#electiveCourse"/>
+        <courseCode>END4256</courseCode>
+        <courseName>Çok Kriterli Karar Verme</courseName>
+        <hasCourse rdf:resource="ukg:IE_Dept"/>
+        <offeredIn rdf:resource="ukg:Fall"/>
+        <semester rdf:datatype="xsd:integer">5</semester>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- ukg:END4257 -->
+
+
+    <owl:NamedIndividual rdf:about="ukg:END4257">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ayca/ontologies/2026/3/university-kg#electiveCourse"/>
+        <courseCode>END4257</courseCode>
+        <courseName>Envanter Yönetimi</courseName>
+        <hasCourse rdf:resource="ukg:IE_Dept"/>
+        <offeredIn rdf:resource="ukg:Fall"/>
+        <semester rdf:datatype="xsd:integer">5</semester>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- ukg:END4259 -->
+
+
+    <owl:NamedIndividual rdf:about="ukg:END4259">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ayca/ontologies/2026/3/university-kg#electiveCourse"/>
+        <courseCode>END4259</courseCode>
+        <courseName>İnsan Kaynakları Yönetimi</courseName>
+        <hasCourse rdf:resource="ukg:IE_Dept"/>
+        <offeredIn rdf:resource="ukg:Fall"/>
+        <semester rdf:datatype="xsd:integer">5</semester>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- ukg:END4260 -->
+
+
+    <owl:NamedIndividual rdf:about="ukg:END4260">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ayca/ontologies/2026/3/university-kg#electiveCourse"/>
+        <courseCode>END4260</courseCode>
+        <courseName>Matematiksel Programlama</courseName>
+        <hasCourse rdf:resource="ukg:IE_Dept"/>
+        <offeredIn rdf:resource="ukg:Fall"/>
+        <semester rdf:datatype="xsd:integer">5</semester>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- ukg:END4262 -->
+
+
+    <owl:NamedIndividual rdf:about="ukg:END4262">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ayca/ontologies/2026/3/university-kg#electiveCourse"/>
+        <courseCode>END4262</courseCode>
+        <courseName>Modern Sezgisel Yöntemler</courseName>
+        <hasCourse rdf:resource="ukg:IE_Dept"/>
+        <offeredIn rdf:resource="ukg:Fall"/>
+        <semester rdf:datatype="xsd:integer">5</semester>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- ukg:END4267 -->
+
+
+    <owl:NamedIndividual rdf:about="ukg:END4267">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ayca/ontologies/2026/3/university-kg#electiveCourse"/>
+        <courseCode>END4267</courseCode>
+        <courseName>Deney Tasarımı</courseName>
+        <hasCourse rdf:resource="ukg:IE_Dept"/>
+        <offeredIn rdf:resource="ukg:Fall"/>
+        <semester rdf:datatype="xsd:integer">5</semester>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- ukg:END4268 -->
+
+
+    <owl:NamedIndividual rdf:about="ukg:END4268">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ayca/ontologies/2026/3/university-kg#electiveCourse"/>
+        <courseCode>END4268</courseCode>
+        <courseName>İleri Simülasyon Uygulamaları</courseName>
+        <hasCourse rdf:resource="ukg:IE_Dept"/>
+        <offeredIn rdf:resource="ukg:Fall"/>
+        <semester rdf:datatype="xsd:integer">5</semester>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- ukg:END4269 -->
+
+
+    <owl:NamedIndividual rdf:about="ukg:END4269">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ayca/ontologies/2026/3/university-kg#electiveCourse"/>
+        <courseCode>END4269</courseCode>
+        <courseName>6 Sigma</courseName>
+        <hasCourse rdf:resource="ukg:IE_Dept"/>
+        <offeredIn rdf:resource="ukg:Fall"/>
+        <semester rdf:datatype="xsd:integer">5</semester>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- ukg:END4271 -->
+
+
+    <owl:NamedIndividual rdf:about="ukg:END4271">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ayca/ontologies/2026/3/university-kg#electiveCourse"/>
+        <courseCode>END4271</courseCode>
+        <courseName>Endüstriyel Robot Uygulamaları</courseName>
+        <hasCourse rdf:resource="ukg:IE_Dept"/>
+        <offeredIn rdf:resource="ukg:Fall"/>
+        <semester rdf:datatype="xsd:integer">5</semester>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- ukg:ENG1135 -->
+
+
+    <owl:NamedIndividual rdf:about="ukg:ENG1135">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ayca/ontologies/2026/3/university-kg#mandatoryCourse"/>
+        <courseCode>ENG1135</courseCode>
+        <courseName>Professional English I</courseName>
+        <hasCourse rdf:resource="ukg:CSE_Dept"/>
+        <offeredIn rdf:resource="ukg:Fall"/>
+        <semester rdf:datatype="xsd:integer">1</semester>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- ukg:ENG3120 -->
+
+
+    <owl:NamedIndividual rdf:about="ukg:ENG3120">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ayca/ontologies/2026/3/university-kg#mandatoryCourse"/>
+        <courseCode>ENG3120</courseCode>
+        <courseName>Statistics</courseName>
+        <hasCourse rdf:resource="ukg:CSE_Dept"/>
+        <offeredIn rdf:resource="ukg:Spring"/>
+        <semester rdf:datatype="xsd:integer">4</semester>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- ukg:Efe_Sarigul -->
+
+
+    <owl:NamedIndividual rdf:about="ukg:Efe_Sarigul">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ayca/ontologies/2026/3/university-kg#student"/>
+        <GPA rdf:datatype="xsd:float">3.10</GPA>
+        <belongsTo rdf:resource="ukg:CSE_Dept"/>
+        <fullName>Efe_Sarıgül</fullName>
+        <isEnrolledIn rdf:resource="ukg:CSE2122"/>
+        <isEnrolledIn rdf:resource="ukg:CSE3139"/>
+        <isEnrolledIn rdf:resource="ukg:CSE3226"/>
+        <studentID>20210002</studentID>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- ukg:Elif_Guler -->
+
+
+    <owl:NamedIndividual rdf:about="ukg:Elif_Guler">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ayca/ontologies/2026/3/university-kg#researchAssistant"/>
+        <belongsTo rdf:resource="ukg:IE_Dept"/>
+        <email>guler.elif@cbu.edu.tr</email>
+        <fullName>Arş. Gör. Elif GÜLER</fullName>
+        <title>Araştırma Görevlisi</title>
+        <worksIn rdf:resource="ukg:SF_IndustrialEngineering"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- ukg:Emrah_Edis -->
+
+
+    <owl:NamedIndividual rdf:about="ukg:Emrah_Edis">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ayca/ontologies/2026/3/university-kg#professor"/>
+        <belongsTo rdf:resource="ukg:IE_Dept"/>
+        <email>emrah.edis@cbu.edu.tr</email>
+        <fullName>Doç. Dr. Emrah EDİS</fullName>
+        <teaches rdf:resource="ukg:IND2105"/>
+        <teaches rdf:resource="ukg:IND2118"/>
+        <teaches rdf:resource="ukg:IND3101"/>
+        <title>Doç. Dr.</title>
+        <worksIn rdf:resource="ukg:SF_OperationsResearch"/>
+        <rdfs:comment xml:lang="tr">Yöneylem Araştırması Anabilim Dalı Başkanı</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- ukg:Emre_Senol -->
+
+
+    <owl:NamedIndividual rdf:about="ukg:Emre_Senol">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ayca/ontologies/2026/3/university-kg#professor"/>
+        <belongsTo rdf:resource="ukg:IE_Dept"/>
+        <email>emre.senol@cbu.edu.tr</email>
+        <fullName>Dr. Öğr. Üyesi M. Emre ŞENOL</fullName>
+        <title>Dr. Öğr. Üyesi</title>
+        <worksIn rdf:resource="ukg:SF_OperationsResearch"/>
+        <rdfs:comment xml:lang="tr">Bölüm Başkan Yardımcısı</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- ukg:Enver_Atik -->
+
+
+    <owl:NamedIndividual rdf:about="ukg:Enver_Atik">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ayca/ontologies/2026/3/university-kg#professor"/>
+        <belongsTo rdf:resource="ukg:MEE_Dept"/>
+        <email>enver.atik@cbu.edu.tr</email>
+        <fullName>Prof. Dr. Enver ATİK</fullName>
+        <title>Prof. Dr.</title>
+        <worksIn rdf:resource="ukg:SF_ConstructionManufacturing"/>
+        <rdfs:comment xml:lang="tr">Triboloji, Makine Elemanları</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- ukg:Erdem_Ersayin -->
+
+
+    <owl:NamedIndividual rdf:about="ukg:Erdem_Ersayin">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ayca/ontologies/2026/3/university-kg#researchAssistant"/>
+        <belongsTo rdf:resource="ukg:MEE_Dept"/>
+        <email>erdem.ersayin@cbu.edu.tr</email>
+        <fullName>Arş. Gör. Dr. Erdem ERSAYIN</fullName>
+        <title>Araştırma Görevlisi</title>
+        <worksIn rdf:resource="ukg:SF_Energy"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- ukg:Erkin_Alp_Guney -->
+
+
+    <owl:NamedIndividual rdf:about="ukg:Erkin_Alp_Guney">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ayca/ontologies/2026/3/university-kg#researchAssistant"/>
+        <belongsTo rdf:resource="ukg:CSE_Dept"/>
+        <email>erkin.guney@cbu.edu.tr</email>
+        <fullName>Arş. Gör. Erkin Alp GÜNEY</fullName>
+        <title>Araştırma Görevlisi</title>
+        <worksIn rdf:resource="ukg:SF_ComputerScience"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- ukg:Esat_Fazlullah_Celik -->
+
+
+    <owl:NamedIndividual rdf:about="ukg:Esat_Fazlullah_Celik">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ayca/ontologies/2026/3/university-kg#researchAssistant"/>
+        <belongsTo rdf:resource="ukg:CSE_Dept"/>
+        <email>esat.celik@cbu.edu.tr</email>
+        <fullName>Arş. Gör. Esat Fazlullah ÇELİK</fullName>
+        <title>Araştırma Görevlisi</title>
+        <worksIn rdf:resource="ukg:SF_ComputerScience"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- ukg:FIZ1307_IE -->
+
+
+    <owl:NamedIndividual rdf:about="ukg:FIZ1307_IE">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ayca/ontologies/2026/3/university-kg#mandatoryCourse"/>
+        <courseCode>FIZ1307_IE</courseCode>
+        <courseName>Fizik I</courseName>
+        <hasCourse rdf:resource="ukg:IE_Dept"/>
+        <offeredIn rdf:resource="ukg:Fall"/>
+        <semester rdf:datatype="xsd:integer">1</semester>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- ukg:Fall -->
+
+
+    <owl:NamedIndividual rdf:about="ukg:Fall">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ayca/ontologies/2026/3/university-kg#academicTerm"/>
+        <rdfs:label xml:lang="en">Fall Semester</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- ukg:Farshid_Khosravi -->
+
+
+    <owl:NamedIndividual rdf:about="ukg:Farshid_Khosravi">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ayca/ontologies/2026/3/university-kg#professor"/>
+        <belongsTo rdf:resource="ukg:MEE_Dept"/>
+        <email>farshid.khosravi@cbu.edu.tr</email>
+        <fullName>Doç. Dr. Farshid Khosravi</fullName>
+        <title>Doç. Dr.</title>
+        <worksIn rdf:resource="ukg:SF_Mechanics"/>
+        <rdfs:comment xml:lang="tr">Mekanik Anabilim Dalı Öğretim Üyesi</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- ukg:Fatih_Karahan -->
+
+
+    <owl:NamedIndividual rdf:about="ukg:Fatih_Karahan">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ayca/ontologies/2026/3/university-kg#professor"/>
+        <belongsTo rdf:resource="ukg:MEE_Dept"/>
+        <email>fatih.karahan@cbu.edu.tr</email>
+        <fullName>Doç. Dr. M. M. Fatih KARAHAN</fullName>
+        <title>Doç. Dr.</title>
+        <worksIn rdf:resource="ukg:SF_MachineTheory"/>
+        <rdfs:comment xml:lang="tr">Mekanik Titreşimler</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- ukg:Fatih_Selimefendigil -->
+
+
+    <owl:NamedIndividual rdf:about="ukg:Fatih_Selimefendigil">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ayca/ontologies/2026/3/university-kg#professor"/>
+        <belongsTo rdf:resource="ukg:MEE_Dept"/>
+        <email>fatih.selimefendigil@cbu.edu.tr</email>
+        <fullName>Prof. Dr. Fatih SELİMEFENDİGİL</fullName>
+        <teaches rdf:resource="ukg:MAK2113"/>
+        <teaches rdf:resource="ukg:MAK2114"/>
+        <teaches rdf:resource="ukg:MAK3127"/>
+        <title>Prof. Dr.</title>
+        <worksIn rdf:resource="ukg:SF_Thermodynamics"/>
+        <rdfs:comment xml:lang="tr">Termodinamik Anabilim Dalı Başkanı</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- ukg:Gamze_Turkmen -->
+
+
+    <owl:NamedIndividual rdf:about="ukg:Gamze_Turkmen">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ayca/ontologies/2026/3/university-kg#professor"/>
+        <avesisURL rdf:datatype="xsd:anyURI">https://avesis.mcbu.edu.tr/gamze.turkmen</avesisURL>
+        <belongsTo rdf:resource="ukg:CSE_Dept"/>
+        <email>gamze.turkmen@cbu.edu.tr</email>
+        <fullName>Dr. Öğr. Üyesi Gamze TÜRKMEN</fullName>
+        <teaches rdf:resource="ukg:CSE3217"/>
+        <teaches rdf:resource="ukg:CSE3226"/>
+        <teaches rdf:resource="ukg:CSE3232"/>
+        <title>Dr. Öğr. Üyesi</title>
+        <worksIn rdf:resource="ukg:SF_Software"/>
+        <rdfs:comment xml:lang="tr">Yazılım Anabilim Dalı Öğretim Üyesi</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- ukg:Gizem_Kayran -->
+
+
+    <owl:NamedIndividual rdf:about="ukg:Gizem_Kayran">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ayca/ontologies/2026/3/university-kg#researchAssistant"/>
+        <belongsTo rdf:resource="ukg:IE_Dept"/>
+        <email>gizem.kucuker@cbu.edu.tr</email>
+        <fullName>Arş. Gör. Gizem KAYRAN</fullName>
+        <title>Araştırma Görevlisi</title>
+        <worksIn rdf:resource="ukg:SF_OperationsResearch"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- ukg:Gokcecicek_Tasoglu -->
+
+
+    <owl:NamedIndividual rdf:about="ukg:Gokcecicek_Tasoglu">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ayca/ontologies/2026/3/university-kg#professor"/>
+        <belongsTo rdf:resource="ukg:IE_Dept"/>
+        <email>gokcecicek.tuna@cbu.edu.tr</email>
+        <fullName>Dr. Öğr. Üyesi Gökçeçicek TAŞOĞLU</fullName>
+        <teaches rdf:resource="ukg:IND2113"/>
+        <teaches rdf:resource="ukg:IND2114"/>
+        <title>Dr. Öğr. Üyesi</title>
+        <worksIn rdf:resource="ukg:SF_AppliedStatistics"/>
+        <rdfs:comment xml:lang="tr">Uygulamalı İstatistik Anabilim Dalı Başkanı</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- ukg:Gozde_Sari -->
+
+
+    <owl:NamedIndividual rdf:about="ukg:Gozde_Sari">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ayca/ontologies/2026/3/university-kg#professor"/>
+        <belongsTo rdf:resource="ukg:MEE_Dept"/>
+        <email>gozde.deger@cbu.edu.tr</email>
+        <fullName>Doç. Dr. Gözde SARI</fullName>
+        <title>Doç. Dr.</title>
+        <worksIn rdf:resource="ukg:SF_Mechanics"/>
+        <rdfs:comment xml:lang="tr">Mekanik Anabilim Dalı Öğretim Üyesi</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- ukg:Gulay_Turgutlu -->
+
+
+    <owl:NamedIndividual rdf:about="ukg:Gulay_Turgutlu">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ayca/ontologies/2026/3/university-kg#researchAssistant"/>
+        <belongsTo rdf:resource="ukg:MEE_Dept"/>
+        <email>ahu.turgutlu@cbu.edu.tr</email>
+        <fullName>Arş. Gör. Gülay Ahu TURGUTLU</fullName>
+        <title>Araştırma Görevlisi</title>
+        <worksIn rdf:resource="ukg:SF_Energy"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- ukg:Hakan_Cetinel -->
+
+
+    <owl:NamedIndividual rdf:about="ukg:Hakan_Cetinel">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ayca/ontologies/2026/3/university-kg#professor"/>
+        <belongsTo rdf:resource="ukg:MEE_Dept"/>
+        <email>hakan.cetinel@cbu.edu.tr</email>
+        <fullName>Prof. Dr. Hakan ÇETİNEL</fullName>
+        <title>Prof. Dr.</title>
+        <worksIn rdf:resource="ukg:SF_ConstructionManufacturing"/>
+        <rdfs:comment xml:lang="tr">Anabilim Dalı Başkanı</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- ukg:Halit_Dogan -->
+
+
+    <owl:NamedIndividual rdf:about="ukg:Halit_Dogan">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ayca/ontologies/2026/3/university-kg#professor"/>
+        <belongsTo rdf:resource="ukg:MEE_Dept"/>
+        <email>halit.dogan@cbu.edu.tr</email>
+        <fullName>Dr. Öğr. Üyesi Halit DOĞAN</fullName>
+        <title>Dr. Öğr. Üyesi</title>
+        <worksIn rdf:resource="ukg:SF_ConstructionManufacturing"/>
+        <rdfs:comment xml:lang="tr">Yüzey Modifikasyonu</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- ukg:Hulya_Gucdemir -->
+
+
+    <owl:NamedIndividual rdf:about="ukg:Hulya_Gucdemir">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ayca/ontologies/2026/3/university-kg#professor"/>
+        <belongsTo rdf:resource="ukg:IE_Dept"/>
+        <email>hulya.gucdemir@cbu.edu.tr</email>
+        <fullName>Dr. Öğr. Üyesi Hülya GÜÇDEMİR</fullName>
+        <teaches rdf:resource="ukg:END4267"/>
+        <teaches rdf:resource="ukg:IND3112"/>
+        <title>Dr. Öğr. Üyesi</title>
+        <worksIn rdf:resource="ukg:SF_OperationsResearch"/>
+        <rdfs:comment xml:lang="tr">Bölüm Başkan Yardımcısı</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- ukg:IE_Dept -->
+
+
+    <owl:NamedIndividual rdf:about="ukg:IE_Dept">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ayca/ontologies/2026/3/university-kg#department"/>
+        <departmentName>Industrial Engineering</departmentName>
+        <hasSubField rdf:resource="ukg:SF_AppliedStatistics"/>
+        <hasSubField rdf:resource="ukg:SF_IndustrialEngineering"/>
+        <hasSubField rdf:resource="ukg:SF_OperationsResearch"/>
+        <rdfs:label xml:lang="tr">Endüstri Mühendisliği Bölümü</rdfs:label>
+        <rdfs:label xml:lang="en">Industrial Engineering Department</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- ukg:IND2105 -->
+
+
+    <owl:NamedIndividual rdf:about="ukg:IND2105">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ayca/ontologies/2026/3/university-kg#mandatoryCourse"/>
+        <courseCode>IND2105</courseCode>
+        <courseName>Operations Research I</courseName>
+        <hasCourse rdf:resource="ukg:IE_Dept"/>
+        <offeredIn rdf:resource="ukg:Fall"/>
+        <semester rdf:datatype="xsd:integer">3</semester>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- ukg:IND2107 -->
+
+
+    <owl:NamedIndividual rdf:about="ukg:IND2107">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ayca/ontologies/2026/3/university-kg#mandatoryCourse"/>
+        <courseCode>IND2107</courseCode>
+        <courseName>Advanced Computer Programming</courseName>
+        <hasCourse rdf:resource="ukg:IE_Dept"/>
+        <offeredIn rdf:resource="ukg:Fall"/>
+        <semester rdf:datatype="xsd:integer">3</semester>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- ukg:IND2113 -->
+
+
+    <owl:NamedIndividual rdf:about="ukg:IND2113">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ayca/ontologies/2026/3/university-kg#mandatoryCourse"/>
+        <courseCode>IND2113</courseCode>
+        <courseName>Probability Theory and Introduction to Statistics</courseName>
+        <hasCourse rdf:resource="ukg:IE_Dept"/>
+        <offeredIn rdf:resource="ukg:Fall"/>
+        <semester rdf:datatype="xsd:integer">3</semester>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- ukg:IND2114 -->
+
+
+    <owl:NamedIndividual rdf:about="ukg:IND2114">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ayca/ontologies/2026/3/university-kg#mandatoryCourse"/>
+        <courseCode>IND2114</courseCode>
+        <courseName>Statistics For Engineers</courseName>
+        <hasCourse rdf:resource="ukg:IE_Dept"/>
+        <offeredIn rdf:resource="ukg:Spring"/>
+        <semester rdf:datatype="xsd:integer">4</semester>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- ukg:IND2118 -->
+
+
+    <owl:NamedIndividual rdf:about="ukg:IND2118">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ayca/ontologies/2026/3/university-kg#mandatoryCourse"/>
+        <courseCode>IND2118</courseCode>
+        <courseName>Operations Research II</courseName>
+        <hasCourse rdf:resource="ukg:IE_Dept"/>
+        <hasPrerequisite rdf:resource="ukg:IND2105"/>
+        <offeredIn rdf:resource="ukg:Spring"/>
+        <semester rdf:datatype="xsd:integer">4</semester>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- ukg:IND3101 -->
+
+
+    <owl:NamedIndividual rdf:about="ukg:IND3101">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ayca/ontologies/2026/3/university-kg#mandatoryCourse"/>
+        <courseCode>IND3101</courseCode>
+        <courseName>Operations Research III</courseName>
+        <hasCourse rdf:resource="ukg:IE_Dept"/>
+        <hasPrerequisite rdf:resource="ukg:IND2118"/>
+        <offeredIn rdf:resource="ukg:Fall"/>
+        <semester rdf:datatype="xsd:integer">5</semester>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- ukg:IND3102 -->
+
+
+    <owl:NamedIndividual rdf:about="ukg:IND3102">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ayca/ontologies/2026/3/university-kg#mandatoryCourse"/>
+        <courseCode>IND3102</courseCode>
+        <courseName>Project Management</courseName>
+        <hasCourse rdf:resource="ukg:IE_Dept"/>
+        <offeredIn rdf:resource="ukg:Spring"/>
+        <semester rdf:datatype="xsd:integer">6</semester>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- ukg:IND3104 -->
+
+
+    <owl:NamedIndividual rdf:about="ukg:IND3104">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ayca/ontologies/2026/3/university-kg#mandatoryCourse"/>
+        <courseCode>IND3104</courseCode>
+        <courseName>Production and Service Systems Management II</courseName>
+        <hasCourse rdf:resource="ukg:IE_Dept"/>
+        <offeredIn rdf:resource="ukg:Spring"/>
+        <semester rdf:datatype="xsd:integer">6</semester>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- ukg:IND3112 -->
+
+
+    <owl:NamedIndividual rdf:about="ukg:IND3112">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ayca/ontologies/2026/3/university-kg#mandatoryCourse"/>
+        <courseCode>IND3112</courseCode>
+        <courseName>Modeling and Simulation</courseName>
+        <hasCourse rdf:resource="ukg:IE_Dept"/>
+        <offeredIn rdf:resource="ukg:Spring"/>
+        <semester rdf:datatype="xsd:integer">6</semester>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- ukg:IND3113 -->
+
+
+    <owl:NamedIndividual rdf:about="ukg:IND3113">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ayca/ontologies/2026/3/university-kg#mandatoryCourse"/>
+        <courseCode>IND3113</courseCode>
+        <courseName>Production and Service Systems Management I</courseName>
+        <hasCourse rdf:resource="ukg:IE_Dept"/>
+        <offeredIn rdf:resource="ukg:Fall"/>
+        <semester rdf:datatype="xsd:integer">5</semester>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- ukg:IND3115 -->
+
+
+    <owl:NamedIndividual rdf:about="ukg:IND3115">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ayca/ontologies/2026/3/university-kg#mandatoryCourse"/>
+        <courseCode>IND3115</courseCode>
+        <courseName>Work Study and Analysis</courseName>
+        <hasCourse rdf:resource="ukg:IE_Dept"/>
+        <offeredIn rdf:resource="ukg:Fall"/>
+        <semester rdf:datatype="xsd:integer">5</semester>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- ukg:IND3116 -->
+
+
+    <owl:NamedIndividual rdf:about="ukg:IND3116">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ayca/ontologies/2026/3/university-kg#mandatoryCourse"/>
+        <courseCode>IND3116</courseCode>
+        <courseName>Facilities Design and Planning</courseName>
+        <hasCourse rdf:resource="ukg:IE_Dept"/>
+        <offeredIn rdf:resource="ukg:Spring"/>
+        <semester rdf:datatype="xsd:integer">6</semester>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- ukg:IND4113 -->
+
+
+    <owl:NamedIndividual rdf:about="ukg:IND4113">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ayca/ontologies/2026/3/university-kg#mandatoryCourse"/>
+        <courseCode>IND4113</courseCode>
+        <courseName>Computer Integrated Manufacturing and Automation</courseName>
+        <hasCourse rdf:resource="ukg:IE_Dept"/>
+        <offeredIn rdf:resource="ukg:Fall"/>
+        <semester rdf:datatype="xsd:integer">7</semester>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- ukg:IND4133 -->
+
+
+    <owl:NamedIndividual rdf:about="ukg:IND4133">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ayca/ontologies/2026/3/university-kg#mandatoryCourse"/>
+        <courseCode>IND4133</courseCode>
+        <courseName>Supply Chain Management</courseName>
+        <hasCourse rdf:resource="ukg:IE_Dept"/>
+        <offeredIn rdf:resource="ukg:Fall"/>
+        <semester rdf:datatype="xsd:integer">7</semester>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- ukg:Ibrahim_Demir -->
+
+
+    <owl:NamedIndividual rdf:about="ukg:Ibrahim_Demir">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ayca/ontologies/2026/3/university-kg#professor"/>
+        <belongsTo rdf:resource="ukg:MEE_Dept"/>
+        <email>ibrahim.demir@cbu.edu.tr</email>
+        <fullName>Dr. Öğr. Üyesi İbrahim DEMİR</fullName>
+        <title>Dr. Öğr. Üyesi</title>
+        <worksIn rdf:resource="ukg:SF_MachineTheory"/>
+        <rdfs:comment xml:lang="tr">Makine Teorisi ve Dinamiği</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- ukg:Leyla_Ozgener -->
+
+
+    <owl:NamedIndividual rdf:about="ukg:Leyla_Ozgener">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ayca/ontologies/2026/3/university-kg#professor"/>
+        <belongsTo rdf:resource="ukg:MEE_Dept"/>
+        <email>leyla.ozgener@cbu.edu.tr</email>
+        <fullName>Prof. Dr. Leyla ÖZGENER</fullName>
+        <teaches rdf:resource="ukg:MAK3151"/>
+        <title>Prof. Dr.</title>
+        <worksIn rdf:resource="ukg:SF_Energy"/>
+        <rdfs:comment xml:lang="tr">Enerji Anabilim Dalı Öğretim Üyesi</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- ukg:MAK1106 -->
+
+
+    <owl:NamedIndividual rdf:about="ukg:MAK1106">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ayca/ontologies/2026/3/university-kg#mandatoryCourse"/>
+        <courseCode>MAK1106</courseCode>
+        <courseName>Bilgisayar Destekli Teknik Resim</courseName>
+        <hasCourse rdf:resource="ukg:MEE_Dept"/>
+        <offeredIn rdf:resource="ukg:Spring"/>
+        <semester rdf:datatype="xsd:integer">2</semester>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- ukg:MAK1112 -->
+
+
+    <owl:NamedIndividual rdf:about="ukg:MAK1112">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ayca/ontologies/2026/3/university-kg#mandatoryCourse"/>
+        <courseCode>MAK1112</courseCode>
+        <courseName>Statik</courseName>
+        <hasCourse rdf:resource="ukg:MEE_Dept"/>
+        <offeredIn rdf:resource="ukg:Spring"/>
+        <semester rdf:datatype="xsd:integer">2</semester>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- ukg:MAK2113 -->
+
+
+    <owl:NamedIndividual rdf:about="ukg:MAK2113">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ayca/ontologies/2026/3/university-kg#mandatoryCourse"/>
+        <courseCode>MAK2113</courseCode>
+        <courseName>Termodinamik I</courseName>
+        <hasCourse rdf:resource="ukg:MEE_Dept"/>
+        <offeredIn rdf:resource="ukg:Fall"/>
+        <semester rdf:datatype="xsd:integer">3</semester>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- ukg:MAK2114 -->
+
+
+    <owl:NamedIndividual rdf:about="ukg:MAK2114">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ayca/ontologies/2026/3/university-kg#mandatoryCourse"/>
+        <courseCode>MAK2114</courseCode>
+        <courseName>Termodinamik II</courseName>
+        <hasCourse rdf:resource="ukg:MEE_Dept"/>
+        <hasPrerequisite rdf:resource="ukg:MAK2113"/>
+        <offeredIn rdf:resource="ukg:Spring"/>
+        <semester rdf:datatype="xsd:integer">4</semester>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- ukg:MAK2119 -->
+
+
+    <owl:NamedIndividual rdf:about="ukg:MAK2119">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ayca/ontologies/2026/3/university-kg#mandatoryCourse"/>
+        <courseCode>MAK2119</courseCode>
+        <courseName>Mukavemet I</courseName>
+        <hasCourse rdf:resource="ukg:MEE_Dept"/>
+        <hasPrerequisite rdf:resource="ukg:MAK1112"/>
+        <offeredIn rdf:resource="ukg:Fall"/>
+        <semester rdf:datatype="xsd:integer">3</semester>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- ukg:MAK2120 -->
+
+
+    <owl:NamedIndividual rdf:about="ukg:MAK2120">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ayca/ontologies/2026/3/university-kg#mandatoryCourse"/>
+        <courseCode>MAK2120</courseCode>
+        <courseName>Mukavemet II</courseName>
+        <hasCourse rdf:resource="ukg:MEE_Dept"/>
+        <hasPrerequisite rdf:resource="ukg:MAK2119"/>
+        <offeredIn rdf:resource="ukg:Spring"/>
+        <semester rdf:datatype="xsd:integer">4</semester>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- ukg:MAK2124 -->
+
+
+    <owl:NamedIndividual rdf:about="ukg:MAK2124">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ayca/ontologies/2026/3/university-kg#mandatoryCourse"/>
+        <courseCode>MAK2124</courseCode>
+        <courseName>Üretim Yöntemleri</courseName>
+        <hasCourse rdf:resource="ukg:MEE_Dept"/>
+        <offeredIn rdf:resource="ukg:Spring"/>
+        <semester rdf:datatype="xsd:integer">4</semester>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- ukg:MAK2127 -->
+
+
+    <owl:NamedIndividual rdf:about="ukg:MAK2127">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ayca/ontologies/2026/3/university-kg#mandatoryCourse"/>
+        <courseCode>MAK2127</courseCode>
+        <courseName>Elektrik-Elektronik Mühendisliği Temelleri</courseName>
+        <hasCourse rdf:resource="ukg:MEE_Dept"/>
+        <offeredIn rdf:resource="ukg:Fall"/>
+        <semester rdf:datatype="xsd:integer">3</semester>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- ukg:MAK2132 -->
+
+
+    <owl:NamedIndividual rdf:about="ukg:MAK2132">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ayca/ontologies/2026/3/university-kg#mandatoryCourse"/>
+        <courseCode>MAK2132</courseCode>
+        <courseName>Dinamik</courseName>
+        <hasCourse rdf:resource="ukg:MEE_Dept"/>
+        <offeredIn rdf:resource="ukg:Spring"/>
+        <semester rdf:datatype="xsd:integer">4</semester>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- ukg:MAK3104 -->
+
+
+    <owl:NamedIndividual rdf:about="ukg:MAK3104">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ayca/ontologies/2026/3/university-kg#mandatoryCourse"/>
+        <courseCode>MAK3104</courseCode>
+        <courseName>Makine Dinamiği</courseName>
+        <hasCourse rdf:resource="ukg:MEE_Dept"/>
+        <offeredIn rdf:resource="ukg:Spring"/>
+        <semester rdf:datatype="xsd:integer">6</semester>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- ukg:MAK3119 -->
+
+
+    <owl:NamedIndividual rdf:about="ukg:MAK3119">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ayca/ontologies/2026/3/university-kg#mandatoryCourse"/>
+        <courseCode>MAK3119</courseCode>
+        <courseName>Makine Elemanları I</courseName>
+        <hasCourse rdf:resource="ukg:MEE_Dept"/>
+        <offeredIn rdf:resource="ukg:Fall"/>
+        <semester rdf:datatype="xsd:integer">5</semester>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- ukg:MAK3120 -->
+
+
+    <owl:NamedIndividual rdf:about="ukg:MAK3120">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ayca/ontologies/2026/3/university-kg#mandatoryCourse"/>
+        <courseCode>MAK3120</courseCode>
+        <courseName>Makine Elemanları II</courseName>
+        <hasCourse rdf:resource="ukg:MEE_Dept"/>
+        <offeredIn rdf:resource="ukg:Spring"/>
+        <semester rdf:datatype="xsd:integer">6</semester>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- ukg:MAK3127 -->
+
+
+    <owl:NamedIndividual rdf:about="ukg:MAK3127">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ayca/ontologies/2026/3/university-kg#mandatoryCourse"/>
+        <courseCode>MAK3127</courseCode>
+        <courseName>Isı Transferi</courseName>
+        <hasCourse rdf:resource="ukg:MEE_Dept"/>
+        <offeredIn rdf:resource="ukg:Fall"/>
+        <semester rdf:datatype="xsd:integer">5</semester>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- ukg:MAK3131 -->
+
+
+    <owl:NamedIndividual rdf:about="ukg:MAK3131">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ayca/ontologies/2026/3/university-kg#mandatoryCourse"/>
+        <courseCode>MAK3131</courseCode>
+        <courseName>Sistem Analizi ve Kontrol</courseName>
+        <hasCourse rdf:resource="ukg:MEE_Dept"/>
+        <hasPrerequisite rdf:resource="ukg:MAK2132"/>
+        <offeredIn rdf:resource="ukg:Fall"/>
+        <semester rdf:datatype="xsd:integer">5</semester>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- ukg:MAK3151 -->
+
+
+    <owl:NamedIndividual rdf:about="ukg:MAK3151">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ayca/ontologies/2026/3/university-kg#mandatoryCourse"/>
+        <courseCode>MAK3151</courseCode>
+        <courseName>Akışkanlar Mekaniği</courseName>
+        <hasCourse rdf:resource="ukg:MEE_Dept"/>
+        <hasPrerequisite rdf:resource="ukg:MAK2132"/>
+        <offeredIn rdf:resource="ukg:Fall"/>
+        <semester rdf:datatype="xsd:integer">5</semester>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- ukg:MAK3174 -->
+
+
+    <owl:NamedIndividual rdf:about="ukg:MAK3174">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ayca/ontologies/2026/3/university-kg#mandatoryCourse"/>
+        <courseCode>MAK3174</courseCode>
+        <courseName>Makine Mühendisliğinde Bilgisayar Uygulamaları</courseName>
+        <hasCourse rdf:resource="ukg:MEE_Dept"/>
+        <offeredIn rdf:resource="ukg:Spring"/>
+        <semester rdf:datatype="xsd:integer">6</semester>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- ukg:MAK4110 -->
+
+
+    <owl:NamedIndividual rdf:about="ukg:MAK4110">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ayca/ontologies/2026/3/university-kg#mandatoryCourse"/>
+        <courseCode>MAK4110</courseCode>
+        <courseName>Makine Mühendisliği Uygulamaları</courseName>
+        <hasCourse rdf:resource="ukg:MEE_Dept"/>
+        <offeredIn rdf:resource="ukg:Spring"/>
+        <semester rdf:datatype="xsd:integer">8</semester>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- ukg:MAK4121 -->
+
+
+    <owl:NamedIndividual rdf:about="ukg:MAK4121">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ayca/ontologies/2026/3/university-kg#mandatoryCourse"/>
+        <courseCode>MAK4121</courseCode>
+        <courseName>Mekanik Tasarım Projesi</courseName>
+        <hasCourse rdf:resource="ukg:MEE_Dept"/>
+        <offeredIn rdf:resource="ukg:Fall"/>
+        <semester rdf:datatype="xsd:integer">7</semester>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- ukg:MAK4123 -->
+
+
+    <owl:NamedIndividual rdf:about="ukg:MAK4123">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ayca/ontologies/2026/3/university-kg#mandatoryCourse"/>
+        <courseCode>MAK4123</courseCode>
+        <courseName>Isıl Tasarım Projesi</courseName>
+        <hasCourse rdf:resource="ukg:MEE_Dept"/>
+        <offeredIn rdf:resource="ukg:Fall"/>
+        <semester rdf:datatype="xsd:integer">7</semester>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- ukg:MAK4150 -->
+
+
+    <owl:NamedIndividual rdf:about="ukg:MAK4150">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ayca/ontologies/2026/3/university-kg#mandatoryCourse"/>
+        <courseCode>MAK4150</courseCode>
+        <courseName>İşletmede Mesleki Eğitim</courseName>
+        <hasCourse rdf:resource="ukg:MEE_Dept"/>
+        <offeredIn rdf:resource="ukg:Spring"/>
+        <semester rdf:datatype="xsd:integer">8</semester>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- ukg:MAK4503 -->
+
+
+    <owl:NamedIndividual rdf:about="ukg:MAK4503">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ayca/ontologies/2026/3/university-kg#electiveCourse"/>
+        <courseCode>MAK4503</courseCode>
+        <courseName>Bina ve Yangın Tesisatı</courseName>
+        <hasCourse rdf:resource="ukg:MEE_Dept"/>
+        <offeredIn rdf:resource="ukg:Spring"/>
+        <semester rdf:datatype="xsd:integer">6</semester>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- ukg:MAK4517 -->
+
+
+    <owl:NamedIndividual rdf:about="ukg:MAK4517">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ayca/ontologies/2026/3/university-kg#electiveCourse"/>
+        <courseCode>MAK4517</courseCode>
+        <courseName>Hidrolik Makineler</courseName>
+        <hasCourse rdf:resource="ukg:MEE_Dept"/>
+        <offeredIn rdf:resource="ukg:Spring"/>
+        <semester rdf:datatype="xsd:integer">6</semester>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- ukg:MAK4519 -->
+
+
+    <owl:NamedIndividual rdf:about="ukg:MAK4519">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ayca/ontologies/2026/3/university-kg#electiveCourse"/>
+        <courseCode>MAK4519</courseCode>
+        <courseName>Hidrolik ve Pnömatik Devreler</courseName>
+        <hasCourse rdf:resource="ukg:MEE_Dept"/>
+        <offeredIn rdf:resource="ukg:Spring"/>
+        <semester rdf:datatype="xsd:integer">6</semester>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- ukg:MAK4522 -->
+
+
+    <owl:NamedIndividual rdf:about="ukg:MAK4522">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ayca/ontologies/2026/3/university-kg#electiveCourse"/>
+        <courseCode>MAK4522</courseCode>
+        <courseName>Traktör ve Tarım Makineleri</courseName>
+        <hasCourse rdf:resource="ukg:MEE_Dept"/>
+        <offeredIn rdf:resource="ukg:Spring"/>
+        <semester rdf:datatype="xsd:integer">6</semester>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- ukg:MAK4526 -->
+
+
+    <owl:NamedIndividual rdf:about="ukg:MAK4526">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ayca/ontologies/2026/3/university-kg#electiveCourse"/>
+        <courseCode>MAK4526</courseCode>
+        <courseName>Transport Tekniği</courseName>
+        <hasCourse rdf:resource="ukg:MEE_Dept"/>
+        <offeredIn rdf:resource="ukg:Spring"/>
+        <semester rdf:datatype="xsd:integer">6</semester>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- ukg:MAK4532 -->
+
+
+    <owl:NamedIndividual rdf:about="ukg:MAK4532">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ayca/ontologies/2026/3/university-kg#electiveCourse"/>
+        <courseCode>MAK4532</courseCode>
+        <courseName>Kaldırma Makinaları</courseName>
+        <hasCourse rdf:resource="ukg:MEE_Dept"/>
+        <offeredIn rdf:resource="ukg:Spring"/>
+        <semester rdf:datatype="xsd:integer">6</semester>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- ukg:MAK4533 -->
+
+
+    <owl:NamedIndividual rdf:about="ukg:MAK4533">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ayca/ontologies/2026/3/university-kg#electiveCourse"/>
+        <courseCode>MAK4533</courseCode>
+        <courseName>Kalite Kontrol ve Standardizasyon</courseName>
+        <hasCourse rdf:resource="ukg:MEE_Dept"/>
+        <offeredIn rdf:resource="ukg:Spring"/>
+        <semester rdf:datatype="xsd:integer">6</semester>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- ukg:MAK4535 -->
+
+
+    <owl:NamedIndividual rdf:about="ukg:MAK4535">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ayca/ontologies/2026/3/university-kg#electiveCourse"/>
+        <courseCode>MAK4535</courseCode>
+        <courseName>Kaynak Teknolojisi</courseName>
+        <hasCourse rdf:resource="ukg:MEE_Dept"/>
+        <offeredIn rdf:resource="ukg:Spring"/>
+        <semester rdf:datatype="xsd:integer">6</semester>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- ukg:MAK4536 -->
+
+
+    <owl:NamedIndividual rdf:about="ukg:MAK4536">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ayca/ontologies/2026/3/university-kg#electiveCourse"/>
+        <courseCode>MAK4536</courseCode>
+        <courseName>Kırılma Mekaniğine Giriş</courseName>
+        <hasCourse rdf:resource="ukg:MEE_Dept"/>
+        <offeredIn rdf:resource="ukg:Spring"/>
+        <semester rdf:datatype="xsd:integer">6</semester>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- ukg:MAK4542 -->
+
+
+    <owl:NamedIndividual rdf:about="ukg:MAK4542">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ayca/ontologies/2026/3/university-kg#electiveCourse"/>
+        <courseCode>MAK4542</courseCode>
+        <courseName>Mekatronik</courseName>
+        <hasCourse rdf:resource="ukg:MEE_Dept"/>
+        <offeredIn rdf:resource="ukg:Spring"/>
+        <semester rdf:datatype="xsd:integer">6</semester>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- ukg:MAK4544 -->
+
+
+    <owl:NamedIndividual rdf:about="ukg:MAK4544">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ayca/ontologies/2026/3/university-kg#electiveCourse"/>
+        <courseCode>MAK4544</courseCode>
+        <courseName>Üretim Planlama</courseName>
+        <hasCourse rdf:resource="ukg:MEE_Dept"/>
+        <offeredIn rdf:resource="ukg:Spring"/>
+        <semester rdf:datatype="xsd:integer">6</semester>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- ukg:MAK4545 -->
+
+
+    <owl:NamedIndividual rdf:about="ukg:MAK4545">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ayca/ontologies/2026/3/university-kg#electiveCourse"/>
+        <courseCode>MAK4545</courseCode>
+        <courseName>Mekanik Titreşimler</courseName>
+        <hasCourse rdf:resource="ukg:MEE_Dept"/>
+        <offeredIn rdf:resource="ukg:Spring"/>
+        <semester rdf:datatype="xsd:integer">6</semester>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- ukg:MAK4549 -->
+
+
+    <owl:NamedIndividual rdf:about="ukg:MAK4549">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ayca/ontologies/2026/3/university-kg#electiveCourse"/>
+        <courseCode>MAK4549</courseCode>
+        <courseName>Motorlar</courseName>
+        <hasCourse rdf:resource="ukg:MEE_Dept"/>
+        <offeredIn rdf:resource="ukg:Spring"/>
+        <semester rdf:datatype="xsd:integer">6</semester>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- ukg:MAK4551 -->
+
+
+    <owl:NamedIndividual rdf:about="ukg:MAK4551">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ayca/ontologies/2026/3/university-kg#electiveCourse"/>
+        <courseCode>MAK4551</courseCode>
+        <courseName>Motorlu Taşıtlar</courseName>
+        <hasCourse rdf:resource="ukg:MEE_Dept"/>
+        <offeredIn rdf:resource="ukg:Spring"/>
+        <semester rdf:datatype="xsd:integer">6</semester>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- ukg:MAK4558 -->
+
+
+    <owl:NamedIndividual rdf:about="ukg:MAK4558">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ayca/ontologies/2026/3/university-kg#electiveCourse"/>
+        <courseCode>MAK4558</courseCode>
+        <courseName>Optimizasyon</courseName>
+        <hasCourse rdf:resource="ukg:MEE_Dept"/>
+        <offeredIn rdf:resource="ukg:Spring"/>
+        <semester rdf:datatype="xsd:integer">6</semester>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- ukg:MAK4560 -->
+
+
+    <owl:NamedIndividual rdf:about="ukg:MAK4560">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ayca/ontologies/2026/3/university-kg#electiveCourse"/>
+        <courseCode>MAK4560</courseCode>
+        <courseName>Plastik Malzemeler</courseName>
+        <hasCourse rdf:resource="ukg:MEE_Dept"/>
+        <offeredIn rdf:resource="ukg:Spring"/>
+        <semester rdf:datatype="xsd:integer">6</semester>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- ukg:MAK4563 -->
+
+
+    <owl:NamedIndividual rdf:about="ukg:MAK4563">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ayca/ontologies/2026/3/university-kg#electiveCourse"/>
+        <courseCode>MAK4563</courseCode>
+        <courseName>Seramik Malzemeler</courseName>
+        <hasCourse rdf:resource="ukg:MEE_Dept"/>
+        <offeredIn rdf:resource="ukg:Spring"/>
+        <semester rdf:datatype="xsd:integer">6</semester>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- ukg:MAK4567 -->
+
+
+    <owl:NamedIndividual rdf:about="ukg:MAK4567">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ayca/ontologies/2026/3/university-kg#electiveCourse"/>
+        <courseCode>MAK4567</courseCode>
+        <courseName>Sonlu Elemanlara Giriş</courseName>
+        <hasCourse rdf:resource="ukg:MEE_Dept"/>
+        <offeredIn rdf:resource="ukg:Spring"/>
+        <semester rdf:datatype="xsd:integer">6</semester>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- ukg:MAK4570 -->
+
+
+    <owl:NamedIndividual rdf:about="ukg:MAK4570">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ayca/ontologies/2026/3/university-kg#electiveCourse"/>
+        <courseCode>MAK4570</courseCode>
+        <courseName>Tahribatsız Muayene</courseName>
+        <hasCourse rdf:resource="ukg:MEE_Dept"/>
+        <offeredIn rdf:resource="ukg:Spring"/>
+        <semester rdf:datatype="xsd:integer">6</semester>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- ukg:MAT1305_IE -->
+
+
+    <owl:NamedIndividual rdf:about="ukg:MAT1305_IE">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ayca/ontologies/2026/3/university-kg#mandatoryCourse"/>
+        <courseCode>MAT1305_IE</courseCode>
+        <courseName>Matematik I</courseName>
+        <hasCourse rdf:resource="ukg:IE_Dept"/>
+        <offeredIn rdf:resource="ukg:Fall"/>
+        <semester rdf:datatype="xsd:integer">1</semester>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- ukg:MAT1306_IE -->
+
+
+    <owl:NamedIndividual rdf:about="ukg:MAT1306_IE">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ayca/ontologies/2026/3/university-kg#mandatoryCourse"/>
+        <courseCode>MAT1306_IE</courseCode>
+        <courseName>Matematik II</courseName>
+        <hasCourse rdf:resource="ukg:IE_Dept"/>
+        <offeredIn rdf:resource="ukg:Spring"/>
+        <semester rdf:datatype="xsd:integer">2</semester>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- ukg:MAT2303_IE -->
+
+
+    <owl:NamedIndividual rdf:about="ukg:MAT2303_IE">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ayca/ontologies/2026/3/university-kg#mandatoryCourse"/>
+        <courseCode>MAT2303_IE</courseCode>
+        <courseName>Diferansiyel Denklemler</courseName>
+        <hasCourse rdf:resource="ukg:IE_Dept"/>
+        <offeredIn rdf:resource="ukg:Fall"/>
+        <semester rdf:datatype="xsd:integer">3</semester>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- ukg:MEE1109 -->
+
+
+    <owl:NamedIndividual rdf:about="ukg:MEE1109">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ayca/ontologies/2026/3/university-kg#mandatoryCourse"/>
+        <courseCode>MEE1109</courseCode>
+        <courseName>Introduction to Mechanical Engineering</courseName>
+        <hasCourse rdf:resource="ukg:MEE_Dept"/>
+        <offeredIn rdf:resource="ukg:Fall"/>
+        <semester rdf:datatype="xsd:integer">1</semester>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- ukg:MEE_Dept -->
+
+
+    <owl:NamedIndividual rdf:about="ukg:MEE_Dept">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ayca/ontologies/2026/3/university-kg#department"/>
+        <departmentName>Mechanical Engineering</departmentName>
+        <hasSubField rdf:resource="ukg:SF_ConstructionManufacturing"/>
+        <hasSubField rdf:resource="ukg:SF_Energy"/>
+        <hasSubField rdf:resource="ukg:SF_MachineTheory"/>
+        <hasSubField rdf:resource="ukg:SF_Mechanics"/>
+        <hasSubField rdf:resource="ukg:SF_Thermodynamics"/>
+        <rdfs:label xml:lang="tr">Makine Mühendisliği Bölümü</rdfs:label>
+        <rdfs:label xml:lang="en">Mechanical Engineering Department</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- ukg:MHN1100 -->
+
+
+    <owl:NamedIndividual rdf:about="ukg:MHN1100">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ayca/ontologies/2026/3/university-kg#mandatoryCourse"/>
+        <courseCode>MHN1100</courseCode>
+        <courseName>Bilgisayar Destekli Teknik Resim</courseName>
+        <hasCourse rdf:resource="ukg:IE_Dept"/>
+        <offeredIn rdf:resource="ukg:Fall"/>
+        <semester rdf:datatype="xsd:integer">1</semester>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- ukg:MHN1101 -->
+
+
+    <owl:NamedIndividual rdf:about="ukg:MHN1101">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ayca/ontologies/2026/3/university-kg#mandatoryCourse"/>
+        <courseCode>MHN1101</courseCode>
+        <courseName>Teknik Resim</courseName>
+        <hasCourse rdf:resource="ukg:MEE_Dept"/>
+        <offeredIn rdf:resource="ukg:Fall"/>
+        <semester rdf:datatype="xsd:integer">1</semester>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- ukg:MTH1305 -->
+
+
+    <owl:NamedIndividual rdf:about="ukg:MTH1305">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ayca/ontologies/2026/3/university-kg#mandatoryCourse"/>
+        <courseCode>MTH1305</courseCode>
+        <courseName>Mathematics I</courseName>
+        <hasCourse rdf:resource="ukg:CSE_Dept"/>
+        <offeredIn rdf:resource="ukg:Fall"/>
+        <semester rdf:datatype="xsd:integer">1</semester>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- ukg:MTH1305_MEE -->
+
+
+    <owl:NamedIndividual rdf:about="ukg:MTH1305_MEE">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ayca/ontologies/2026/3/university-kg#mandatoryCourse"/>
+        <courseCode>MTH1305_MEE</courseCode>
+        <courseName>Mathematics I</courseName>
+        <hasCourse rdf:resource="ukg:MEE_Dept"/>
+        <offeredIn rdf:resource="ukg:Fall"/>
+        <semester rdf:datatype="xsd:integer">1</semester>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- ukg:MTH1306 -->
+
+
+    <owl:NamedIndividual rdf:about="ukg:MTH1306">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ayca/ontologies/2026/3/university-kg#mandatoryCourse"/>
+        <courseCode>MTH1306</courseCode>
+        <courseName>Mathematics II</courseName>
+        <hasCourse rdf:resource="ukg:CSE_Dept"/>
+        <offeredIn rdf:resource="ukg:Spring"/>
+        <semester rdf:datatype="xsd:integer">2</semester>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- ukg:MTH1306_MEE -->
+
+
+    <owl:NamedIndividual rdf:about="ukg:MTH1306_MEE">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ayca/ontologies/2026/3/university-kg#mandatoryCourse"/>
+        <courseCode>MTH1306_MEE</courseCode>
+        <courseName>Mathematics II</courseName>
+        <hasCourse rdf:resource="ukg:MEE_Dept"/>
+        <offeredIn rdf:resource="ukg:Spring"/>
+        <semester rdf:datatype="xsd:integer">2</semester>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- ukg:MTH2303 -->
+
+
+    <owl:NamedIndividual rdf:about="ukg:MTH2303">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ayca/ontologies/2026/3/university-kg#mandatoryCourse"/>
+        <courseCode>MTH2303</courseCode>
+        <courseName>Differential Equations</courseName>
+        <hasCourse rdf:resource="ukg:CSE_Dept"/>
+        <offeredIn rdf:resource="ukg:Fall"/>
+        <semester rdf:datatype="xsd:integer">3</semester>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- ukg:MTH2303_MEE -->
+
+
+    <owl:NamedIndividual rdf:about="ukg:MTH2303_MEE">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ayca/ontologies/2026/3/university-kg#mandatoryCourse"/>
+        <courseCode>MTH2303_MEE</courseCode>
+        <courseName>Differential Equations</courseName>
+        <hasCourse rdf:resource="ukg:MEE_Dept"/>
+        <offeredIn rdf:resource="ukg:Fall"/>
+        <semester rdf:datatype="xsd:integer">3</semester>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- ukg:Mehmet_Ali_Ilgin -->
+
+
+    <owl:NamedIndividual rdf:about="ukg:Mehmet_Ali_Ilgin">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ayca/ontologies/2026/3/university-kg#professor"/>
+        <belongsTo rdf:resource="ukg:IE_Dept"/>
+        <email>mehmetali.ilgin@cbu.edu.tr</email>
+        <fullName>Doç. Dr. Mehmet Ali ILGIN</fullName>
+        <title>Doç. Dr.</title>
+        <worksIn rdf:resource="ukg:SF_IndustrialEngineering"/>
+        <rdfs:comment xml:lang="tr">Bölüm Başkanı</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- ukg:Mert_Kaya -->
+
+
+    <owl:NamedIndividual rdf:about="ukg:Mert_Kaya">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ayca/ontologies/2026/3/university-kg#student"/>
+        <GPA rdf:datatype="xsd:float">3.50</GPA>
+        <belongsTo rdf:resource="ukg:IE_Dept"/>
+        <fullName>Mert Kaya</fullName>
+        <isEnrolledIn rdf:resource="ukg:END4242"/>
+        <isEnrolledIn rdf:resource="ukg:IND3112"/>
+        <isEnrolledIn rdf:resource="ukg:IND3113"/>
+        <studentID>20220012</studentID>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- ukg:Muhammet_Gokhan_Erdem -->
+
+
+    <owl:NamedIndividual rdf:about="ukg:Muhammet_Gokhan_Erdem">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ayca/ontologies/2026/3/university-kg#professor"/>
+        <avesisURL rdf:datatype="xsd:anyURI">https://avesis.mcbu.edu.tr/muhammet.cinsdikici</avesisURL>
+        <belongsTo rdf:resource="ukg:CSE_Dept"/>
+        <email>muhammet.cinsdikici@cbu.edu.tr</email>
+        <fullName>Prof. Dr. Muhammet Gökhan ERDEM</fullName>
+        <teaches rdf:resource="ukg:CSE2113"/>
+        <teaches rdf:resource="ukg:CSE3230"/>
+        <title>Prof. Dr.</title>
+        <worksIn rdf:resource="ukg:SF_ComputerScience"/>
+        <rdfs:comment xml:lang="tr">Bilgisayar Bilimleri Anabilim Dalı Başkanı</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- ukg:Murat_Bagdatli -->
+
+
+    <owl:NamedIndividual rdf:about="ukg:Murat_Bagdatli">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ayca/ontologies/2026/3/university-kg#professor"/>
+        <belongsTo rdf:resource="ukg:MEE_Dept"/>
+        <email>murat.bagdatli@cbu.edu.tr</email>
+        <fullName>Prof. Dr. Süleyman Murat BAĞDATLI</fullName>
+        <teaches rdf:resource="ukg:MAK2132"/>
+        <teaches rdf:resource="ukg:MAK3131"/>
+        <title>Prof. Dr.</title>
+        <worksIn rdf:resource="ukg:SF_MachineTheory"/>
+        <rdfs:comment xml:lang="tr">Makine Teorisi ve Dinamiği Anabilim Dalı Başkanı</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- ukg:Murat_Sahin -->
+
+
+    <owl:NamedIndividual rdf:about="ukg:Murat_Sahin">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ayca/ontologies/2026/3/university-kg#professor"/>
+        <belongsTo rdf:resource="ukg:IE_Dept"/>
+        <email>sahin.murat@cbu.edu.tr</email>
+        <fullName>Dr. Öğr. Üyesi Murat ŞAHİN</fullName>
+        <teaches rdf:resource="ukg:END4242"/>
+        <teaches rdf:resource="ukg:END4244"/>
+        <teaches rdf:resource="ukg:END4262"/>
+        <title>Dr. Öğr. Üyesi</title>
+        <worksIn rdf:resource="ukg:SF_IndustrialEngineering"/>
+        <rdfs:comment xml:lang="tr">Endüstri Mühendisliği</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- ukg:Mustafa_Karamolla -->
+
+
+    <owl:NamedIndividual rdf:about="ukg:Mustafa_Karamolla">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ayca/ontologies/2026/3/university-kg#professor"/>
+        <belongsTo rdf:resource="ukg:MEE_Dept"/>
+        <email>mustafa.karamolla@cbu.edu.tr</email>
+        <fullName>Dr. Öğr. Üyesi Mustafa KARAMOLLA</fullName>
+        <title>Dr. Öğr. Üyesi</title>
+        <worksIn rdf:resource="ukg:SF_ConstructionManufacturing"/>
+        <rdfs:comment xml:lang="tr">Teknik Resim, Motorlu Taşıtlar</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- ukg:Nail_Aslan -->
+
+
+    <owl:NamedIndividual rdf:about="ukg:Nail_Aslan">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ayca/ontologies/2026/3/university-kg#researchAssistant"/>
+        <belongsTo rdf:resource="ukg:MEE_Dept"/>
+        <email>nail.aslan@cbu.edu.tr</email>
+        <fullName>Arş. Gör. Nail ASLAN</fullName>
+        <title>Araştırma Görevlisi</title>
+        <worksIn rdf:resource="ukg:SF_ConstructionManufacturing"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- ukg:Nursen_Saklakoglu -->
+
+
+    <owl:NamedIndividual rdf:about="ukg:Nursen_Saklakoglu">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ayca/ontologies/2026/3/university-kg#professor"/>
+        <belongsTo rdf:resource="ukg:MEE_Dept"/>
+        <email>nursen.saklakoglu@cbu.edu.tr</email>
+        <fullName>Prof. Dr. Nurşen SAKLAKOĞLU</fullName>
+        <title>Prof. Dr.</title>
+        <worksIn rdf:resource="ukg:SF_ConstructionManufacturing"/>
+        <rdfs:comment xml:lang="tr">Malzeme Bilimi, Korozyon</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- ukg:Ovunc_Ozturk -->
+
+
+    <owl:NamedIndividual rdf:about="ukg:Ovunc_Ozturk">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ayca/ontologies/2026/3/university-kg#professor"/>
+        <avesisURL rdf:datatype="xsd:anyURI">https://avesis.mcbu.edu.tr/ovunc.ozturk</avesisURL>
+        <belongsTo rdf:resource="ukg:CSE_Dept"/>
+        <email>ovunc.ozturk@cbu.edu.tr</email>
+        <fullName>Doç. Dr. Övünç ÖZTÜRK</fullName>
+        <teaches rdf:resource="ukg:CSE2122"/>
+        <teaches rdf:resource="ukg:CSE3213"/>
+        <teaches rdf:resource="ukg:CSE3220"/>
+        <title>Doç. Dr.</title>
+        <worksIn rdf:resource="ukg:SF_ComputerScience"/>
+        <rdfs:comment xml:lang="tr">Bölüm Başkan Yardımcısı</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- ukg:Ozge_Satir -->
+
+
+    <owl:NamedIndividual rdf:about="ukg:Ozge_Satir">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ayca/ontologies/2026/3/university-kg#researchAssistant"/>
+        <belongsTo rdf:resource="ukg:IE_Dept"/>
+        <email>ozge.satir@cbu.edu.tr</email>
+        <fullName>Arş. Gör. Özge ŞATIR AKPUNAR</fullName>
+        <title>Araştırma Görevlisi</title>
+        <worksIn rdf:resource="ukg:SF_IndustrialEngineering"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- ukg:Ozgur -->
+
+
+    <owl:NamedIndividual rdf:about="ukg:Ozgur">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ayca/ontologies/2026/3/university-kg#student"/>
+        <GPA rdf:datatype="xsd:float">3.20</GPA>
+        <belongsTo rdf:resource="ukg:MEE_Dept"/>
+        <fullName>Özgür</fullName>
+        <isEnrolledIn rdf:resource="ukg:MAK2132"/>
+        <isEnrolledIn rdf:resource="ukg:MAK3151"/>
+        <studentID>20210004</studentID>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- ukg:Ozgur_Eski -->
+
+
+    <owl:NamedIndividual rdf:about="ukg:Ozgur_Eski">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ayca/ontologies/2026/3/university-kg#professor"/>
+        <belongsTo rdf:resource="ukg:IE_Dept"/>
+        <email>ozgur.eski@cbu.edu.tr</email>
+        <fullName>Dr. Öğr. Üyesi Özgür ESKİ</fullName>
+        <title>Dr. Öğr. Üyesi</title>
+        <worksIn rdf:resource="ukg:SF_OperationsResearch"/>
+        <rdfs:comment xml:lang="tr">Yöneylem Araştırması</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- ukg:Ozlem_Uzun_Araz -->
+
+
+    <owl:NamedIndividual rdf:about="ukg:Ozlem_Uzun_Araz">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ayca/ontologies/2026/3/university-kg#professor"/>
+        <belongsTo rdf:resource="ukg:IE_Dept"/>
+        <email>ozlem.araz@cbu.edu.tr</email>
+        <fullName>Dr. Öğr. Üyesi Özlem UZUN ARAZ</fullName>
+        <title>Dr. Öğr. Üyesi</title>
+        <worksIn rdf:resource="ukg:SF_IndustrialEngineering"/>
+        <rdfs:comment xml:lang="tr">Endüstri Mühendisliği</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- ukg:PHY1306_MEE -->
+
+
+    <owl:NamedIndividual rdf:about="ukg:PHY1306_MEE">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ayca/ontologies/2026/3/university-kg#mandatoryCourse"/>
+        <courseCode>PHY1306_MEE</courseCode>
+        <courseName>Physics II</courseName>
+        <hasCourse rdf:resource="ukg:MEE_Dept"/>
+        <offeredIn rdf:resource="ukg:Spring"/>
+        <semester rdf:datatype="xsd:integer">2</semester>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- ukg:PHY1307 -->
+
+
+    <owl:NamedIndividual rdf:about="ukg:PHY1307">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ayca/ontologies/2026/3/university-kg#mandatoryCourse"/>
+        <courseCode>PHY1307</courseCode>
+        <courseName>Physics I</courseName>
+        <hasCourse rdf:resource="ukg:CSE_Dept"/>
+        <offeredIn rdf:resource="ukg:Fall"/>
+        <semester rdf:datatype="xsd:integer">1</semester>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- ukg:PHY1307_MEE -->
+
+
+    <owl:NamedIndividual rdf:about="ukg:PHY1307_MEE">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ayca/ontologies/2026/3/university-kg#mandatoryCourse"/>
+        <courseCode>PHY1307_MEE</courseCode>
+        <courseName>Physics I</courseName>
+        <hasCourse rdf:resource="ukg:MEE_Dept"/>
+        <offeredIn rdf:resource="ukg:Fall"/>
+        <semester rdf:datatype="xsd:integer">1</semester>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- ukg:PHY1308 -->
+
+
+    <owl:NamedIndividual rdf:about="ukg:PHY1308">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ayca/ontologies/2026/3/university-kg#mandatoryCourse"/>
+        <courseCode>PHY1308</courseCode>
+        <courseName>Physics II</courseName>
+        <hasCourse rdf:resource="ukg:CSE_Dept"/>
+        <offeredIn rdf:resource="ukg:Spring"/>
+        <semester rdf:datatype="xsd:integer">2</semester>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- ukg:Pinar_Ozfirat -->
+
+
+    <owl:NamedIndividual rdf:about="ukg:Pinar_Ozfirat">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ayca/ontologies/2026/3/university-kg#professor"/>
+        <belongsTo rdf:resource="ukg:IE_Dept"/>
+        <email>pinar.ozfirat@cbu.edu.tr</email>
+        <fullName>Prof. Dr. Pınar Mızrak ÖZFIRAT</fullName>
+        <teaches rdf:resource="ukg:END3177"/>
+        <teaches rdf:resource="ukg:END4107"/>
+        <title>Prof. Dr.</title>
+        <worksIn rdf:resource="ukg:SF_IndustrialEngineering"/>
+        <rdfs:comment xml:lang="tr">Anabilim Dalı Başkanı</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- ukg:Rahime_Sancar_Edis -->
+
+
+    <owl:NamedIndividual rdf:about="ukg:Rahime_Sancar_Edis">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ayca/ontologies/2026/3/university-kg#professor"/>
+        <belongsTo rdf:resource="ukg:IE_Dept"/>
+        <email>rahime.edis@cbu.edu.tr</email>
+        <fullName>Dr. Öğr. Üyesi Rahime SANCAR EDİS</fullName>
+        <title>Dr. Öğr. Üyesi</title>
+        <worksIn rdf:resource="ukg:SF_IndustrialEngineering"/>
+        <rdfs:comment xml:lang="tr">Endüstri Mühendisliği</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- ukg:Resul_Sonmez -->
+
+
+    <owl:NamedIndividual rdf:about="ukg:Resul_Sonmez">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ayca/ontologies/2026/3/university-kg#researchAssistant"/>
+        <belongsTo rdf:resource="ukg:MEE_Dept"/>
+        <email>resul.sonmez@cbu.edu.tr</email>
+        <fullName>Arş. Gör. Resul SÖNMEZ</fullName>
+        <title>Araştırma Görevlisi</title>
+        <worksIn rdf:resource="ukg:SF_ConstructionManufacturing"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- ukg:SF_AppliedStatistics -->
+
+
+    <owl:NamedIndividual rdf:about="ukg:SF_AppliedStatistics">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ayca/ontologies/2026/3/university-kg#subField"/>
+        <subFieldName>Uygulamalı İstatistik ve Olasılık Anabilim Dalı</subFieldName>
+        <rdfs:label xml:lang="tr">Uygulamalı İstatistik ve Olasılık Anabilim Dalı</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- ukg:SF_ComputerScience -->
+
+
+    <owl:NamedIndividual rdf:about="ukg:SF_ComputerScience">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ayca/ontologies/2026/3/university-kg#subField"/>
+        <subFieldName>Bilgisayar Bilimleri Anabilim Dalı</subFieldName>
+        <rdfs:label xml:lang="tr">Bilgisayar Bilimleri Anabilim Dalı</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- ukg:SF_ConstructionManufacturing -->
+
+
+    <owl:NamedIndividual rdf:about="ukg:SF_ConstructionManufacturing">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ayca/ontologies/2026/3/university-kg#subField"/>
+        <subFieldName>Konstrüksiyon ve İmalat Anabilim Dalı</subFieldName>
+        <rdfs:label xml:lang="tr">Konstrüksiyon ve İmalat Anabilim Dalı</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- ukg:SF_Energy -->
+
+
+    <owl:NamedIndividual rdf:about="ukg:SF_Energy">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ayca/ontologies/2026/3/university-kg#subField"/>
+        <subFieldName>Enerji Anabilim Dalı</subFieldName>
+        <rdfs:label xml:lang="tr">Enerji Anabilim Dalı</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- ukg:SF_Hardware -->
+
+
+    <owl:NamedIndividual rdf:about="ukg:SF_Hardware">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ayca/ontologies/2026/3/university-kg#subField"/>
+        <subFieldName>Donanım Anabilim Dalı</subFieldName>
+        <rdfs:label xml:lang="tr">Donanım Anabilim Dalı</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- ukg:SF_IndustrialEngineering -->
+
+
+    <owl:NamedIndividual rdf:about="ukg:SF_IndustrialEngineering">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ayca/ontologies/2026/3/university-kg#subField"/>
+        <subFieldName>Endüstri Mühendisliği Anabilim Dalı</subFieldName>
+        <rdfs:label xml:lang="tr">Endüstri Mühendisliği Anabilim Dalı</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- ukg:SF_MachineTheory -->
+
+
+    <owl:NamedIndividual rdf:about="ukg:SF_MachineTheory">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ayca/ontologies/2026/3/university-kg#subField"/>
+        <subFieldName>Makine Teorisi ve Dinamiği Anabilim Dalı</subFieldName>
+        <rdfs:label xml:lang="tr">Makine Teorisi ve Dinamiği Anabilim Dalı</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- ukg:SF_Mechanics -->
+
+
+    <owl:NamedIndividual rdf:about="ukg:SF_Mechanics">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ayca/ontologies/2026/3/university-kg#subField"/>
+        <subFieldName>Mekanik Anabilim Dalı</subFieldName>
+        <rdfs:label xml:lang="tr">Mekanik Anabilim Dalı</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- ukg:SF_OperationsResearch -->
+
+
+    <owl:NamedIndividual rdf:about="ukg:SF_OperationsResearch">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ayca/ontologies/2026/3/university-kg#subField"/>
+        <subFieldName>Yöneylem Araştırması Anabilim Dalı</subFieldName>
+        <rdfs:label xml:lang="tr">Yöneylem Araştırması Anabilim Dalı</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- ukg:SF_Software -->
+
+
+    <owl:NamedIndividual rdf:about="ukg:SF_Software">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ayca/ontologies/2026/3/university-kg#subField"/>
+        <subFieldName>Yazılım Anabilim Dalı</subFieldName>
+        <rdfs:label xml:lang="tr">Yazılım Anabilim Dalı</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- ukg:SF_Thermodynamics -->
+
+
+    <owl:NamedIndividual rdf:about="ukg:SF_Thermodynamics">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ayca/ontologies/2026/3/university-kg#subField"/>
+        <subFieldName>Termodinamik Anabilim Dalı</subFieldName>
+        <rdfs:label xml:lang="tr">Termodinamik Anabilim Dalı</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- ukg:Saim_Kural -->
+
+
+    <owl:NamedIndividual rdf:about="ukg:Saim_Kural">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ayca/ontologies/2026/3/university-kg#professor"/>
+        <belongsTo rdf:resource="ukg:MEE_Dept"/>
+        <email>saim.kural@cbu.edu.tr</email>
+        <fullName>Dr. Öğr. Üyesi Saim KURAL</fullName>
+        <title>Dr. Öğr. Üyesi</title>
+        <worksIn rdf:resource="ukg:SF_MachineTheory"/>
+        <rdfs:comment xml:lang="tr">Bölüm Başkan Yardımcısı</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- ukg:Samet_Yilmaz -->
+
+
+    <owl:NamedIndividual rdf:about="ukg:Samet_Yilmaz">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ayca/ontologies/2026/3/university-kg#researchAssistant"/>
+        <belongsTo rdf:resource="ukg:CSE_Dept"/>
+        <email>samet.yilmaz@cbu.edu.tr</email>
+        <fullName>Arş. Gör. Samet YILMAZ</fullName>
+        <title>Araştırma Görevlisi</title>
+        <worksIn rdf:resource="ukg:SF_Software"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- ukg:Seda_Arabaci -->
+
+
+    <owl:NamedIndividual rdf:about="ukg:Seda_Arabaci">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ayca/ontologies/2026/3/university-kg#professor"/>
+        <belongsTo rdf:resource="ukg:MEE_Dept"/>
+        <email>seda.kirmaci@cbu.edu.tr</email>
+        <fullName>Dr. Öğr. Üyesi Seda ARABACI</fullName>
+        <title>Dr. Öğr. Üyesi</title>
+        <worksIn rdf:resource="ukg:SF_Thermodynamics"/>
+        <rdfs:comment xml:lang="tr">Termodinamik Anabilim Dalı Öğretim Üyesi</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- ukg:Sevcan_Emek -->
+
+
+    <owl:NamedIndividual rdf:about="ukg:Sevcan_Emek">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ayca/ontologies/2026/3/university-kg#professor"/>
+        <avesisURL rdf:datatype="xsd:anyURI">https://avesis.mcbu.edu.tr/sevcan.emek</avesisURL>
+        <belongsTo rdf:resource="ukg:CSE_Dept"/>
+        <email>sevcan.emek@cbu.edu.tr</email>
+        <fullName>Dr. Öğr. Üyesi Sevcan EMEK</fullName>
+        <teaches rdf:resource="ukg:CSE3137"/>
+        <teaches rdf:resource="ukg:CSE3238"/>
+        <teaches rdf:resource="ukg:CSE4123"/>
+        <title>Dr. Öğr. Üyesi</title>
+        <worksIn rdf:resource="ukg:SF_Software"/>
+        <rdfs:comment xml:lang="tr">Yazılım Anabilim Dalı Öğretim Üyesi</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- ukg:Simge_Irizalp -->
+
+
+    <owl:NamedIndividual rdf:about="ukg:Simge_Irizalp">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ayca/ontologies/2026/3/university-kg#professor"/>
+        <belongsTo rdf:resource="ukg:MEE_Dept"/>
+        <email>simge.gencalp@cbu.edu.tr</email>
+        <fullName>Doç. Dr. Simge İRİZALP</fullName>
+        <title>Doç. Dr.</title>
+        <worksIn rdf:resource="ukg:SF_ConstructionManufacturing"/>
+        <rdfs:comment xml:lang="tr">Bölüm Başkan Yardımcısı</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- ukg:Sinem -->
+
+
+    <owl:NamedIndividual rdf:about="ukg:Sinem">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ayca/ontologies/2026/3/university-kg#student"/>
+        <GPA rdf:datatype="xsd:float">2.90</GPA>
+        <belongsTo rdf:resource="ukg:MEE_Dept"/>
+        <fullName>Sinem</fullName>
+        <isEnrolledIn rdf:resource="ukg:MAK2113"/>
+        <isEnrolledIn rdf:resource="ukg:MAK2119"/>
+        <studentID>20210003</studentID>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- ukg:Sirri_Polat -->
+
+
+    <owl:NamedIndividual rdf:about="ukg:Sirri_Polat">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ayca/ontologies/2026/3/university-kg#researchAssistant"/>
+        <belongsTo rdf:resource="ukg:MEE_Dept"/>
+        <email>sirri.polat@cbu.edu.tr</email>
+        <fullName>Arş. Gör. Sırrı Can POLAT</fullName>
+        <title>Araştırma Görevlisi</title>
+        <worksIn rdf:resource="ukg:SF_MachineTheory"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- ukg:Spring -->
+
+
+    <owl:NamedIndividual rdf:about="ukg:Spring">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ayca/ontologies/2026/3/university-kg#academicTerm"/>
+        <rdfs:label xml:lang="en">Spring Semester</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- ukg:Suleyman_Yigit_Kaygisiz -->
+
+
+    <owl:NamedIndividual rdf:about="ukg:Suleyman_Yigit_Kaygisiz">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ayca/ontologies/2026/3/university-kg#researchAssistant"/>
+        <belongsTo rdf:resource="ukg:CSE_Dept"/>
+        <email>suleyman.kaygisiz@cbu.edu.tr</email>
+        <fullName>Arş. Gör. Süleyman Yiğit Kaygısız</fullName>
+        <title>Araştırma Görevlisi</title>
+        <worksIn rdf:resource="ukg:SF_ComputerScience"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- ukg:Tugba_Ozacar_Ozturk -->
+
+
+    <owl:NamedIndividual rdf:about="ukg:Tugba_Ozacar_Ozturk">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ayca/ontologies/2026/3/university-kg#professor"/>
+        <avesisURL rdf:datatype="xsd:anyURI">https://avesis.mcbu.edu.tr/tugba.ozacar</avesisURL>
+        <belongsTo rdf:resource="ukg:CSE_Dept"/>
+        <email>tugba.ozacar@cbu.edu.tr</email>
+        <fullName>Prof. Dr. Tuğba ÖZACAR ÖZTÜRK</fullName>
+        <teaches rdf:resource="ukg:CSE3207"/>
+        <teaches rdf:resource="ukg:CSE3209"/>
+        <title>Prof. Dr.</title>
+        <worksIn rdf:resource="ukg:SF_Software"/>
+        <rdfs:comment xml:lang="tr">Bölüm Başkanı, Yazılım Anabilim Dalı Başkanı</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- ukg:Turan_Goktug_Altundogan -->
+
+
+    <owl:NamedIndividual rdf:about="ukg:Turan_Goktug_Altundogan">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ayca/ontologies/2026/3/university-kg#researchAssistant"/>
+        <belongsTo rdf:resource="ukg:CSE_Dept"/>
+        <email>turan.altundogan@cbu.edu.tr</email>
+        <fullName>Arş. Gör. Dr. Turan Göktuğ ALTUNDOĞAN</fullName>
+        <title>Araştırma Görevlisi</title>
+        <worksIn rdf:resource="ukg:SF_Hardware"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- ukg:Ugur_Ozmen -->
+
+
+    <owl:NamedIndividual rdf:about="ukg:Ugur_Ozmen">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ayca/ontologies/2026/3/university-kg#professor"/>
+        <belongsTo rdf:resource="ukg:MEE_Dept"/>
+        <email>ugur.ozmen@cbu.edu.tr</email>
+        <fullName>Dr. Öğr. Üyesi Uğur ÖZMEN</fullName>
+        <title>Dr. Öğr. Üyesi</title>
+        <worksIn rdf:resource="ukg:SF_Mechanics"/>
+        <rdfs:comment xml:lang="tr">Mekanik Anabilim Dalı Öğretim Üyesi</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- ukg:Umut_Dokmen -->
+
+
+    <owl:NamedIndividual rdf:about="ukg:Umut_Dokmen">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ayca/ontologies/2026/3/university-kg#researchAssistant"/>
+        <belongsTo rdf:resource="ukg:CSE_Dept"/>
+        <email>umut.dokmen@cbu.edu.tr</email>
+        <fullName>Arş. Gör. Umut DÖKMEN</fullName>
+        <title>Araştırma Görevlisi</title>
+        <worksIn rdf:resource="ukg:SF_ComputerScience"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- ukg:Volkan_Altintas -->
+
+
+    <owl:NamedIndividual rdf:about="ukg:Volkan_Altintas">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ayca/ontologies/2026/3/university-kg#professor"/>
+        <avesisURL rdf:datatype="xsd:anyURI">https://avesis.mcbu.edu.tr/volkan.altintas</avesisURL>
+        <belongsTo rdf:resource="ukg:CSE_Dept"/>
+        <email>volkan.altintas@cbu.edu.tr</email>
+        <fullName>Dr. Öğr. Üyesi Volkan ALTINTAŞ</fullName>
+        <teaches rdf:resource="ukg:CSE2136"/>
+        <teaches rdf:resource="ukg:CSE3131"/>
+        <title>Dr. Öğr. Üyesi</title>
+        <worksIn rdf:resource="ukg:SF_Hardware"/>
+        <rdfs:comment xml:lang="tr">Donanım Anabilim Dalı Başkanı</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- ukg:Yigit_Aksoy -->
+
+
+    <owl:NamedIndividual rdf:about="ukg:Yigit_Aksoy">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ayca/ontologies/2026/3/university-kg#professor"/>
+        <belongsTo rdf:resource="ukg:MEE_Dept"/>
+        <email>yigit.aksoy@cbu.edu.tr</email>
+        <fullName>Doç. Dr. Yiğit AKSOY</fullName>
+        <title>Doç. Dr.</title>
+        <worksIn rdf:resource="ukg:SF_Thermodynamics"/>
+        <rdfs:comment xml:lang="tr">Termodinamik Anabilim Dalı Öğretim Üyesi</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- ukg:Zeynep_Cipiloglu_Yildiz -->
+
+
+    <owl:NamedIndividual rdf:about="ukg:Zeynep_Cipiloglu_Yildiz">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ayca/ontologies/2026/3/university-kg#professor"/>
+        <avesisURL rdf:datatype="xsd:anyURI">https://avesis.mcbu.edu.tr/zeynep.cipiloglu</avesisURL>
+        <belongsTo rdf:resource="ukg:CSE_Dept"/>
+        <email>zeynep.cipiloglu@cbu.edu.tr</email>
+        <fullName>Dr. Öğr. Üyesi Zeynep ÇİPİLOĞLU YILDIZ</fullName>
+        <teaches rdf:resource="ukg:CSE3139"/>
+        <teaches rdf:resource="ukg:CSE3242"/>
+        <title>Dr. Öğr. Üyesi</title>
+        <worksIn rdf:resource="ukg:SF_ComputerScience"/>
+        <rdfs:comment xml:lang="tr">Bölüm Başkan Yardımcısı</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- ukg:Zeynep_Demir -->
+
+
+    <owl:NamedIndividual rdf:about="ukg:Zeynep_Demir">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ayca/ontologies/2026/3/university-kg#student"/>
+        <GPA rdf:datatype="xsd:float">3.75</GPA>
+        <belongsTo rdf:resource="ukg:CSE_Dept"/>
+        <fullName>Zeynep Demir</fullName>
+        <isEnrolledIn rdf:resource="ukg:CSE3213"/>
+        <isEnrolledIn rdf:resource="ukg:CSE3226"/>
+        <isEnrolledIn rdf:resource="ukg:CSE3232"/>
+        <studentID>20220010</studentID>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotations
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+
+    <rdf:Description rdf:about="ukg:CSE3136_CN">
+        <hasPrerequisite rdf:resource="ukg:CSE2101"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="ukg:GPA">
+        <rdfs:label xml:lang="en">GPA (0.0 - 4.0)</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="ukg:avesisURL">
+        <rdfs:label xml:lang="en">AVESİS profile URL</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="ukg:courseCode">
+        <rdfs:label xml:lang="en">course code</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="ukg:courseName">
+        <rdfs:label xml:lang="en">course name</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="ukg:departmentName">
+        <rdfs:label xml:lang="en">department name</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="ukg:email">
+        <rdfs:label xml:lang="en">email address</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="ukg:fullName">
+        <rdfs:label xml:lang="en">full name</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="ukg:semester">
+        <rdfs:label xml:lang="en">semester (1-8)</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="ukg:studentID">
+        <rdfs:label xml:lang="en">student ID</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="ukg:subFieldName">
+        <rdfs:label xml:lang="en">sub-field name</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="ukg:title">
+        <rdfs:label xml:lang="en">academic title</rdfs:label>
+    </rdf:Description>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // General axioms
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="ukg:professor"/>
+            <rdf:Description rdf:about="ukg:researchAssistant"/>
+            <rdf:Description rdf:about="ukg:student"/>
+        </owl:members>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointProperties"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="ukg:hasPrerequisite"/>
+            <rdf:Description rdf:about="ukg:isEnrolledIn"/>
+            <rdf:Description rdf:about="ukg:teaches"/>
+        </owl:members>
+    </rdf:Description>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 5.1.18) https://github.com/owlcs/owlapi/ -->
+
+

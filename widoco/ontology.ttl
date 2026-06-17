@@ -1,0 +1,2978 @@
+@prefix : <http://www.semanticweb.org/ayca/ontologies/2026/3/university-kg#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <http://www.semanticweb.org/ayca/ontologies/2026/3/university-kg#> .
+
+<http://www.semanticweb.org/ayca/ontologies/2026/3/university-kg> rdf:type owl:Ontology ;
+                                                                   rdfs:comment "Extended ontology for Manisa Celal Bayar University Engineering Faculty. Models courses, academic staff, departments, and sub-fields. Version 2 adds MandatoryCourse/ElectiveCourse subclasses, ResearchAssistant class, SubField class, extended data properties, and real data from CSE, MEE, and IE departments."@en ;
+                                                                   rdfs:label "University Knowledge Graph Ontology v2"@en ,
+                                                                              "Üniversite Bilgi Grafiği Ontolojisi v2"@tr ;
+                                                                   owl:versionInfo "2.0" .
+
+#################################################################
+#    Annotation properties
+#################################################################
+
+###  http://www.semanticweb.org/ayca/ontologies/2026/3/university-kg#GPA
+:GPA rdf:type owl:AnnotationProperty .
+
+
+###  http://www.semanticweb.org/ayca/ontologies/2026/3/university-kg#avesisURL
+:avesisURL rdf:type owl:AnnotationProperty .
+
+
+###  http://www.semanticweb.org/ayca/ontologies/2026/3/university-kg#belongsTo
+:belongsTo rdf:type owl:AnnotationProperty .
+
+
+###  http://www.semanticweb.org/ayca/ontologies/2026/3/university-kg#courseCode
+:courseCode rdf:type owl:AnnotationProperty .
+
+
+###  http://www.semanticweb.org/ayca/ontologies/2026/3/university-kg#courseName
+:courseName rdf:type owl:AnnotationProperty .
+
+
+###  http://www.semanticweb.org/ayca/ontologies/2026/3/university-kg#departmentName
+:departmentName rdf:type owl:AnnotationProperty .
+
+
+###  http://www.semanticweb.org/ayca/ontologies/2026/3/university-kg#email
+:email rdf:type owl:AnnotationProperty .
+
+
+###  http://www.semanticweb.org/ayca/ontologies/2026/3/university-kg#fullName
+:fullName rdf:type owl:AnnotationProperty .
+
+
+###  http://www.semanticweb.org/ayca/ontologies/2026/3/university-kg#hasCourse
+:hasCourse rdf:type owl:AnnotationProperty .
+
+
+###  http://www.semanticweb.org/ayca/ontologies/2026/3/university-kg#hasPrerequisite
+:hasPrerequisite rdf:type owl:AnnotationProperty .
+
+
+###  http://www.semanticweb.org/ayca/ontologies/2026/3/university-kg#hasSubField
+:hasSubField rdf:type owl:AnnotationProperty .
+
+
+###  http://www.semanticweb.org/ayca/ontologies/2026/3/university-kg#isEnrolledIn
+:isEnrolledIn rdf:type owl:AnnotationProperty .
+
+
+###  http://www.semanticweb.org/ayca/ontologies/2026/3/university-kg#offeredIn
+:offeredIn rdf:type owl:AnnotationProperty .
+
+
+###  http://www.semanticweb.org/ayca/ontologies/2026/3/university-kg#semester
+:semester rdf:type owl:AnnotationProperty .
+
+
+###  http://www.semanticweb.org/ayca/ontologies/2026/3/university-kg#studentID
+:studentID rdf:type owl:AnnotationProperty .
+
+
+###  http://www.semanticweb.org/ayca/ontologies/2026/3/university-kg#subFieldName
+:subFieldName rdf:type owl:AnnotationProperty .
+
+
+###  http://www.semanticweb.org/ayca/ontologies/2026/3/university-kg#teaches
+:teaches rdf:type owl:AnnotationProperty .
+
+
+###  http://www.semanticweb.org/ayca/ontologies/2026/3/university-kg#title
+:title rdf:type owl:AnnotationProperty .
+
+
+###  http://www.semanticweb.org/ayca/ontologies/2026/3/university-kg#worksIn
+:worksIn rdf:type owl:AnnotationProperty .
+
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  ukg:GPA
+<ukg:GPA> rdf:type owl:ObjectProperty ;
+          rdfs:domain <ukg:student> ;
+          rdfs:range <xsd:float> .
+
+
+###  ukg:avesisURL
+<ukg:avesisURL> rdf:type owl:ObjectProperty ;
+                rdfs:domain <ukg:academicStaff> ;
+                rdfs:range <xsd:anyURI> .
+
+
+###  ukg:belongsTo
+<ukg:belongsTo> rdf:type owl:ObjectProperty ;
+                rdfs:domain <ukg:person> ;
+                rdfs:range <ukg:department> ;
+                rdfs:comment "Relates a person to their department."@en ;
+                rdfs:label "belongs to"@en .
+
+
+###  ukg:courseCode
+<ukg:courseCode> rdf:type owl:ObjectProperty ;
+                 rdfs:domain <ukg:course> ;
+                 rdfs:range <xsd:string> .
+
+
+###  ukg:courseName
+<ukg:courseName> rdf:type owl:ObjectProperty ;
+                 rdfs:domain <ukg:course> ;
+                 rdfs:range <xsd:string> .
+
+
+###  ukg:departmentName
+<ukg:departmentName> rdf:type owl:ObjectProperty ;
+                     rdfs:domain <ukg:department> ;
+                     rdfs:range <xsd:string> .
+
+
+###  ukg:email
+<ukg:email> rdf:type owl:ObjectProperty ;
+            rdfs:domain <ukg:person> ;
+            rdfs:range <xsd:string> .
+
+
+###  ukg:fullName
+<ukg:fullName> rdf:type owl:ObjectProperty ;
+               rdfs:domain <ukg:person> ;
+               rdfs:range <xsd:string> .
+
+
+###  ukg:hasCourse
+<ukg:hasCourse> rdf:type owl:ObjectProperty ;
+                rdfs:domain <ukg:department> ;
+                rdfs:range <ukg:course> ;
+                rdfs:comment "Relates a department to the courses it offers."@en ;
+                rdfs:label "has course"@en .
+
+
+###  ukg:hasPrerequisite
+<ukg:hasPrerequisite> rdf:type owl:ObjectProperty ,
+                               owl:TransitiveProperty ;
+                      rdfs:domain <ukg:course> ;
+                      rdfs:range <ukg:course> ;
+                      rdfs:comment "A course requires another course as prerequisite. Transitive."@en ;
+                      rdfs:label "has prerequisite"@en .
+
+
+###  ukg:hasSubField
+<ukg:hasSubField> rdf:type owl:ObjectProperty ;
+                  rdfs:domain <ukg:department> ;
+                  rdfs:range <ukg:subField> ;
+                  rdfs:comment "Relates a department to its academic sub-fields."@en ;
+                  rdfs:label "has sub-field"@en .
+
+
+###  ukg:isEnrolledIn
+<ukg:isEnrolledIn> rdf:type owl:ObjectProperty ;
+                   rdfs:domain <ukg:student> ;
+                   rdfs:range <ukg:course> ;
+                   rdfs:label "is enrolled in"@en .
+
+
+###  ukg:offeredIn
+<ukg:offeredIn> rdf:type owl:ObjectProperty ;
+                rdfs:domain <ukg:course> ;
+                rdfs:range <ukg:academicTerm> ;
+                rdfs:comment "Relates a course to the academic term it is offered in."@en ;
+                rdfs:label "offered in"@en .
+
+
+###  ukg:semester
+<ukg:semester> rdf:type owl:ObjectProperty ;
+               rdfs:domain <ukg:course> ;
+               rdfs:range <xsd:integer> .
+
+
+###  ukg:studentID
+<ukg:studentID> rdf:type owl:ObjectProperty ;
+                rdfs:domain <ukg:student> ;
+                rdfs:range <xsd:string> .
+
+
+###  ukg:subFieldName
+<ukg:subFieldName> rdf:type owl:ObjectProperty ;
+                   rdfs:domain <ukg:subField> ;
+                   rdfs:range <xsd:string> .
+
+
+###  ukg:supervises
+<ukg:supervises> rdf:type owl:ObjectProperty ;
+                 rdfs:domain <ukg:professor> ;
+                 rdfs:range <ukg:researchAssistant> ;
+                 rdfs:label "supervises"@en .
+
+
+###  ukg:teaches
+<ukg:teaches> rdf:type owl:ObjectProperty ;
+              rdfs:domain <ukg:professor> ;
+              rdfs:range <ukg:course> ;
+              rdfs:label "teaches"@en .
+
+
+###  ukg:title
+<ukg:title> rdf:type owl:ObjectProperty ;
+            rdfs:domain <ukg:academicStaff> ;
+            rdfs:range <xsd:string> .
+
+
+###  ukg:worksIn
+<ukg:worksIn> rdf:type owl:ObjectProperty ;
+              rdfs:domain <ukg:academicStaff> ;
+              rdfs:range <ukg:subField> ;
+              rdfs:comment "Relates an academic staff member to their sub-field (anabilim dalı)."@en ;
+              rdfs:label "works in"@en .
+
+
+#################################################################
+#    Data properties
+#################################################################
+
+###  ukg:GPA
+<ukg:GPA> rdf:type owl:DatatypeProperty .
+
+
+###  ukg:avesisURL
+<ukg:avesisURL> rdf:type owl:DatatypeProperty .
+
+
+###  ukg:courseCode
+<ukg:courseCode> rdf:type owl:DatatypeProperty .
+
+
+###  ukg:courseName
+<ukg:courseName> rdf:type owl:DatatypeProperty .
+
+
+###  ukg:departmentName
+<ukg:departmentName> rdf:type owl:DatatypeProperty .
+
+
+###  ukg:email
+<ukg:email> rdf:type owl:DatatypeProperty .
+
+
+###  ukg:fullName
+<ukg:fullName> rdf:type owl:DatatypeProperty .
+
+
+###  ukg:semester
+<ukg:semester> rdf:type owl:DatatypeProperty .
+
+
+###  ukg:studentID
+<ukg:studentID> rdf:type owl:DatatypeProperty .
+
+
+###  ukg:subFieldName
+<ukg:subFieldName> rdf:type owl:DatatypeProperty .
+
+
+###  ukg:title
+<ukg:title> rdf:type owl:DatatypeProperty .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://www.semanticweb.org/ayca/ontologies/2026/3/university-kg#academicTerm
+:academicTerm rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/ayca/ontologies/2026/3/university-kg#department
+:department rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/ayca/ontologies/2026/3/university-kg#electiveCourse
+:electiveCourse rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/ayca/ontologies/2026/3/university-kg#mandatoryCourse
+:mandatoryCourse rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/ayca/ontologies/2026/3/university-kg#professor
+:professor rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/ayca/ontologies/2026/3/university-kg#researchAssistant
+:researchAssistant rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/ayca/ontologies/2026/3/university-kg#student
+:student rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/ayca/ontologies/2026/3/university-kg#subField
+:subField rdf:type owl:Class .
+
+
+###  ukg:academicStaff
+<ukg:academicStaff> rdf:type owl:Class ;
+                    rdfs:subClassOf <ukg:person> ;
+                    rdfs:label "Academic Staff"@en .
+
+
+###  ukg:academicTerm
+<ukg:academicTerm> rdf:type owl:Class ;
+                   rdfs:comment "A semester or academic period (Fall, Spring)."@en ;
+                   rdfs:label "Academic Term"@en .
+
+
+###  ukg:course
+<ukg:course> rdf:type owl:Class ;
+             rdfs:comment "A course offered by a department."@en ;
+             rdfs:label "Course"@en .
+
+
+###  ukg:department
+<ukg:department> rdf:type owl:Class ;
+                 rdfs:comment "An engineering department at MCBU."@en ;
+                 rdfs:label "Department"@en .
+
+
+###  ukg:electiveCourse
+<ukg:electiveCourse> rdf:type owl:Class ;
+                     rdfs:subClassOf <ukg:course> ;
+                     owl:disjointWith <ukg:mandatoryCourse> ;
+                     rdfs:comment "A course that students can optionally select (Seçmeli)."@en ;
+                     rdfs:label "Elective Course"@en .
+
+
+###  ukg:mandatoryCourse
+<ukg:mandatoryCourse> rdf:type owl:Class ;
+                      rdfs:subClassOf <ukg:course> ;
+                      rdfs:comment "A course that is compulsory for students (Zorunlu)."@en ;
+                      rdfs:label "Mandatory Course"@en .
+
+
+###  ukg:person
+<ukg:person> rdf:type owl:Class ;
+             rdfs:label "Person"@en .
+
+
+###  ukg:professor
+<ukg:professor> rdf:type owl:Class ;
+                rdfs:subClassOf <ukg:academicStaff> ;
+                rdfs:comment "Full professor, associate professor, or assistant professor (Öğretim Üyesi)."@en ;
+                rdfs:label "Professor / Lecturer"@en .
+
+
+###  ukg:researchAssistant
+<ukg:researchAssistant> rdf:type owl:Class ;
+                        rdfs:subClassOf <ukg:academicStaff> ;
+                        rdfs:label "Research Assistant (Araştırma Görevlisi)"@en .
+
+
+###  ukg:student
+<ukg:student> rdf:type owl:Class ;
+              rdfs:subClassOf <ukg:person> ;
+              rdfs:label "Student"@en .
+
+
+###  ukg:subField
+<ukg:subField> rdf:type owl:Class ;
+               rdfs:comment "Academic sub-field within a department."@en ;
+               rdfs:label "Sub-Field (Anabilim Dalı)"@en .
+
+
+###  xsd:string
+<xsd:string> rdf:type owl:Class .
+
+
+#################################################################
+#    Individuals
+#################################################################
+
+###  http://www.semanticweb.org/ayca/ontologies/2026/3/university-kg#wrong_student
+:wrong_student rdf:type owl:NamedIndividual ,
+                        :student ;
+               <ukg:GPA> "4.5"^^<xsd:float> .
+
+
+###  ukg:Ahmet_Cahit_Yasa
+<ukg:Ahmet_Cahit_Yasa> rdf:type owl:NamedIndividual ,
+                                :researchAssistant ;
+                       :belongsTo <ukg:CSE_Dept> ;
+                       :email "ahmet.yasa@cbu.edu.tr" ;
+                       :fullName "Arş. Gör. Dr. Ahmet Cahit YAŞA" ;
+                       :title "Araştırma Görevlisi" ;
+                       :worksIn <ukg:SF_Software> .
+
+
+###  ukg:Ali_Yilmaz
+<ukg:Ali_Yilmaz> rdf:type owl:NamedIndividual ,
+                          :student ;
+                 :GPA "2.80"^^<xsd:float> ;
+                 :belongsTo <ukg:IE_Dept> ;
+                 :fullName "Ali Yılmaz" ;
+                 :isEnrolledIn <ukg:END4267> ,
+                               <ukg:IND2118> ,
+                               <ukg:IND3101> ;
+                 :studentID "20220011" .
+
+
+###  ukg:Ali_Yurddas
+<ukg:Ali_Yurddas> rdf:type owl:NamedIndividual ,
+                           :professor ;
+                  :belongsTo <ukg:MEE_Dept> ;
+                  :email "ali.yurddas@cbu.edu.tr" ;
+                  :fullName "Prof. Dr. Ali YURDDAŞ" ;
+                  :title "Prof. Dr." ;
+                  :worksIn <ukg:SF_Thermodynamics> ;
+                  rdfs:comment "Bölüm Başkanı"@tr .
+
+
+###  ukg:Alp_Eren
+<ukg:Alp_Eren> rdf:type owl:NamedIndividual ,
+                        :researchAssistant ;
+               :belongsTo <ukg:MEE_Dept> ;
+               :email "alp.eren@cbu.edu.tr" ;
+               :fullName "Arş. Gör. Alp EREN" ;
+               :title "Araştırma Görevlisi" ;
+               :worksIn <ukg:SF_Mechanics> .
+
+
+###  ukg:Anil_Basaran
+<ukg:Anil_Basaran> rdf:type owl:NamedIndividual ,
+                            :professor ;
+                   :belongsTo <ukg:MEE_Dept> ;
+                   :email "anil.basaran@cbu.edu.tr" ;
+                   :fullName "Doç. Dr. Anıl BAŞARAN" ;
+                   :title "Doç. Dr." ;
+                   :worksIn <ukg:SF_Thermodynamics> ;
+                   rdfs:comment "Termodinamik Anabilim Dalı Öğretim Üyesi"@tr .
+
+
+###  ukg:Ayca_Keskin
+<ukg:Ayca_Keskin> rdf:type owl:NamedIndividual ,
+                           :student ;
+                  :GPA "3.45"^^<xsd:float> ;
+                  :belongsTo <ukg:CSE_Dept> ;
+                  :fullName "Ayca_Keskin" ;
+                  :isEnrolledIn <ukg:CSE3131> ,
+                                <ukg:CSE3217> ,
+                                <ukg:CSE3226> ;
+                  :studentID "20210001" .
+
+
+###  ukg:Aykan_Akincilar
+<ukg:Aykan_Akincilar> rdf:type owl:NamedIndividual ,
+                               :researchAssistant ;
+                      :belongsTo <ukg:IE_Dept> ;
+                      :email "aykan.akincilar@cbu.edu.tr" ;
+                      :fullName "Arş. Gör. Dr. Aykan AKINCILAR" ;
+                      :title "Araştırma Görevlisi" ;
+                      :worksIn <ukg:SF_IndustrialEngineering> .
+
+
+###  ukg:Aykut_Karakor
+<ukg:Aykut_Karakor> rdf:type owl:NamedIndividual ,
+                             :researchAssistant ;
+                    :belongsTo <ukg:MEE_Dept> ;
+                    :email "aykut.karakor@cbu.edu.tr" ;
+                    :fullName "Arş. Gör. Aykut KARAKOR" ;
+                    :title "Araştırma Görevlisi" ;
+                    :worksIn <ukg:SF_Thermodynamics> .
+
+
+###  ukg:Bahattin_Akgul
+<ukg:Bahattin_Akgul> rdf:type owl:NamedIndividual ,
+                              :professor ;
+                     :belongsTo <ukg:MEE_Dept> ;
+                     :email "mbakgul@cbu.edu.tr" ;
+                     :fullName "Doç. Dr. M. Bahattin AKGÜL" ;
+                     :title "Doç. Dr." ;
+                     :worksIn <ukg:SF_Energy> ;
+                     rdfs:comment "Enerji Anabilim Dalı Başkanı"@tr .
+
+
+###  ukg:Birim_Balci
+<ukg:Birim_Balci> rdf:type owl:NamedIndividual ,
+                           :professor ;
+                  :avesisURL "https://avesis.mcbu.edu.tr/birim.balci"^^<xsd:anyURI> ;
+                  :belongsTo <ukg:CSE_Dept> ;
+                  :email "birim.balci@cbu.edu.tr" ;
+                  :fullName "Doç. Dr. Birim BALCI" ;
+                  :teaches <ukg:CSE3221> ,
+                           <ukg:CSE3222> ,
+                           <ukg:CSE3252> ;
+                  :title "Doç. Dr." ;
+                  :worksIn <ukg:SF_ComputerScience> ;
+                  rdfs:comment "Bilgisayar Bilimleri Anabilim Dalı Öğretim Üyesi"@tr .
+
+
+###  ukg:Bora_Canbula
+<ukg:Bora_Canbula> rdf:type owl:NamedIndividual ,
+                            :professor ;
+                   :avesisURL "https://avesis.mcbu.edu.tr/bora.canbula"^^<xsd:anyURI> ;
+                   :belongsTo <ukg:CSE_Dept> ;
+                   :email "bora.canbula@cbu.edu.tr" ;
+                   :fullName "Doç. Dr. Bora CANBULA" ;
+                   :teaches <ukg:CSE3223> ,
+                            <ukg:CSE3234> ,
+                            <ukg:CSE3248> ;
+                   :title "Doç. Dr." ;
+                   :worksIn <ukg:SF_Software> ;
+                   rdfs:comment "Yazılım Anabilim Dalı Öğretim Üyesi"@tr .
+
+
+###  ukg:Burak_Ozhan
+<ukg:Burak_Ozhan> rdf:type owl:NamedIndividual ,
+                           :professor ;
+                  :belongsTo <ukg:MEE_Dept> ;
+                  :email "burak.ozhan@cbu.edu.tr" ;
+                  :fullName "Prof. Dr. B. Burak ÖZHAN" ;
+                  :teaches <ukg:MAK2119> ,
+                           <ukg:MAK2120> ;
+                  :title "Prof. Dr." ;
+                  :worksIn <ukg:SF_Mechanics> ;
+                  rdfs:comment "Mekanik Anabilim Dalı Başkanı"@tr .
+
+
+###  ukg:Buse_Aksoy
+<ukg:Buse_Aksoy> rdf:type owl:NamedIndividual ,
+                          :student ;
+                 :GPA "3.90"^^<xsd:float> ;
+                 :belongsTo <ukg:MEE_Dept> ;
+                 :fullName "Buse Aksoy" ;
+                 :isEnrolledIn <ukg:MAK3119> ,
+                               <ukg:MAK3127> ,
+                               <ukg:MAK3151> ;
+                 :studentID "20220013" .
+
+
+###  ukg:CBU4403_IE
+<ukg:CBU4403_IE> rdf:type owl:NamedIndividual ,
+                          :mandatoryCourse ;
+                 :courseCode "CBU4403_IE" ;
+                 :courseName "İş Sağlığı ve Güvenliği I" ;
+                 :hasCourse <ukg:IE_Dept> ;
+                 :offeredIn <ukg:Spring> ;
+                 :semester 9 .
+
+
+###  ukg:CBU4403_MEE
+<ukg:CBU4403_MEE> rdf:type owl:NamedIndividual ,
+                           :mandatoryCourse ;
+                  :courseCode "CBU4403_MEE" ;
+                  :courseName "İş Sağlığı ve Güvenliği I" ;
+                  :hasCourse <ukg:MEE_Dept> ;
+                  :offeredIn <ukg:Spring> ;
+                  :semester "6"^^<xsd:integer> .
+
+
+###  ukg:CBU4404_MEE
+<ukg:CBU4404_MEE> rdf:type owl:NamedIndividual ,
+                           :mandatoryCourse ;
+                  :courseCode "CBU4404_MEE" ;
+                  :courseName "İş Sağlığı ve Güvenliği II" ;
+                  :hasCourse <ukg:MEE_Dept> ;
+                  :offeredIn <ukg:Fall> ;
+                  :semester "7"^^<xsd:integer> .
+
+
+###  ukg:CBU4405
+<ukg:CBU4405> rdf:type owl:NamedIndividual ,
+                       :mandatoryCourse ;
+              :courseCode "CBU4405" ;
+              :courseName "Job Safety and Workers Health I" ;
+              :hasCourse <ukg:CSE_Dept> ;
+              :offeredIn <ukg:Spring> ;
+              :semester "6"^^<xsd:integer> .
+
+
+###  ukg:CBU4406
+<ukg:CBU4406> rdf:type owl:NamedIndividual ,
+                       :mandatoryCourse ;
+              :courseCode "CBU4406" ;
+              :courseName "Job Safety and Workers Health II" ;
+              :hasCourse <ukg:CSE_Dept> ;
+              :offeredIn <ukg:Fall> ;
+              :semester "7"^^<xsd:integer> .
+
+
+###  ukg:CSE1120
+<ukg:CSE1120> rdf:type owl:NamedIndividual ,
+                       :mandatoryCourse ;
+              :courseCode "CSE1120" ;
+              :courseName "Discrete Structures" ;
+              :hasCourse <ukg:CSE_Dept> ;
+              :offeredIn <ukg:Spring> ;
+              :semester "2"^^<xsd:integer> .
+
+
+###  ukg:CSE1124
+<ukg:CSE1124> rdf:type owl:NamedIndividual ,
+                       :mandatoryCourse ;
+              :courseCode "CSE1124" ;
+              :courseName "Object Oriented Programming" ;
+              :hasCourse <ukg:CSE_Dept> ;
+              :offeredIn <ukg:Spring> ;
+              :semester "2"^^<xsd:integer> .
+
+
+###  ukg:CSE1131
+<ukg:CSE1131> rdf:type owl:NamedIndividual ,
+                       :mandatoryCourse ;
+              :courseCode "CSE1131" ;
+              :courseName "Molecular Biology for Computer Scientists" ;
+              :hasCourse <ukg:CSE_Dept> ;
+              :offeredIn <ukg:Fall> ;
+              :semester "1"^^<xsd:integer> .
+
+
+###  ukg:CSE1133
+<ukg:CSE1133> rdf:type owl:NamedIndividual ,
+                       :mandatoryCourse ;
+              :courseCode "CSE1133" ;
+              :courseName "Introduction to Programming" ;
+              :hasCourse <ukg:CSE_Dept> ;
+              :offeredIn <ukg:Fall> ;
+              :semester "1"^^<xsd:integer> .
+
+
+###  ukg:CSE1141
+<ukg:CSE1141> rdf:type owl:NamedIndividual ,
+                       :mandatoryCourse ;
+              :courseCode "CSE1141" ;
+              :courseName "Introduction to Computer Engineering" ;
+              :hasCourse <ukg:CSE_Dept> ;
+              :offeredIn <ukg:Fall> ;
+              :semester "1"^^<xsd:integer> .
+
+
+###  ukg:CSE1143
+<ukg:CSE1143> rdf:type owl:NamedIndividual ,
+                       :mandatoryCourse ;
+              :courseCode "CSE1143" ;
+              :courseName "Introduction to Computer Engineering and Career Planning" ;
+              :hasCourse <ukg:CSE_Dept> ;
+              :offeredIn <ukg:Fall> ;
+              :semester "1"^^<xsd:integer> .
+
+
+###  ukg:CSE2101
+<ukg:CSE2101> rdf:type owl:NamedIndividual ,
+                       :mandatoryCourse ;
+              :courseCode "CSE2101" ;
+              :courseName "Electrical Circuits and Electronics" ;
+              :hasCourse <ukg:CSE_Dept> ;
+              :offeredIn <ukg:Fall> ;
+              :semester "3"^^<xsd:integer> .
+
+
+###  ukg:CSE2105
+<ukg:CSE2105> rdf:type owl:NamedIndividual ,
+                       :mandatoryCourse ;
+              :courseCode "CSE2105" ;
+              :courseName "Data Structures" ;
+              :hasCourse <ukg:CSE_Dept> ;
+              :hasPrerequisite <ukg:CSE1133> ;
+              :offeredIn <ukg:Fall> ;
+              :semester "3"^^<xsd:integer> .
+
+
+###  ukg:CSE2113
+<ukg:CSE2113> rdf:type owl:NamedIndividual ,
+                       :mandatoryCourse ;
+              :courseCode "CSE2113" ;
+              :courseName "Formal Languages and Abstract Machines" ;
+              :hasCourse <ukg:CSE_Dept> ;
+              :hasPrerequisite <ukg:CSE1120> ;
+              :offeredIn <ukg:Fall> ;
+              :semester "3"^^<xsd:integer> .
+
+
+###  ukg:CSE2118
+<ukg:CSE2118> rdf:type owl:NamedIndividual ,
+                       :mandatoryCourse ;
+              :courseCode "CSE2118" ;
+              :courseName "Programming Languages" ;
+              :hasCourse <ukg:CSE_Dept> ;
+              :hasPrerequisite <ukg:CSE1133> ;
+              :offeredIn <ukg:Spring> ;
+              :semester "4"^^<xsd:integer> .
+
+
+###  ukg:CSE2122
+<ukg:CSE2122> rdf:type owl:NamedIndividual ,
+                       :mandatoryCourse ;
+              :courseCode "CSE2122" ;
+              :courseName "Design and Analysis of Algorithms" ;
+              :hasCourse <ukg:CSE_Dept> ;
+              :hasPrerequisite <ukg:CSE2105> ;
+              :offeredIn <ukg:Spring> ;
+              :semester "4"^^<xsd:integer> .
+
+
+###  ukg:CSE2136
+<ukg:CSE2136> rdf:type owl:NamedIndividual ,
+                       :mandatoryCourse ;
+              :courseCode "CSE2136" ;
+              :courseName "Logic Design" ;
+              :hasCourse <ukg:CSE_Dept> ;
+              :offeredIn <ukg:Spring> ;
+              :semester "4"^^<xsd:integer> .
+
+
+###  ukg:CSE3131
+<ukg:CSE3131> rdf:type owl:NamedIndividual ,
+                       :mandatoryCourse ;
+              :courseCode "CSE3131" ;
+              :courseName "Computer Organization" ;
+              :hasCourse <ukg:CSE_Dept> ;
+              :hasPrerequisite <ukg:CSE2136> ;
+              :offeredIn <ukg:Fall> ;
+              :semester "5"^^<xsd:integer> .
+
+
+###  ukg:CSE3134
+<ukg:CSE3134> rdf:type owl:NamedIndividual ,
+                       :mandatoryCourse ;
+              :courseCode "CSE3134" ;
+              :courseName "Microprocessor and Embedded Systems" ;
+              :hasCourse <ukg:CSE_Dept> ;
+              :offeredIn <ukg:Spring> ;
+              :semester "6"^^<xsd:integer> .
+
+
+###  ukg:CSE3136
+<ukg:CSE3136> rdf:type owl:NamedIndividual ,
+                       :mandatoryCourse ;
+              :courseCode "CSE3136" ;
+              :courseName "Computer Networks" ;
+              :hasCourse <ukg:CSE_Dept> ;
+              :offeredIn <ukg:Spring> ;
+              :semester "6"^^<xsd:integer> .
+
+
+###  ukg:CSE3137
+<ukg:CSE3137> rdf:type owl:NamedIndividual ,
+                       :mandatoryCourse ;
+              :courseCode "CSE3137" ;
+              :courseName "Object Oriented Analysis and Design" ;
+              :hasCourse <ukg:CSE_Dept> ;
+              :hasPrerequisite <ukg:CSE2118> ;
+              :offeredIn <ukg:Fall> ;
+              :semester "5"^^<xsd:integer> .
+
+
+###  ukg:CSE3139
+<ukg:CSE3139> rdf:type owl:NamedIndividual ,
+                       :mandatoryCourse ;
+              :courseCode "CSE3139" ;
+              :courseName "Database Management Systems" ;
+              :hasCourse <ukg:CSE_Dept> ;
+              :hasPrerequisite <ukg:CSE2105> ;
+              :offeredIn <ukg:Fall> ;
+              :semester "5"^^<xsd:integer> .
+
+
+###  ukg:CSE3207
+<ukg:CSE3207> rdf:type owl:NamedIndividual ,
+                       :electiveCourse ;
+              :courseCode "CSE3207" ;
+              :courseName ".Net Programming" ;
+              :hasCourse <ukg:CSE_Dept> ;
+              :offeredIn <ukg:Fall> ;
+              :semester "5"^^<xsd:integer> .
+
+
+###  ukg:CSE3209
+<ukg:CSE3209> rdf:type owl:NamedIndividual ,
+                       :electiveCourse ;
+              :courseCode "CSE3209" ;
+              :courseName ".Net Web Programming" ;
+              :hasCourse <ukg:CSE_Dept> ;
+              :offeredIn <ukg:Fall> ;
+              :semester "5"^^<xsd:integer> .
+
+
+###  ukg:CSE3211
+<ukg:CSE3211> rdf:type owl:NamedIndividual ,
+                       :electiveCourse ;
+              :courseCode "CSE3211" ;
+              :courseName "Advanced Computer Networks" ;
+              :hasCourse <ukg:CSE_Dept> ;
+              :offeredIn <ukg:Fall> ;
+              :semester "5"^^<xsd:integer> .
+
+
+###  ukg:CSE3213
+<ukg:CSE3213> rdf:type owl:NamedIndividual ,
+                       :electiveCourse ;
+              :courseCode "CSE3213" ;
+              :courseName "Artificial Intelligence" ;
+              :hasCourse <ukg:CSE_Dept> ;
+              :hasPrerequisite <ukg:CSE2122> ;
+              :offeredIn <ukg:Fall> ;
+              :semester "5"^^<xsd:integer> .
+
+
+###  ukg:CSE3214
+<ukg:CSE3214> rdf:type owl:NamedIndividual ,
+                       :electiveCourse ;
+              :courseCode "CSE3214" ;
+              :courseName "Introduction to Digital Image Processing" ;
+              :hasCourse <ukg:CSE_Dept> ;
+              :offeredIn <ukg:Fall> ;
+              :semester "5"^^<xsd:integer> .
+
+
+###  ukg:CSE3216
+<ukg:CSE3216> rdf:type owl:NamedIndividual ,
+                       :electiveCourse ;
+              :courseCode "CSE3216" ;
+              :courseName "Simulation and Modelling" ;
+              :hasCourse <ukg:CSE_Dept> ;
+              :offeredIn <ukg:Fall> ;
+              :semester "5"^^<xsd:integer> .
+
+
+###  ukg:CSE3217
+<ukg:CSE3217> rdf:type owl:NamedIndividual ,
+                       :electiveCourse ;
+              :courseCode "CSE3217" ;
+              :courseName "Automata Theory" ;
+              :hasCourse <ukg:CSE_Dept> ;
+              :offeredIn <ukg:Fall> ;
+              :semester "5"^^<xsd:integer> .
+
+
+###  ukg:CSE3218
+<ukg:CSE3218> rdf:type owl:NamedIndividual ,
+                       :electiveCourse ;
+              :courseCode "CSE3218" ;
+              :courseName "Prolog Programming and Expert Systems" ;
+              :hasCourse <ukg:CSE_Dept> ;
+              :offeredIn <ukg:Fall> ;
+              :semester "5"^^<xsd:integer> .
+
+
+###  ukg:CSE3219
+<ukg:CSE3219> rdf:type owl:NamedIndividual ,
+                       :electiveCourse ;
+              :courseCode "CSE3219" ;
+              :courseName "Computer Graphics" ;
+              :hasCourse <ukg:CSE_Dept> ;
+              :offeredIn <ukg:Fall> ;
+              :semester "5"^^<xsd:integer> .
+
+
+###  ukg:CSE3220
+<ukg:CSE3220> rdf:type owl:NamedIndividual ,
+                       :electiveCourse ;
+              :courseCode "CSE3220" ;
+              :courseName "Machine Learning" ;
+              :hasCourse <ukg:CSE_Dept> ;
+              :hasPrerequisite <ukg:CSE3213> ;
+              :offeredIn <ukg:Fall> ;
+              :semester "5"^^<xsd:integer> .
+
+
+###  ukg:CSE3221
+<ukg:CSE3221> rdf:type owl:NamedIndividual ,
+                       :electiveCourse ;
+              :courseCode "CSE3221" ;
+              :courseName "Distributed Systems and Algorithms" ;
+              :hasCourse <ukg:CSE_Dept> ;
+              :offeredIn <ukg:Fall> ;
+              :semester "5"^^<xsd:integer> .
+
+
+###  ukg:CSE3222
+<ukg:CSE3222> rdf:type owl:NamedIndividual ,
+                       :electiveCourse ;
+              :courseCode "CSE3222" ;
+              :courseName "Data Mining" ;
+              :hasCourse <ukg:CSE_Dept> ;
+              :offeredIn <ukg:Fall> ;
+              :semester "5"^^<xsd:integer> .
+
+
+###  ukg:CSE3223
+<ukg:CSE3223> rdf:type owl:NamedIndividual ,
+                       :electiveCourse ;
+              :courseCode "CSE3223" ;
+              :courseName "Web Programming" ;
+              :hasCourse <ukg:CSE_Dept> ;
+              :offeredIn <ukg:Fall> ;
+              :semester "5"^^<xsd:integer> .
+
+
+###  ukg:CSE3225
+<ukg:CSE3225> rdf:type owl:NamedIndividual ,
+                       :electiveCourse ;
+              :courseCode "CSE3225" ;
+              :courseName "Mobile Computing with iOS and Android" ;
+              :hasCourse <ukg:CSE_Dept> ;
+              :offeredIn <ukg:Fall> ;
+              :semester "5"^^<xsd:integer> .
+
+
+###  ukg:CSE3226
+<ukg:CSE3226> rdf:type owl:NamedIndividual ,
+                       :electiveCourse ;
+              :courseCode "CSE3226" ;
+              :courseName "Knowledge Engineering and Ontologies" ;
+              :hasCourse <ukg:CSE_Dept> ;
+              :hasPrerequisite <ukg:CSE3217> ;
+              :offeredIn <ukg:Fall> ;
+              :semester "5"^^<xsd:integer> .
+
+
+###  ukg:CSE3228
+<ukg:CSE3228> rdf:type owl:NamedIndividual ,
+                       :electiveCourse ;
+              :courseCode "CSE3228" ;
+              :courseName "Artificial Neural Networks" ;
+              :hasCourse <ukg:CSE_Dept> ;
+              :hasPrerequisite <ukg:CSE3213> ;
+              :offeredIn <ukg:Fall> ;
+              :semester "5"^^<xsd:integer> .
+
+
+###  ukg:CSE3229
+<ukg:CSE3229> rdf:type owl:NamedIndividual ,
+                       :electiveCourse ;
+              :courseCode "CSE3229" ;
+              :courseName "Introduction to Robotics" ;
+              :hasCourse <ukg:CSE_Dept> ;
+              :offeredIn <ukg:Fall> ;
+              :semester "5"^^<xsd:integer> .
+
+
+###  ukg:CSE3230
+<ukg:CSE3230> rdf:type owl:NamedIndividual ,
+                       :electiveCourse ;
+              :courseCode "CSE3230" ;
+              :courseName "Compiler Design" ;
+              :hasCourse <ukg:CSE_Dept> ;
+              :offeredIn <ukg:Fall> ;
+              :semester "5"^^<xsd:integer> .
+
+
+###  ukg:CSE3231
+<ukg:CSE3231> rdf:type owl:NamedIndividual ,
+                       :electiveCourse ;
+              :courseCode "CSE3231" ;
+              :courseName "System Programming" ;
+              :hasCourse <ukg:CSE_Dept> ;
+              :offeredIn <ukg:Fall> ;
+              :semester "5"^^<xsd:integer> .
+
+
+###  ukg:CSE3232
+<ukg:CSE3232> rdf:type owl:NamedIndividual ,
+                       :electiveCourse ;
+              :courseCode "CSE3232" ;
+              :courseName "Semantic Web Technologies" ;
+              :hasCourse <ukg:CSE_Dept> ;
+              :hasPrerequisite <ukg:CSE3226> ;
+              :offeredIn <ukg:Fall> ;
+              :semester "5"^^<xsd:integer> .
+
+
+###  ukg:CSE3233
+<ukg:CSE3233> rdf:type owl:NamedIndividual ,
+                       :electiveCourse ;
+              :courseCode "CSE3233" ;
+              :courseName "Computer Network Programming" ;
+              :hasCourse <ukg:CSE_Dept> ;
+              :offeredIn <ukg:Fall> ;
+              :semester "5"^^<xsd:integer> .
+
+
+###  ukg:CSE3234
+<ukg:CSE3234> rdf:type owl:NamedIndividual ,
+                       :electiveCourse ;
+              :courseCode "CSE3234" ;
+              :courseName "Game Programming" ;
+              :hasCourse <ukg:CSE_Dept> ;
+              :offeredIn <ukg:Fall> ;
+              :semester "5"^^<xsd:integer> .
+
+
+###  ukg:CSE3236
+<ukg:CSE3236> rdf:type owl:NamedIndividual ,
+                       :electiveCourse ;
+              :courseCode "CSE3236" ;
+              :courseName "Human-Computer Interaction Design" ;
+              :hasCourse <ukg:CSE_Dept> ;
+              :offeredIn <ukg:Fall> ;
+              :semester "5"^^<xsd:integer> .
+
+
+###  ukg:CSE3238
+<ukg:CSE3238> rdf:type owl:NamedIndividual ,
+                       :electiveCourse ;
+              :courseCode "CSE3238" ;
+              :courseName "Software Testing" ;
+              :hasCourse <ukg:CSE_Dept> ;
+              :offeredIn <ukg:Fall> ;
+              :semester "5"^^<xsd:integer> .
+
+
+###  ukg:CSE3240
+<ukg:CSE3240> rdf:type owl:NamedIndividual ,
+                       :electiveCourse ;
+              :courseCode "CSE3240" ;
+              :courseName "Network Security" ;
+              :hasCourse <ukg:CSE_Dept> ;
+              :offeredIn <ukg:Fall> ;
+              :semester "5"^^<xsd:integer> .
+
+
+###  ukg:CSE3242
+<ukg:CSE3242> rdf:type owl:NamedIndividual ,
+                       :electiveCourse ;
+              :courseCode "CSE3242" ;
+              :courseName "Advanced Database Management Systems" ;
+              :hasCourse <ukg:CSE_Dept> ;
+              :hasPrerequisite <ukg:CSE3139> ;
+              :offeredIn <ukg:Fall> ;
+              :semester "5"^^<xsd:integer> .
+
+
+###  ukg:CSE3246
+<ukg:CSE3246> rdf:type owl:NamedIndividual ,
+                       :electiveCourse ;
+              :courseCode "CSE3246" ;
+              :courseName "Cyber Security" ;
+              :hasCourse <ukg:CSE_Dept> ;
+              :offeredIn <ukg:Fall> ;
+              :semester "5"^^<xsd:integer> .
+
+
+###  ukg:CSE3248
+<ukg:CSE3248> rdf:type owl:NamedIndividual ,
+                       :electiveCourse ;
+              :courseCode "CSE3248" ;
+              :courseName "Cloud Computing" ;
+              :hasCourse <ukg:CSE_Dept> ;
+              :offeredIn <ukg:Fall> ;
+              :semester "5"^^<xsd:integer> .
+
+
+###  ukg:CSE3250
+<ukg:CSE3250> rdf:type owl:NamedIndividual ,
+                       :electiveCourse ;
+              :courseCode "CSE3250" ;
+              :courseName "Data Visualization" ;
+              :hasCourse <ukg:CSE_Dept> ;
+              :offeredIn <ukg:Fall> ;
+              :semester "5"^^<xsd:integer> .
+
+
+###  ukg:CSE3252
+<ukg:CSE3252> rdf:type owl:NamedIndividual ,
+                       :electiveCourse ;
+              :courseCode "CSE3252" ;
+              :courseName "Natural Language Processing" ;
+              :hasCourse <ukg:CSE_Dept> ;
+              :offeredIn <ukg:Fall> ;
+              :semester "5"^^<xsd:integer> .
+
+
+###  ukg:CSE3254
+<ukg:CSE3254> rdf:type owl:NamedIndividual ,
+                       :electiveCourse ;
+              :courseCode "CSE3254" ;
+              :courseName "Microservices Architecture" ;
+              :hasCourse <ukg:CSE_Dept> ;
+              :offeredIn <ukg:Spring> ;
+              :semester "6"^^<xsd:integer> .
+
+
+###  ukg:CSE4123
+<ukg:CSE4123> rdf:type owl:NamedIndividual ,
+                       :mandatoryCourse ;
+              :courseCode "CSE4123" ;
+              :courseName "Software Engineering" ;
+              :hasCourse <ukg:CSE_Dept> ;
+              :hasPrerequisite <ukg:CSE3137> ;
+              :offeredIn <ukg:Fall> ;
+              :semester "7"^^<xsd:integer> .
+
+
+###  ukg:CSE4124
+<ukg:CSE4124> rdf:type owl:NamedIndividual ,
+                       :mandatoryCourse ;
+              :courseCode "CSE4124" ;
+              :courseName "Vocational Training in Workplace" ;
+              :hasCourse <ukg:CSE_Dept> ;
+              :offeredIn <ukg:Spring> ;
+              :semester "8"^^<xsd:integer> .
+
+
+###  ukg:CSE4127
+<ukg:CSE4127> rdf:type owl:NamedIndividual ,
+                       :mandatoryCourse ;
+              :courseCode "CSE4127" ;
+              :courseName "Graduation Project I" ;
+              :hasCourse <ukg:CSE_Dept> ;
+              :offeredIn <ukg:Fall> ;
+              :semester "7"^^<xsd:integer> .
+
+
+###  ukg:CSE4130
+<ukg:CSE4130> rdf:type owl:NamedIndividual ,
+                       :mandatoryCourse ;
+              :courseCode "CSE4130" ;
+              :courseName "Graduation Project II" ;
+              :hasCourse <ukg:CSE_Dept> ;
+              :offeredIn <ukg:Spring> ;
+              :semester "8"^^<xsd:integer> .
+
+
+###  ukg:CSE_Dept
+<ukg:CSE_Dept> rdf:type owl:NamedIndividual ,
+                        :department ;
+               :departmentName "Computer Engineering" ;
+               :hasSubField <ukg:SF_ComputerScience> ,
+                            <ukg:SF_Hardware> ,
+                            <ukg:SF_Software> ;
+               rdfs:label "Bilgisayar Mühendisliği Bölümü"@tr ,
+                          "Computer Engineering Department"@en .
+
+
+###  ukg:Can_Civi
+<ukg:Can_Civi> rdf:type owl:NamedIndividual ,
+                        :professor ;
+               :belongsTo <ukg:MEE_Dept> ;
+               :email "can.civi@cbu.edu.tr" ;
+               :fullName "Doç. Dr. Can ÇİVİ" ;
+               :title "Doç. Dr." ;
+               :worksIn <ukg:SF_ConstructionManufacturing> ;
+               rdfs:comment "Toz Metalurjisi"@tr .
+
+
+###  ukg:Cansu_Apaydin
+<ukg:Cansu_Apaydin> rdf:type owl:NamedIndividual ,
+                             :researchAssistant ;
+                    :belongsTo <ukg:MEE_Dept> ;
+                    :email "cansu.apaydin@cbu.edu.tr" ;
+                    :fullName "Pr. Arş. Gör. Cansu APAYDIN" ;
+                    :title "Araştırma Görevlisi" ;
+                    :worksIn <ukg:SF_ConstructionManufacturing> .
+
+
+###  ukg:Didem_Abidin
+<ukg:Didem_Abidin> rdf:type owl:NamedIndividual ,
+                            :professor ;
+                   :avesisURL "https://avesis.mcbu.edu.tr/didem.abidin"^^<xsd:anyURI> ;
+                   :belongsTo <ukg:CSE_Dept> ;
+                   :email "didem.abidin@cbu.edu.tr" ;
+                   :fullName "Dr. Öğr. Üyesi Didem ABİDİN" ;
+                   :teaches <ukg:CSE2101> ,
+                            <ukg:CSE3134> ;
+                   :title "Dr. Öğr. Üyesi" ;
+                   :worksIn <ukg:SF_Hardware> ;
+                   rdfs:comment "Donanım Anabilim Dalı Öğretim Üyesi"@tr .
+
+
+###  ukg:Didem_Ari
+<ukg:Didem_Ari> rdf:type owl:NamedIndividual ,
+                         :researchAssistant ;
+                :belongsTo <ukg:IE_Dept> ;
+                :email "didem.ari@cbu.edu.tr" ;
+                :fullName "Arş. Gör. Didem ARI" ;
+                :title "Araştırma Görevlisi" ;
+                :worksIn <ukg:SF_AppliedStatistics> .
+
+
+###  ukg:END1106
+<ukg:END1106> rdf:type owl:NamedIndividual ,
+                       :mandatoryCourse ;
+              :courseCode "END1106" ;
+              :courseName "Endüstri Mühendisliğine Giriş" ;
+              :hasCourse <ukg:IE_Dept> ;
+              :offeredIn <ukg:Spring> ;
+              :semester "2"^^<xsd:integer> .
+
+
+###  ukg:END1132
+<ukg:END1132> rdf:type owl:NamedIndividual ,
+                       :mandatoryCourse ;
+              :courseCode "END1132" ;
+              :courseName "Üretim Yöntemleri" ;
+              :hasCourse <ukg:IE_Dept> ;
+              :offeredIn <ukg:Spring> ;
+              :semester "2"^^<xsd:integer> .
+
+
+###  ukg:END1134
+<ukg:END1134> rdf:type owl:NamedIndividual ,
+                       :mandatoryCourse ;
+              :courseCode "END1134" ;
+              :courseName "Ekonominin Temelleri" ;
+              :hasCourse <ukg:IE_Dept> ;
+              :offeredIn <ukg:Spring> ;
+              :semester "2"^^<xsd:integer> .
+
+
+###  ukg:END2124
+<ukg:END2124> rdf:type owl:NamedIndividual ,
+                       :mandatoryCourse ;
+              :courseCode "END2124" ;
+              :courseName "Uygulamalı Mühendislik Ekonomisi" ;
+              :hasCourse <ukg:IE_Dept> ;
+              :offeredIn <ukg:Spring> ;
+              :semester "4"^^<xsd:integer> .
+
+
+###  ukg:END2126
+<ukg:END2126> rdf:type owl:NamedIndividual ,
+                       :mandatoryCourse ;
+              :courseCode "END2126" ;
+              :courseName "Mühendisler İçin Yönetim" ;
+              :hasCourse <ukg:IE_Dept> ;
+              :offeredIn <ukg:Spring> ;
+              :semester "4"^^<xsd:integer> .
+
+
+###  ukg:END2138
+<ukg:END2138> rdf:type owl:NamedIndividual ,
+                       :mandatoryCourse ;
+              :courseCode "END2138" ;
+              :courseName "Maliyet Analizi" ;
+              :hasCourse <ukg:IE_Dept> ;
+              :offeredIn <ukg:Spring> ;
+              :semester "4"^^<xsd:integer> .
+
+
+###  ukg:END3111
+<ukg:END3111> rdf:type owl:NamedIndividual ,
+                       :mandatoryCourse ;
+              :courseCode "END3111" ;
+              :courseName "Üretim Stajı" ;
+              :hasCourse <ukg:IE_Dept> ;
+              :offeredIn <ukg:Fall> ;
+              :semester "5"^^<xsd:integer> .
+
+
+###  ukg:END3127
+<ukg:END3127> rdf:type owl:NamedIndividual ,
+                       :mandatoryCourse ;
+              :courseCode "END3127" ;
+              :courseName "Sistem Analizi" ;
+              :hasCourse <ukg:IE_Dept> ;
+              :offeredIn <ukg:Fall> ;
+              :semester "5"^^<xsd:integer> .
+
+
+###  ukg:END3177
+<ukg:END3177> rdf:type owl:NamedIndividual ,
+                       :mandatoryCourse ;
+              :courseCode "END3177" ;
+              :courseName "Kalite Planlama ve Kontrol" ;
+              :hasCourse <ukg:IE_Dept> ;
+              :offeredIn <ukg:Fall> ;
+              :semester "5"^^<xsd:integer> .
+
+
+###  ukg:END4107
+<ukg:END4107> rdf:type owl:NamedIndividual ,
+                       :mandatoryCourse ;
+              :courseCode "END4107" ;
+              :courseName "Seminer" ;
+              :hasCourse <ukg:IE_Dept> ;
+              :offeredIn <ukg:Fall> ;
+              :semester "7"^^<xsd:integer> .
+
+
+###  ukg:END4114
+<ukg:END4114> rdf:type owl:NamedIndividual ,
+                       :mandatoryCourse ;
+              :courseCode "END4114" ;
+              :courseName "Endüstri Sistemleri Tasarımı II" ;
+              :hasCourse <ukg:IE_Dept> ;
+              :offeredIn <ukg:Spring> ;
+              :semester "8"^^<xsd:integer> .
+
+
+###  ukg:END4116
+<ukg:END4116> rdf:type owl:NamedIndividual ,
+                       :mandatoryCourse ;
+              :courseCode "END4116" ;
+              :courseName "İşletmede Mesleki Eğitim" ;
+              :hasCourse <ukg:IE_Dept> ;
+              :offeredIn <ukg:Spring> ;
+              :semester "8"^^<xsd:integer> .
+
+
+###  ukg:END4121
+<ukg:END4121> rdf:type owl:NamedIndividual ,
+                       :mandatoryCourse ;
+              :courseCode "END4121" ;
+              :courseName "Endüstriyel Sistem Tasarımı I" ;
+              :hasCourse <ukg:IE_Dept> ;
+              :offeredIn <ukg:Fall> ;
+              :semester "7"^^<xsd:integer> .
+
+
+###  ukg:END4242
+<ukg:END4242> rdf:type owl:NamedIndividual ,
+                       :electiveCourse ;
+              :courseCode "END4242" ;
+              :courseName "Bulanık Mantık ve Endüstri Uygulamaları" ;
+              :hasCourse <ukg:IE_Dept> ;
+              :offeredIn <ukg:Fall> ;
+              :semester "5"^^<xsd:integer> .
+
+
+###  ukg:END4244
+<ukg:END4244> rdf:type owl:NamedIndividual ,
+                       :electiveCourse ;
+              :courseCode "END4244" ;
+              :courseName "Yapay Sinir Ağları" ;
+              :hasCourse <ukg:IE_Dept> ;
+              :offeredIn <ukg:Fall> ;
+              :semester "5"^^<xsd:integer> .
+
+
+###  ukg:END4248
+<ukg:END4248> rdf:type owl:NamedIndividual ,
+                       :electiveCourse ;
+              :courseCode "END4248" ;
+              :courseName "Kesikli Optimizasyon Modelleri ve Algoritmaları" ;
+              :hasCourse <ukg:IE_Dept> ;
+              :offeredIn <ukg:Fall> ;
+              :semester "5"^^<xsd:integer> .
+
+
+###  ukg:END4250
+<ukg:END4250> rdf:type owl:NamedIndividual ,
+                       :electiveCourse ;
+              :courseCode "END4250" ;
+              :courseName "Stratejik Yönetim" ;
+              :hasCourse <ukg:IE_Dept> ;
+              :offeredIn <ukg:Fall> ;
+              :semester "5"^^<xsd:integer> .
+
+
+###  ukg:END4251
+<ukg:END4251> rdf:type owl:NamedIndividual ,
+                       :electiveCourse ;
+              :courseCode "END4251" ;
+              :courseName "Uzman Sistemler" ;
+              :hasCourse <ukg:IE_Dept> ;
+              :offeredIn <ukg:Fall> ;
+              :semester "5"^^<xsd:integer> .
+
+
+###  ukg:END4256
+<ukg:END4256> rdf:type owl:NamedIndividual ,
+                       :electiveCourse ;
+              :courseCode "END4256" ;
+              :courseName "Çok Kriterli Karar Verme" ;
+              :hasCourse <ukg:IE_Dept> ;
+              :offeredIn <ukg:Fall> ;
+              :semester "5"^^<xsd:integer> .
+
+
+###  ukg:END4257
+<ukg:END4257> rdf:type owl:NamedIndividual ,
+                       :electiveCourse ;
+              :courseCode "END4257" ;
+              :courseName "Envanter Yönetimi" ;
+              :hasCourse <ukg:IE_Dept> ;
+              :offeredIn <ukg:Fall> ;
+              :semester "5"^^<xsd:integer> .
+
+
+###  ukg:END4259
+<ukg:END4259> rdf:type owl:NamedIndividual ,
+                       :electiveCourse ;
+              :courseCode "END4259" ;
+              :courseName "İnsan Kaynakları Yönetimi" ;
+              :hasCourse <ukg:IE_Dept> ;
+              :offeredIn <ukg:Fall> ;
+              :semester "5"^^<xsd:integer> .
+
+
+###  ukg:END4260
+<ukg:END4260> rdf:type owl:NamedIndividual ,
+                       :electiveCourse ;
+              :courseCode "END4260" ;
+              :courseName "Matematiksel Programlama" ;
+              :hasCourse <ukg:IE_Dept> ;
+              :offeredIn <ukg:Fall> ;
+              :semester "5"^^<xsd:integer> .
+
+
+###  ukg:END4262
+<ukg:END4262> rdf:type owl:NamedIndividual ,
+                       :electiveCourse ;
+              :courseCode "END4262" ;
+              :courseName "Modern Sezgisel Yöntemler" ;
+              :hasCourse <ukg:IE_Dept> ;
+              :offeredIn <ukg:Fall> ;
+              :semester "5"^^<xsd:integer> .
+
+
+###  ukg:END4267
+<ukg:END4267> rdf:type owl:NamedIndividual ,
+                       :electiveCourse ;
+              :courseCode "END4267" ;
+              :courseName "Deney Tasarımı" ;
+              :hasCourse <ukg:IE_Dept> ;
+              :offeredIn <ukg:Fall> ;
+              :semester "5"^^<xsd:integer> .
+
+
+###  ukg:END4268
+<ukg:END4268> rdf:type owl:NamedIndividual ,
+                       :electiveCourse ;
+              :courseCode "END4268" ;
+              :courseName "İleri Simülasyon Uygulamaları" ;
+              :hasCourse <ukg:IE_Dept> ;
+              :offeredIn <ukg:Fall> ;
+              :semester "5"^^<xsd:integer> .
+
+
+###  ukg:END4269
+<ukg:END4269> rdf:type owl:NamedIndividual ,
+                       :electiveCourse ;
+              :courseCode "END4269" ;
+              :courseName "6 Sigma" ;
+              :hasCourse <ukg:IE_Dept> ;
+              :offeredIn <ukg:Fall> ;
+              :semester "5"^^<xsd:integer> .
+
+
+###  ukg:END4271
+<ukg:END4271> rdf:type owl:NamedIndividual ,
+                       :electiveCourse ;
+              :courseCode "END4271" ;
+              :courseName "Endüstriyel Robot Uygulamaları" ;
+              :hasCourse <ukg:IE_Dept> ;
+              :offeredIn <ukg:Fall> ;
+              :semester "5"^^<xsd:integer> .
+
+
+###  ukg:ENG1135
+<ukg:ENG1135> rdf:type owl:NamedIndividual ,
+                       :mandatoryCourse ;
+              :courseCode "ENG1135" ;
+              :courseName "Professional English I" ;
+              :hasCourse <ukg:CSE_Dept> ;
+              :offeredIn <ukg:Fall> ;
+              :semester "1"^^<xsd:integer> .
+
+
+###  ukg:ENG3120
+<ukg:ENG3120> rdf:type owl:NamedIndividual ,
+                       :mandatoryCourse ;
+              :courseCode "ENG3120" ;
+              :courseName "Statistics" ;
+              :hasCourse <ukg:CSE_Dept> ;
+              :offeredIn <ukg:Spring> ;
+              :semester "4"^^<xsd:integer> .
+
+
+###  ukg:Efe_Sarigul
+<ukg:Efe_Sarigul> rdf:type owl:NamedIndividual ,
+                           :student ;
+                  :GPA "3.10"^^<xsd:float> ;
+                  :belongsTo <ukg:CSE_Dept> ;
+                  :fullName "Efe_Sarıgül" ;
+                  :isEnrolledIn <ukg:CSE2122> ,
+                                <ukg:CSE3139> ,
+                                <ukg:CSE3226> ;
+                  :studentID "20210002" .
+
+
+###  ukg:Elif_Guler
+<ukg:Elif_Guler> rdf:type owl:NamedIndividual ,
+                          :researchAssistant ;
+                 :belongsTo <ukg:IE_Dept> ;
+                 :email "guler.elif@cbu.edu.tr" ;
+                 :fullName "Arş. Gör. Elif GÜLER" ;
+                 :title "Araştırma Görevlisi" ;
+                 :worksIn <ukg:SF_IndustrialEngineering> .
+
+
+###  ukg:Emrah_Edis
+<ukg:Emrah_Edis> rdf:type owl:NamedIndividual ,
+                          :professor ;
+                 :belongsTo <ukg:IE_Dept> ;
+                 :email "emrah.edis@cbu.edu.tr" ;
+                 :fullName "Doç. Dr. Emrah EDİS" ;
+                 :teaches <ukg:IND2105> ,
+                          <ukg:IND2118> ,
+                          <ukg:IND3101> ;
+                 :title "Doç. Dr." ;
+                 :worksIn <ukg:SF_OperationsResearch> ;
+                 rdfs:comment "Yöneylem Araştırması Anabilim Dalı Başkanı"@tr .
+
+
+###  ukg:Emre_Senol
+<ukg:Emre_Senol> rdf:type owl:NamedIndividual ,
+                          :professor ;
+                 :belongsTo <ukg:IE_Dept> ;
+                 :email "emre.senol@cbu.edu.tr" ;
+                 :fullName "Dr. Öğr. Üyesi M. Emre ŞENOL" ;
+                 :title "Dr. Öğr. Üyesi" ;
+                 :worksIn <ukg:SF_OperationsResearch> ;
+                 rdfs:comment "Bölüm Başkan Yardımcısı"@tr .
+
+
+###  ukg:Enver_Atik
+<ukg:Enver_Atik> rdf:type owl:NamedIndividual ,
+                          :professor ;
+                 :belongsTo <ukg:MEE_Dept> ;
+                 :email "enver.atik@cbu.edu.tr" ;
+                 :fullName "Prof. Dr. Enver ATİK" ;
+                 :title "Prof. Dr." ;
+                 :worksIn <ukg:SF_ConstructionManufacturing> ;
+                 rdfs:comment "Triboloji, Makine Elemanları"@tr .
+
+
+###  ukg:Erdem_Ersayin
+<ukg:Erdem_Ersayin> rdf:type owl:NamedIndividual ,
+                             :researchAssistant ;
+                    :belongsTo <ukg:MEE_Dept> ;
+                    :email "erdem.ersayin@cbu.edu.tr" ;
+                    :fullName "Arş. Gör. Dr. Erdem ERSAYIN" ;
+                    :title "Araştırma Görevlisi" ;
+                    :worksIn <ukg:SF_Energy> .
+
+
+###  ukg:Erkin_Alp_Guney
+<ukg:Erkin_Alp_Guney> rdf:type owl:NamedIndividual ,
+                               :researchAssistant ;
+                      :belongsTo <ukg:CSE_Dept> ;
+                      :email "erkin.guney@cbu.edu.tr" ;
+                      :fullName "Arş. Gör. Erkin Alp GÜNEY" ;
+                      :title "Araştırma Görevlisi" ;
+                      :worksIn <ukg:SF_ComputerScience> .
+
+
+###  ukg:Esat_Fazlullah_Celik
+<ukg:Esat_Fazlullah_Celik> rdf:type owl:NamedIndividual ,
+                                    :researchAssistant ;
+                           :belongsTo <ukg:CSE_Dept> ;
+                           :email "esat.celik@cbu.edu.tr" ;
+                           :fullName "Arş. Gör. Esat Fazlullah ÇELİK" ;
+                           :title "Araştırma Görevlisi" ;
+                           :worksIn <ukg:SF_ComputerScience> .
+
+
+###  ukg:FIZ1307_IE
+<ukg:FIZ1307_IE> rdf:type owl:NamedIndividual ,
+                          :mandatoryCourse ;
+                 :courseCode "FIZ1307_IE" ;
+                 :courseName "Fizik I" ;
+                 :hasCourse <ukg:IE_Dept> ;
+                 :offeredIn <ukg:Fall> ;
+                 :semester "1"^^<xsd:integer> .
+
+
+###  ukg:Fall
+<ukg:Fall> rdf:type owl:NamedIndividual ,
+                    :academicTerm ;
+           rdfs:label "Fall Semester"@en .
+
+
+###  ukg:Farshid_Khosravi
+<ukg:Farshid_Khosravi> rdf:type owl:NamedIndividual ,
+                                :professor ;
+                       :belongsTo <ukg:MEE_Dept> ;
+                       :email "farshid.khosravi@cbu.edu.tr" ;
+                       :fullName "Doç. Dr. Farshid Khosravi" ;
+                       :title "Doç. Dr." ;
+                       :worksIn <ukg:SF_Mechanics> ;
+                       rdfs:comment "Mekanik Anabilim Dalı Öğretim Üyesi"@tr .
+
+
+###  ukg:Fatih_Karahan
+<ukg:Fatih_Karahan> rdf:type owl:NamedIndividual ,
+                             :professor ;
+                    :belongsTo <ukg:MEE_Dept> ;
+                    :email "fatih.karahan@cbu.edu.tr" ;
+                    :fullName "Doç. Dr. M. M. Fatih KARAHAN" ;
+                    :title "Doç. Dr." ;
+                    :worksIn <ukg:SF_MachineTheory> ;
+                    rdfs:comment "Mekanik Titreşimler"@tr .
+
+
+###  ukg:Fatih_Selimefendigil
+<ukg:Fatih_Selimefendigil> rdf:type owl:NamedIndividual ,
+                                    :professor ;
+                           :belongsTo <ukg:MEE_Dept> ;
+                           :email "fatih.selimefendigil@cbu.edu.tr" ;
+                           :fullName "Prof. Dr. Fatih SELİMEFENDİGİL" ;
+                           :teaches <ukg:MAK2113> ,
+                                    <ukg:MAK2114> ,
+                                    <ukg:MAK3127> ;
+                           :title "Prof. Dr." ;
+                           :worksIn <ukg:SF_Thermodynamics> ;
+                           rdfs:comment "Termodinamik Anabilim Dalı Başkanı"@tr .
+
+
+###  ukg:Gamze_Turkmen
+<ukg:Gamze_Turkmen> rdf:type owl:NamedIndividual ,
+                             :professor ;
+                    :avesisURL "https://avesis.mcbu.edu.tr/gamze.turkmen"^^<xsd:anyURI> ;
+                    :belongsTo <ukg:CSE_Dept> ;
+                    :email "gamze.turkmen@cbu.edu.tr" ;
+                    :fullName "Dr. Öğr. Üyesi Gamze TÜRKMEN" ;
+                    :teaches <ukg:CSE3217> ,
+                             <ukg:CSE3226> ,
+                             <ukg:CSE3232> ;
+                    :title "Dr. Öğr. Üyesi" ;
+                    :worksIn <ukg:SF_Software> ;
+                    rdfs:comment "Yazılım Anabilim Dalı Öğretim Üyesi"@tr .
+
+
+###  ukg:Gizem_Kayran
+<ukg:Gizem_Kayran> rdf:type owl:NamedIndividual ,
+                            :researchAssistant ;
+                   :belongsTo <ukg:IE_Dept> ;
+                   :email "gizem.kucuker@cbu.edu.tr" ;
+                   :fullName "Arş. Gör. Gizem KAYRAN" ;
+                   :title "Araştırma Görevlisi" ;
+                   :worksIn <ukg:SF_OperationsResearch> .
+
+
+###  ukg:Gokcecicek_Tasoglu
+<ukg:Gokcecicek_Tasoglu> rdf:type owl:NamedIndividual ,
+                                  :professor ;
+                         :belongsTo <ukg:IE_Dept> ;
+                         :email "gokcecicek.tuna@cbu.edu.tr" ;
+                         :fullName "Dr. Öğr. Üyesi Gökçeçicek TAŞOĞLU" ;
+                         :teaches <ukg:IND2113> ,
+                                  <ukg:IND2114> ;
+                         :title "Dr. Öğr. Üyesi" ;
+                         :worksIn <ukg:SF_AppliedStatistics> ;
+                         rdfs:comment "Uygulamalı İstatistik Anabilim Dalı Başkanı"@tr .
+
+
+###  ukg:Gozde_Sari
+<ukg:Gozde_Sari> rdf:type owl:NamedIndividual ,
+                          :professor ;
+                 :belongsTo <ukg:MEE_Dept> ;
+                 :email "gozde.deger@cbu.edu.tr" ;
+                 :fullName "Doç. Dr. Gözde SARI" ;
+                 :title "Doç. Dr." ;
+                 :worksIn <ukg:SF_Mechanics> ;
+                 rdfs:comment "Mekanik Anabilim Dalı Öğretim Üyesi"@tr .
+
+
+###  ukg:Gulay_Turgutlu
+<ukg:Gulay_Turgutlu> rdf:type owl:NamedIndividual ,
+                              :researchAssistant ;
+                     :belongsTo <ukg:MEE_Dept> ;
+                     :email "ahu.turgutlu@cbu.edu.tr" ;
+                     :fullName "Arş. Gör. Gülay Ahu TURGUTLU" ;
+                     :title "Araştırma Görevlisi" ;
+                     :worksIn <ukg:SF_Energy> .
+
+
+###  ukg:Hakan_Cetinel
+<ukg:Hakan_Cetinel> rdf:type owl:NamedIndividual ,
+                             :professor ;
+                    :belongsTo <ukg:MEE_Dept> ;
+                    :email "hakan.cetinel@cbu.edu.tr" ;
+                    :fullName "Prof. Dr. Hakan ÇETİNEL" ;
+                    :title "Prof. Dr." ;
+                    :worksIn <ukg:SF_ConstructionManufacturing> ;
+                    rdfs:comment "Anabilim Dalı Başkanı"@tr .
+
+
+###  ukg:Halit_Dogan
+<ukg:Halit_Dogan> rdf:type owl:NamedIndividual ,
+                           :professor ;
+                  :belongsTo <ukg:MEE_Dept> ;
+                  :email "halit.dogan@cbu.edu.tr" ;
+                  :fullName "Dr. Öğr. Üyesi Halit DOĞAN" ;
+                  :title "Dr. Öğr. Üyesi" ;
+                  :worksIn <ukg:SF_ConstructionManufacturing> ;
+                  rdfs:comment "Yüzey Modifikasyonu"@tr .
+
+
+###  ukg:Hulya_Gucdemir
+<ukg:Hulya_Gucdemir> rdf:type owl:NamedIndividual ,
+                              :professor ;
+                     :belongsTo <ukg:IE_Dept> ;
+                     :email "hulya.gucdemir@cbu.edu.tr" ;
+                     :fullName "Dr. Öğr. Üyesi Hülya GÜÇDEMİR" ;
+                     :teaches <ukg:END4267> ,
+                              <ukg:IND3112> ;
+                     :title "Dr. Öğr. Üyesi" ;
+                     :worksIn <ukg:SF_OperationsResearch> ;
+                     rdfs:comment "Bölüm Başkan Yardımcısı"@tr .
+
+
+###  ukg:IE_Dept
+<ukg:IE_Dept> rdf:type owl:NamedIndividual ,
+                       :department ;
+              :departmentName "Industrial Engineering" ;
+              :hasSubField <ukg:SF_AppliedStatistics> ,
+                           <ukg:SF_IndustrialEngineering> ,
+                           <ukg:SF_OperationsResearch> ;
+              rdfs:label "Endüstri Mühendisliği Bölümü"@tr ,
+                         "Industrial Engineering Department"@en .
+
+
+###  ukg:IND2105
+<ukg:IND2105> rdf:type owl:NamedIndividual ,
+                       :mandatoryCourse ;
+              :courseCode "IND2105" ;
+              :courseName "Operations Research I" ;
+              :hasCourse <ukg:IE_Dept> ;
+              :offeredIn <ukg:Fall> ;
+              :semester "3"^^<xsd:integer> .
+
+
+###  ukg:IND2107
+<ukg:IND2107> rdf:type owl:NamedIndividual ,
+                       :mandatoryCourse ;
+              :courseCode "IND2107" ;
+              :courseName "Advanced Computer Programming" ;
+              :hasCourse <ukg:IE_Dept> ;
+              :offeredIn <ukg:Fall> ;
+              :semester "3"^^<xsd:integer> .
+
+
+###  ukg:IND2113
+<ukg:IND2113> rdf:type owl:NamedIndividual ,
+                       :mandatoryCourse ;
+              :courseCode "IND2113" ;
+              :courseName "Probability Theory and Introduction to Statistics" ;
+              :hasCourse <ukg:IE_Dept> ;
+              :offeredIn <ukg:Fall> ;
+              :semester "3"^^<xsd:integer> .
+
+
+###  ukg:IND2114
+<ukg:IND2114> rdf:type owl:NamedIndividual ,
+                       :mandatoryCourse ;
+              :courseCode "IND2114" ;
+              :courseName "Statistics For Engineers" ;
+              :hasCourse <ukg:IE_Dept> ;
+              :offeredIn <ukg:Spring> ;
+              :semester "4"^^<xsd:integer> .
+
+
+###  ukg:IND2118
+<ukg:IND2118> rdf:type owl:NamedIndividual ,
+                       :mandatoryCourse ;
+              :courseCode "IND2118" ;
+              :courseName "Operations Research II" ;
+              :hasCourse <ukg:IE_Dept> ;
+              :hasPrerequisite <ukg:IND2105> ;
+              :offeredIn <ukg:Spring> ;
+              :semester "4"^^<xsd:integer> .
+
+
+###  ukg:IND3101
+<ukg:IND3101> rdf:type owl:NamedIndividual ,
+                       :mandatoryCourse ;
+              :courseCode "IND3101" ;
+              :courseName "Operations Research III" ;
+              :hasCourse <ukg:IE_Dept> ;
+              :hasPrerequisite <ukg:IND2118> ;
+              :offeredIn <ukg:Fall> ;
+              :semester "5"^^<xsd:integer> .
+
+
+###  ukg:IND3102
+<ukg:IND3102> rdf:type owl:NamedIndividual ,
+                       :mandatoryCourse ;
+              :courseCode "IND3102" ;
+              :courseName "Project Management" ;
+              :hasCourse <ukg:IE_Dept> ;
+              :offeredIn <ukg:Spring> ;
+              :semester "6"^^<xsd:integer> .
+
+
+###  ukg:IND3104
+<ukg:IND3104> rdf:type owl:NamedIndividual ,
+                       :mandatoryCourse ;
+              :courseCode "IND3104" ;
+              :courseName "Production and Service Systems Management II" ;
+              :hasCourse <ukg:IE_Dept> ;
+              :offeredIn <ukg:Spring> ;
+              :semester "6"^^<xsd:integer> .
+
+
+###  ukg:IND3112
+<ukg:IND3112> rdf:type owl:NamedIndividual ,
+                       :mandatoryCourse ;
+              :courseCode "IND3112" ;
+              :courseName "Modeling and Simulation" ;
+              :hasCourse <ukg:IE_Dept> ;
+              :offeredIn <ukg:Spring> ;
+              :semester "6"^^<xsd:integer> .
+
+
+###  ukg:IND3113
+<ukg:IND3113> rdf:type owl:NamedIndividual ,
+                       :mandatoryCourse ;
+              :courseCode "IND3113" ;
+              :courseName "Production and Service Systems Management I" ;
+              :hasCourse <ukg:IE_Dept> ;
+              :offeredIn <ukg:Fall> ;
+              :semester "5"^^<xsd:integer> .
+
+
+###  ukg:IND3115
+<ukg:IND3115> rdf:type owl:NamedIndividual ,
+                       :mandatoryCourse ;
+              :courseCode "IND3115" ;
+              :courseName "Work Study and Analysis" ;
+              :hasCourse <ukg:IE_Dept> ;
+              :offeredIn <ukg:Fall> ;
+              :semester "5"^^<xsd:integer> .
+
+
+###  ukg:IND3116
+<ukg:IND3116> rdf:type owl:NamedIndividual ,
+                       :mandatoryCourse ;
+              :courseCode "IND3116" ;
+              :courseName "Facilities Design and Planning" ;
+              :hasCourse <ukg:IE_Dept> ;
+              :offeredIn <ukg:Spring> ;
+              :semester "6"^^<xsd:integer> .
+
+
+###  ukg:IND4113
+<ukg:IND4113> rdf:type owl:NamedIndividual ,
+                       :mandatoryCourse ;
+              :courseCode "IND4113" ;
+              :courseName "Computer Integrated Manufacturing and Automation" ;
+              :hasCourse <ukg:IE_Dept> ;
+              :offeredIn <ukg:Fall> ;
+              :semester "7"^^<xsd:integer> .
+
+
+###  ukg:IND4133
+<ukg:IND4133> rdf:type owl:NamedIndividual ,
+                       :mandatoryCourse ;
+              :courseCode "IND4133" ;
+              :courseName "Supply Chain Management" ;
+              :hasCourse <ukg:IE_Dept> ;
+              :offeredIn <ukg:Fall> ;
+              :semester "7"^^<xsd:integer> .
+
+
+###  ukg:Ibrahim_Demir
+<ukg:Ibrahim_Demir> rdf:type owl:NamedIndividual ,
+                             :professor ;
+                    :belongsTo <ukg:MEE_Dept> ;
+                    :email "ibrahim.demir@cbu.edu.tr" ;
+                    :fullName "Dr. Öğr. Üyesi İbrahim DEMİR" ;
+                    :title "Dr. Öğr. Üyesi" ;
+                    :worksIn <ukg:SF_MachineTheory> ;
+                    rdfs:comment "Makine Teorisi ve Dinamiği"@tr .
+
+
+###  ukg:Leyla_Ozgener
+<ukg:Leyla_Ozgener> rdf:type owl:NamedIndividual ,
+                             :professor ;
+                    :belongsTo <ukg:MEE_Dept> ;
+                    :email "leyla.ozgener@cbu.edu.tr" ;
+                    :fullName "Prof. Dr. Leyla ÖZGENER" ;
+                    :teaches <ukg:MAK3151> ;
+                    :title "Prof. Dr." ;
+                    :worksIn <ukg:SF_Energy> ;
+                    rdfs:comment "Enerji Anabilim Dalı Öğretim Üyesi"@tr .
+
+
+###  ukg:MAK1106
+<ukg:MAK1106> rdf:type owl:NamedIndividual ,
+                       :mandatoryCourse ;
+              :courseCode "MAK1106" ;
+              :courseName "Bilgisayar Destekli Teknik Resim" ;
+              :hasCourse <ukg:MEE_Dept> ;
+              :offeredIn <ukg:Spring> ;
+              :semester "2"^^<xsd:integer> .
+
+
+###  ukg:MAK1112
+<ukg:MAK1112> rdf:type owl:NamedIndividual ,
+                       :mandatoryCourse ;
+              :courseCode "MAK1112" ;
+              :courseName "Statik" ;
+              :hasCourse <ukg:MEE_Dept> ;
+              :offeredIn <ukg:Spring> ;
+              :semester "2"^^<xsd:integer> .
+
+
+###  ukg:MAK2113
+<ukg:MAK2113> rdf:type owl:NamedIndividual ,
+                       :mandatoryCourse ;
+              :courseCode "MAK2113" ;
+              :courseName "Termodinamik I" ;
+              :hasCourse <ukg:MEE_Dept> ;
+              :offeredIn <ukg:Fall> ;
+              :semester "3"^^<xsd:integer> .
+
+
+###  ukg:MAK2114
+<ukg:MAK2114> rdf:type owl:NamedIndividual ,
+                       :mandatoryCourse ;
+              :courseCode "MAK2114" ;
+              :courseName "Termodinamik II" ;
+              :hasCourse <ukg:MEE_Dept> ;
+              :hasPrerequisite <ukg:MAK2113> ;
+              :offeredIn <ukg:Spring> ;
+              :semester "4"^^<xsd:integer> .
+
+
+###  ukg:MAK2119
+<ukg:MAK2119> rdf:type owl:NamedIndividual ,
+                       :mandatoryCourse ;
+              :courseCode "MAK2119" ;
+              :courseName "Mukavemet I" ;
+              :hasCourse <ukg:MEE_Dept> ;
+              :hasPrerequisite <ukg:MAK1112> ;
+              :offeredIn <ukg:Fall> ;
+              :semester "3"^^<xsd:integer> .
+
+
+###  ukg:MAK2120
+<ukg:MAK2120> rdf:type owl:NamedIndividual ,
+                       :mandatoryCourse ;
+              :courseCode "MAK2120" ;
+              :courseName "Mukavemet II" ;
+              :hasCourse <ukg:MEE_Dept> ;
+              :hasPrerequisite <ukg:MAK2119> ;
+              :offeredIn <ukg:Spring> ;
+              :semester "4"^^<xsd:integer> .
+
+
+###  ukg:MAK2124
+<ukg:MAK2124> rdf:type owl:NamedIndividual ,
+                       :mandatoryCourse ;
+              :courseCode "MAK2124" ;
+              :courseName "Üretim Yöntemleri" ;
+              :hasCourse <ukg:MEE_Dept> ;
+              :offeredIn <ukg:Spring> ;
+              :semester "4"^^<xsd:integer> .
+
+
+###  ukg:MAK2127
+<ukg:MAK2127> rdf:type owl:NamedIndividual ,
+                       :mandatoryCourse ;
+              :courseCode "MAK2127" ;
+              :courseName "Elektrik-Elektronik Mühendisliği Temelleri" ;
+              :hasCourse <ukg:MEE_Dept> ;
+              :offeredIn <ukg:Fall> ;
+              :semester "3"^^<xsd:integer> .
+
+
+###  ukg:MAK2132
+<ukg:MAK2132> rdf:type owl:NamedIndividual ,
+                       :mandatoryCourse ;
+              :courseCode "MAK2132" ;
+              :courseName "Dinamik" ;
+              :hasCourse <ukg:MEE_Dept> ;
+              :offeredIn <ukg:Spring> ;
+              :semester "4"^^<xsd:integer> .
+
+
+###  ukg:MAK3104
+<ukg:MAK3104> rdf:type owl:NamedIndividual ,
+                       :mandatoryCourse ;
+              :courseCode "MAK3104" ;
+              :courseName "Makine Dinamiği" ;
+              :hasCourse <ukg:MEE_Dept> ;
+              :offeredIn <ukg:Spring> ;
+              :semester "6"^^<xsd:integer> .
+
+
+###  ukg:MAK3119
+<ukg:MAK3119> rdf:type owl:NamedIndividual ,
+                       :mandatoryCourse ;
+              :courseCode "MAK3119" ;
+              :courseName "Makine Elemanları I" ;
+              :hasCourse <ukg:MEE_Dept> ;
+              :offeredIn <ukg:Fall> ;
+              :semester "5"^^<xsd:integer> .
+
+
+###  ukg:MAK3120
+<ukg:MAK3120> rdf:type owl:NamedIndividual ,
+                       :mandatoryCourse ;
+              :courseCode "MAK3120" ;
+              :courseName "Makine Elemanları II" ;
+              :hasCourse <ukg:MEE_Dept> ;
+              :offeredIn <ukg:Spring> ;
+              :semester "6"^^<xsd:integer> .
+
+
+###  ukg:MAK3127
+<ukg:MAK3127> rdf:type owl:NamedIndividual ,
+                       :mandatoryCourse ;
+              :courseCode "MAK3127" ;
+              :courseName "Isı Transferi" ;
+              :hasCourse <ukg:MEE_Dept> ;
+              :offeredIn <ukg:Fall> ;
+              :semester "5"^^<xsd:integer> .
+
+
+###  ukg:MAK3131
+<ukg:MAK3131> rdf:type owl:NamedIndividual ,
+                       :mandatoryCourse ;
+              :courseCode "MAK3131" ;
+              :courseName "Sistem Analizi ve Kontrol" ;
+              :hasCourse <ukg:MEE_Dept> ;
+              :hasPrerequisite <ukg:MAK2132> ;
+              :offeredIn <ukg:Fall> ;
+              :semester "5"^^<xsd:integer> .
+
+
+###  ukg:MAK3151
+<ukg:MAK3151> rdf:type owl:NamedIndividual ,
+                       :mandatoryCourse ;
+              :courseCode "MAK3151" ;
+              :courseName "Akışkanlar Mekaniği" ;
+              :hasCourse <ukg:MEE_Dept> ;
+              :hasPrerequisite <ukg:MAK2132> ;
+              :offeredIn <ukg:Fall> ;
+              :semester "5"^^<xsd:integer> .
+
+
+###  ukg:MAK3174
+<ukg:MAK3174> rdf:type owl:NamedIndividual ,
+                       :mandatoryCourse ;
+              :courseCode "MAK3174" ;
+              :courseName "Makine Mühendisliğinde Bilgisayar Uygulamaları" ;
+              :hasCourse <ukg:MEE_Dept> ;
+              :offeredIn <ukg:Spring> ;
+              :semester "6"^^<xsd:integer> .
+
+
+###  ukg:MAK4110
+<ukg:MAK4110> rdf:type owl:NamedIndividual ,
+                       :mandatoryCourse ;
+              :courseCode "MAK4110" ;
+              :courseName "Makine Mühendisliği Uygulamaları" ;
+              :hasCourse <ukg:MEE_Dept> ;
+              :offeredIn <ukg:Spring> ;
+              :semester "8"^^<xsd:integer> .
+
+
+###  ukg:MAK4121
+<ukg:MAK4121> rdf:type owl:NamedIndividual ,
+                       :mandatoryCourse ;
+              :courseCode "MAK4121" ;
+              :courseName "Mekanik Tasarım Projesi" ;
+              :hasCourse <ukg:MEE_Dept> ;
+              :offeredIn <ukg:Fall> ;
+              :semester "7"^^<xsd:integer> .
+
+
+###  ukg:MAK4123
+<ukg:MAK4123> rdf:type owl:NamedIndividual ,
+                       :mandatoryCourse ;
+              :courseCode "MAK4123" ;
+              :courseName "Isıl Tasarım Projesi" ;
+              :hasCourse <ukg:MEE_Dept> ;
+              :offeredIn <ukg:Fall> ;
+              :semester "7"^^<xsd:integer> .
+
+
+###  ukg:MAK4150
+<ukg:MAK4150> rdf:type owl:NamedIndividual ,
+                       :mandatoryCourse ;
+              :courseCode "MAK4150" ;
+              :courseName "İşletmede Mesleki Eğitim" ;
+              :hasCourse <ukg:MEE_Dept> ;
+              :offeredIn <ukg:Spring> ;
+              :semester "8"^^<xsd:integer> .
+
+
+###  ukg:MAK4503
+<ukg:MAK4503> rdf:type owl:NamedIndividual ,
+                       :electiveCourse ;
+              :courseCode "MAK4503" ;
+              :courseName "Bina ve Yangın Tesisatı" ;
+              :hasCourse <ukg:MEE_Dept> ;
+              :offeredIn <ukg:Spring> ;
+              :semester "6"^^<xsd:integer> .
+
+
+###  ukg:MAK4517
+<ukg:MAK4517> rdf:type owl:NamedIndividual ,
+                       :electiveCourse ;
+              :courseCode "MAK4517" ;
+              :courseName "Hidrolik Makineler" ;
+              :hasCourse <ukg:MEE_Dept> ;
+              :offeredIn <ukg:Spring> ;
+              :semester "6"^^<xsd:integer> .
+
+
+###  ukg:MAK4519
+<ukg:MAK4519> rdf:type owl:NamedIndividual ,
+                       :electiveCourse ;
+              :courseCode "MAK4519" ;
+              :courseName "Hidrolik ve Pnömatik Devreler" ;
+              :hasCourse <ukg:MEE_Dept> ;
+              :offeredIn <ukg:Spring> ;
+              :semester "6"^^<xsd:integer> .
+
+
+###  ukg:MAK4522
+<ukg:MAK4522> rdf:type owl:NamedIndividual ,
+                       :electiveCourse ;
+              :courseCode "MAK4522" ;
+              :courseName "Traktör ve Tarım Makineleri" ;
+              :hasCourse <ukg:MEE_Dept> ;
+              :offeredIn <ukg:Spring> ;
+              :semester "6"^^<xsd:integer> .
+
+
+###  ukg:MAK4526
+<ukg:MAK4526> rdf:type owl:NamedIndividual ,
+                       :electiveCourse ;
+              :courseCode "MAK4526" ;
+              :courseName "Transport Tekniği" ;
+              :hasCourse <ukg:MEE_Dept> ;
+              :offeredIn <ukg:Spring> ;
+              :semester "6"^^<xsd:integer> .
+
+
+###  ukg:MAK4532
+<ukg:MAK4532> rdf:type owl:NamedIndividual ,
+                       :electiveCourse ;
+              :courseCode "MAK4532" ;
+              :courseName "Kaldırma Makinaları" ;
+              :hasCourse <ukg:MEE_Dept> ;
+              :offeredIn <ukg:Spring> ;
+              :semester "6"^^<xsd:integer> .
+
+
+###  ukg:MAK4533
+<ukg:MAK4533> rdf:type owl:NamedIndividual ,
+                       :electiveCourse ;
+              :courseCode "MAK4533" ;
+              :courseName "Kalite Kontrol ve Standardizasyon" ;
+              :hasCourse <ukg:MEE_Dept> ;
+              :offeredIn <ukg:Spring> ;
+              :semester "6"^^<xsd:integer> .
+
+
+###  ukg:MAK4535
+<ukg:MAK4535> rdf:type owl:NamedIndividual ,
+                       :electiveCourse ;
+              :courseCode "MAK4535" ;
+              :courseName "Kaynak Teknolojisi" ;
+              :hasCourse <ukg:MEE_Dept> ;
+              :offeredIn <ukg:Spring> ;
+              :semester "6"^^<xsd:integer> .
+
+
+###  ukg:MAK4536
+<ukg:MAK4536> rdf:type owl:NamedIndividual ,
+                       :electiveCourse ;
+              :courseCode "MAK4536" ;
+              :courseName "Kırılma Mekaniğine Giriş" ;
+              :hasCourse <ukg:MEE_Dept> ;
+              :offeredIn <ukg:Spring> ;
+              :semester "6"^^<xsd:integer> .
+
+
+###  ukg:MAK4542
+<ukg:MAK4542> rdf:type owl:NamedIndividual ,
+                       :electiveCourse ;
+              :courseCode "MAK4542" ;
+              :courseName "Mekatronik" ;
+              :hasCourse <ukg:MEE_Dept> ;
+              :offeredIn <ukg:Spring> ;
+              :semester "6"^^<xsd:integer> .
+
+
+###  ukg:MAK4544
+<ukg:MAK4544> rdf:type owl:NamedIndividual ,
+                       :electiveCourse ;
+              :courseCode "MAK4544" ;
+              :courseName "Üretim Planlama" ;
+              :hasCourse <ukg:MEE_Dept> ;
+              :offeredIn <ukg:Spring> ;
+              :semester "6"^^<xsd:integer> .
+
+
+###  ukg:MAK4545
+<ukg:MAK4545> rdf:type owl:NamedIndividual ,
+                       :electiveCourse ;
+              :courseCode "MAK4545" ;
+              :courseName "Mekanik Titreşimler" ;
+              :hasCourse <ukg:MEE_Dept> ;
+              :offeredIn <ukg:Spring> ;
+              :semester "6"^^<xsd:integer> .
+
+
+###  ukg:MAK4549
+<ukg:MAK4549> rdf:type owl:NamedIndividual ,
+                       :electiveCourse ;
+              :courseCode "MAK4549" ;
+              :courseName "Motorlar" ;
+              :hasCourse <ukg:MEE_Dept> ;
+              :offeredIn <ukg:Spring> ;
+              :semester "6"^^<xsd:integer> .
+
+
+###  ukg:MAK4551
+<ukg:MAK4551> rdf:type owl:NamedIndividual ,
+                       :electiveCourse ;
+              :courseCode "MAK4551" ;
+              :courseName "Motorlu Taşıtlar" ;
+              :hasCourse <ukg:MEE_Dept> ;
+              :offeredIn <ukg:Spring> ;
+              :semester "6"^^<xsd:integer> .
+
+
+###  ukg:MAK4558
+<ukg:MAK4558> rdf:type owl:NamedIndividual ,
+                       :electiveCourse ;
+              :courseCode "MAK4558" ;
+              :courseName "Optimizasyon" ;
+              :hasCourse <ukg:MEE_Dept> ;
+              :offeredIn <ukg:Spring> ;
+              :semester "6"^^<xsd:integer> .
+
+
+###  ukg:MAK4560
+<ukg:MAK4560> rdf:type owl:NamedIndividual ,
+                       :electiveCourse ;
+              :courseCode "MAK4560" ;
+              :courseName "Plastik Malzemeler" ;
+              :hasCourse <ukg:MEE_Dept> ;
+              :offeredIn <ukg:Spring> ;
+              :semester "6"^^<xsd:integer> .
+
+
+###  ukg:MAK4563
+<ukg:MAK4563> rdf:type owl:NamedIndividual ,
+                       :electiveCourse ;
+              :courseCode "MAK4563" ;
+              :courseName "Seramik Malzemeler" ;
+              :hasCourse <ukg:MEE_Dept> ;
+              :offeredIn <ukg:Spring> ;
+              :semester "6"^^<xsd:integer> .
+
+
+###  ukg:MAK4567
+<ukg:MAK4567> rdf:type owl:NamedIndividual ,
+                       :electiveCourse ;
+              :courseCode "MAK4567" ;
+              :courseName "Sonlu Elemanlara Giriş" ;
+              :hasCourse <ukg:MEE_Dept> ;
+              :offeredIn <ukg:Spring> ;
+              :semester "6"^^<xsd:integer> .
+
+
+###  ukg:MAK4570
+<ukg:MAK4570> rdf:type owl:NamedIndividual ,
+                       :electiveCourse ;
+              :courseCode "MAK4570" ;
+              :courseName "Tahribatsız Muayene" ;
+              :hasCourse <ukg:MEE_Dept> ;
+              :offeredIn <ukg:Spring> ;
+              :semester "6"^^<xsd:integer> .
+
+
+###  ukg:MAT1305_IE
+<ukg:MAT1305_IE> rdf:type owl:NamedIndividual ,
+                          :mandatoryCourse ;
+                 :courseCode "MAT1305_IE" ;
+                 :courseName "Matematik I" ;
+                 :hasCourse <ukg:IE_Dept> ;
+                 :offeredIn <ukg:Fall> ;
+                 :semester "1"^^<xsd:integer> .
+
+
+###  ukg:MAT1306_IE
+<ukg:MAT1306_IE> rdf:type owl:NamedIndividual ,
+                          :mandatoryCourse ;
+                 :courseCode "MAT1306_IE" ;
+                 :courseName "Matematik II" ;
+                 :hasCourse <ukg:IE_Dept> ;
+                 :offeredIn <ukg:Spring> ;
+                 :semester "2"^^<xsd:integer> .
+
+
+###  ukg:MAT2303_IE
+<ukg:MAT2303_IE> rdf:type owl:NamedIndividual ,
+                          :mandatoryCourse ;
+                 :courseCode "MAT2303_IE" ;
+                 :courseName "Diferansiyel Denklemler" ;
+                 :hasCourse <ukg:IE_Dept> ;
+                 :offeredIn <ukg:Fall> ;
+                 :semester "3"^^<xsd:integer> .
+
+
+###  ukg:MEE1109
+<ukg:MEE1109> rdf:type owl:NamedIndividual ,
+                       :mandatoryCourse ;
+              :courseCode "MEE1109" ;
+              :courseName "Introduction to Mechanical Engineering" ;
+              :hasCourse <ukg:MEE_Dept> ;
+              :offeredIn <ukg:Fall> ;
+              :semester "1"^^<xsd:integer> .
+
+
+###  ukg:MEE_Dept
+<ukg:MEE_Dept> rdf:type owl:NamedIndividual ,
+                        :department ;
+               :departmentName "Mechanical Engineering" ;
+               :hasSubField <ukg:SF_ConstructionManufacturing> ,
+                            <ukg:SF_Energy> ,
+                            <ukg:SF_MachineTheory> ,
+                            <ukg:SF_Mechanics> ,
+                            <ukg:SF_Thermodynamics> ;
+               rdfs:label "Makine Mühendisliği Bölümü"@tr ,
+                          "Mechanical Engineering Department"@en .
+
+
+###  ukg:MHN1100
+<ukg:MHN1100> rdf:type owl:NamedIndividual ,
+                       :mandatoryCourse ;
+              :courseCode "MHN1100" ;
+              :courseName "Bilgisayar Destekli Teknik Resim" ;
+              :hasCourse <ukg:IE_Dept> ;
+              :offeredIn <ukg:Fall> ;
+              :semester "1"^^<xsd:integer> .
+
+
+###  ukg:MHN1101
+<ukg:MHN1101> rdf:type owl:NamedIndividual ,
+                       :mandatoryCourse ;
+              :courseCode "MHN1101" ;
+              :courseName "Teknik Resim" ;
+              :hasCourse <ukg:MEE_Dept> ;
+              :offeredIn <ukg:Fall> ;
+              :semester "1"^^<xsd:integer> .
+
+
+###  ukg:MTH1305
+<ukg:MTH1305> rdf:type owl:NamedIndividual ,
+                       :mandatoryCourse ;
+              :courseCode "MTH1305" ;
+              :courseName "Mathematics I" ;
+              :hasCourse <ukg:CSE_Dept> ;
+              :offeredIn <ukg:Fall> ;
+              :semester "1"^^<xsd:integer> .
+
+
+###  ukg:MTH1305_MEE
+<ukg:MTH1305_MEE> rdf:type owl:NamedIndividual ,
+                           :mandatoryCourse ;
+                  :courseCode "MTH1305_MEE" ;
+                  :courseName "Mathematics I" ;
+                  :hasCourse <ukg:MEE_Dept> ;
+                  :offeredIn <ukg:Fall> ;
+                  :semester "1"^^<xsd:integer> .
+
+
+###  ukg:MTH1306
+<ukg:MTH1306> rdf:type owl:NamedIndividual ,
+                       :mandatoryCourse ;
+              :courseCode "MTH1306" ;
+              :courseName "Mathematics II" ;
+              :hasCourse <ukg:CSE_Dept> ;
+              :offeredIn <ukg:Spring> ;
+              :semester "2"^^<xsd:integer> .
+
+
+###  ukg:MTH1306_MEE
+<ukg:MTH1306_MEE> rdf:type owl:NamedIndividual ,
+                           :mandatoryCourse ;
+                  :courseCode "MTH1306_MEE" ;
+                  :courseName "Mathematics II" ;
+                  :hasCourse <ukg:MEE_Dept> ;
+                  :offeredIn <ukg:Spring> ;
+                  :semester "2"^^<xsd:integer> .
+
+
+###  ukg:MTH2303
+<ukg:MTH2303> rdf:type owl:NamedIndividual ,
+                       :mandatoryCourse ;
+              :courseCode "MTH2303" ;
+              :courseName "Differential Equations" ;
+              :hasCourse <ukg:CSE_Dept> ;
+              :offeredIn <ukg:Fall> ;
+              :semester "3"^^<xsd:integer> .
+
+
+###  ukg:MTH2303_MEE
+<ukg:MTH2303_MEE> rdf:type owl:NamedIndividual ,
+                           :mandatoryCourse ;
+                  :courseCode "MTH2303_MEE" ;
+                  :courseName "Differential Equations" ;
+                  :hasCourse <ukg:MEE_Dept> ;
+                  :offeredIn <ukg:Fall> ;
+                  :semester "3"^^<xsd:integer> .
+
+
+###  ukg:Mehmet_Ali_Ilgin
+<ukg:Mehmet_Ali_Ilgin> rdf:type owl:NamedIndividual ,
+                                :professor ;
+                       :belongsTo <ukg:IE_Dept> ;
+                       :email "mehmetali.ilgin@cbu.edu.tr" ;
+                       :fullName "Doç. Dr. Mehmet Ali ILGIN" ;
+                       :title "Doç. Dr." ;
+                       :worksIn <ukg:SF_IndustrialEngineering> ;
+                       rdfs:comment "Bölüm Başkanı"@tr .
+
+
+###  ukg:Mert_Kaya
+<ukg:Mert_Kaya> rdf:type owl:NamedIndividual ,
+                         :student ;
+                :GPA "3.50"^^<xsd:float> ;
+                :belongsTo <ukg:IE_Dept> ;
+                :fullName "Mert Kaya" ;
+                :isEnrolledIn <ukg:END4242> ,
+                              <ukg:IND3112> ,
+                              <ukg:IND3113> ;
+                :studentID "20220012" .
+
+
+###  ukg:Muhammet_Gokhan_Erdem
+<ukg:Muhammet_Gokhan_Erdem> rdf:type owl:NamedIndividual ,
+                                     :professor ;
+                            :avesisURL "https://avesis.mcbu.edu.tr/muhammet.cinsdikici"^^<xsd:anyURI> ;
+                            :belongsTo <ukg:CSE_Dept> ;
+                            :email "muhammet.cinsdikici@cbu.edu.tr" ;
+                            :fullName "Prof. Dr. Muhammet Gökhan ERDEM" ;
+                            :teaches <ukg:CSE2113> ,
+                                     <ukg:CSE3230> ;
+                            :title "Prof. Dr." ;
+                            :worksIn <ukg:SF_ComputerScience> ;
+                            rdfs:comment "Bilgisayar Bilimleri Anabilim Dalı Başkanı"@tr .
+
+
+###  ukg:Murat_Bagdatli
+<ukg:Murat_Bagdatli> rdf:type owl:NamedIndividual ,
+                              :professor ;
+                     :belongsTo <ukg:MEE_Dept> ;
+                     :email "murat.bagdatli@cbu.edu.tr" ;
+                     :fullName "Prof. Dr. Süleyman Murat BAĞDATLI" ;
+                     :teaches <ukg:MAK2132> ,
+                              <ukg:MAK3131> ;
+                     :title "Prof. Dr." ;
+                     :worksIn <ukg:SF_MachineTheory> ;
+                     rdfs:comment "Makine Teorisi ve Dinamiği Anabilim Dalı Başkanı"@tr .
+
+
+###  ukg:Murat_Sahin
+<ukg:Murat_Sahin> rdf:type owl:NamedIndividual ,
+                           :professor ;
+                  :belongsTo <ukg:IE_Dept> ;
+                  :email "sahin.murat@cbu.edu.tr" ;
+                  :fullName "Dr. Öğr. Üyesi Murat ŞAHİN" ;
+                  :teaches <ukg:END4242> ,
+                           <ukg:END4244> ,
+                           <ukg:END4262> ;
+                  :title "Dr. Öğr. Üyesi" ;
+                  :worksIn <ukg:SF_IndustrialEngineering> ;
+                  rdfs:comment "Endüstri Mühendisliği"@tr .
+
+
+###  ukg:Mustafa_Karamolla
+<ukg:Mustafa_Karamolla> rdf:type owl:NamedIndividual ,
+                                 :professor ;
+                        :belongsTo <ukg:MEE_Dept> ;
+                        :email "mustafa.karamolla@cbu.edu.tr" ;
+                        :fullName "Dr. Öğr. Üyesi Mustafa KARAMOLLA" ;
+                        :title "Dr. Öğr. Üyesi" ;
+                        :worksIn <ukg:SF_ConstructionManufacturing> ;
+                        rdfs:comment "Teknik Resim, Motorlu Taşıtlar"@tr .
+
+
+###  ukg:Nail_Aslan
+<ukg:Nail_Aslan> rdf:type owl:NamedIndividual ,
+                          :researchAssistant ;
+                 :belongsTo <ukg:MEE_Dept> ;
+                 :email "nail.aslan@cbu.edu.tr" ;
+                 :fullName "Arş. Gör. Nail ASLAN" ;
+                 :title "Araştırma Görevlisi" ;
+                 :worksIn <ukg:SF_ConstructionManufacturing> .
+
+
+###  ukg:Nursen_Saklakoglu
+<ukg:Nursen_Saklakoglu> rdf:type owl:NamedIndividual ,
+                                 :professor ;
+                        :belongsTo <ukg:MEE_Dept> ;
+                        :email "nursen.saklakoglu@cbu.edu.tr" ;
+                        :fullName "Prof. Dr. Nurşen SAKLAKOĞLU" ;
+                        :title "Prof. Dr." ;
+                        :worksIn <ukg:SF_ConstructionManufacturing> ;
+                        rdfs:comment "Malzeme Bilimi, Korozyon"@tr .
+
+
+###  ukg:Ovunc_Ozturk
+<ukg:Ovunc_Ozturk> rdf:type owl:NamedIndividual ,
+                            :professor ;
+                   :avesisURL "https://avesis.mcbu.edu.tr/ovunc.ozturk"^^<xsd:anyURI> ;
+                   :belongsTo <ukg:CSE_Dept> ;
+                   :email "ovunc.ozturk@cbu.edu.tr" ;
+                   :fullName "Doç. Dr. Övünç ÖZTÜRK" ;
+                   :teaches <ukg:CSE2122> ,
+                            <ukg:CSE3213> ,
+                            <ukg:CSE3220> ;
+                   :title "Doç. Dr." ;
+                   :worksIn <ukg:SF_ComputerScience> ;
+                   rdfs:comment "Bölüm Başkan Yardımcısı"@tr .
+
+
+###  ukg:Ozge_Satir
+<ukg:Ozge_Satir> rdf:type owl:NamedIndividual ,
+                          :researchAssistant ;
+                 :belongsTo <ukg:IE_Dept> ;
+                 :email "ozge.satir@cbu.edu.tr" ;
+                 :fullName "Arş. Gör. Özge ŞATIR AKPUNAR" ;
+                 :title "Araştırma Görevlisi" ;
+                 :worksIn <ukg:SF_IndustrialEngineering> .
+
+
+###  ukg:Ozgur
+<ukg:Ozgur> rdf:type owl:NamedIndividual ,
+                     :student ;
+            :GPA "3.20"^^<xsd:float> ;
+            :belongsTo <ukg:MEE_Dept> ;
+            :fullName "Özgür" ;
+            :isEnrolledIn <ukg:MAK2132> ,
+                          <ukg:MAK3151> ;
+            :studentID "20210004" .
+
+
+###  ukg:Ozgur_Eski
+<ukg:Ozgur_Eski> rdf:type owl:NamedIndividual ,
+                          :professor ;
+                 :belongsTo <ukg:IE_Dept> ;
+                 :email "ozgur.eski@cbu.edu.tr" ;
+                 :fullName "Dr. Öğr. Üyesi Özgür ESKİ" ;
+                 :title "Dr. Öğr. Üyesi" ;
+                 :worksIn <ukg:SF_OperationsResearch> ;
+                 rdfs:comment "Yöneylem Araştırması"@tr .
+
+
+###  ukg:Ozlem_Uzun_Araz
+<ukg:Ozlem_Uzun_Araz> rdf:type owl:NamedIndividual ,
+                               :professor ;
+                      :belongsTo <ukg:IE_Dept> ;
+                      :email "ozlem.araz@cbu.edu.tr" ;
+                      :fullName "Dr. Öğr. Üyesi Özlem UZUN ARAZ" ;
+                      :title "Dr. Öğr. Üyesi" ;
+                      :worksIn <ukg:SF_IndustrialEngineering> ;
+                      rdfs:comment "Endüstri Mühendisliği"@tr .
+
+
+###  ukg:PHY1306_MEE
+<ukg:PHY1306_MEE> rdf:type owl:NamedIndividual ,
+                           :mandatoryCourse ;
+                  :courseCode "PHY1306_MEE" ;
+                  :courseName "Physics II" ;
+                  :hasCourse <ukg:MEE_Dept> ;
+                  :offeredIn <ukg:Spring> ;
+                  :semester "2"^^<xsd:integer> .
+
+
+###  ukg:PHY1307
+<ukg:PHY1307> rdf:type owl:NamedIndividual ,
+                       :mandatoryCourse ;
+              :courseCode "PHY1307" ;
+              :courseName "Physics I" ;
+              :hasCourse <ukg:CSE_Dept> ;
+              :offeredIn <ukg:Fall> ;
+              :semester "1"^^<xsd:integer> .
+
+
+###  ukg:PHY1307_MEE
+<ukg:PHY1307_MEE> rdf:type owl:NamedIndividual ,
+                           :mandatoryCourse ;
+                  :courseCode "PHY1307_MEE" ;
+                  :courseName "Physics I" ;
+                  :hasCourse <ukg:MEE_Dept> ;
+                  :offeredIn <ukg:Fall> ;
+                  :semester "1"^^<xsd:integer> .
+
+
+###  ukg:PHY1308
+<ukg:PHY1308> rdf:type owl:NamedIndividual ,
+                       :mandatoryCourse ;
+              :courseCode "PHY1308" ;
+              :courseName "Physics II" ;
+              :hasCourse <ukg:CSE_Dept> ;
+              :offeredIn <ukg:Spring> ;
+              :semester "2"^^<xsd:integer> .
+
+
+###  ukg:Pinar_Ozfirat
+<ukg:Pinar_Ozfirat> rdf:type owl:NamedIndividual ,
+                             :professor ;
+                    :belongsTo <ukg:IE_Dept> ;
+                    :email "pinar.ozfirat@cbu.edu.tr" ;
+                    :fullName "Prof. Dr. Pınar Mızrak ÖZFIRAT" ;
+                    :teaches <ukg:END3177> ,
+                             <ukg:END4107> ;
+                    :title "Prof. Dr." ;
+                    :worksIn <ukg:SF_IndustrialEngineering> ;
+                    rdfs:comment "Anabilim Dalı Başkanı"@tr .
+
+
+###  ukg:Rahime_Sancar_Edis
+<ukg:Rahime_Sancar_Edis> rdf:type owl:NamedIndividual ,
+                                  :professor ;
+                         :belongsTo <ukg:IE_Dept> ;
+                         :email "rahime.edis@cbu.edu.tr" ;
+                         :fullName "Dr. Öğr. Üyesi Rahime SANCAR EDİS" ;
+                         :title "Dr. Öğr. Üyesi" ;
+                         :worksIn <ukg:SF_IndustrialEngineering> ;
+                         rdfs:comment "Endüstri Mühendisliği"@tr .
+
+
+###  ukg:Resul_Sonmez
+<ukg:Resul_Sonmez> rdf:type owl:NamedIndividual ,
+                            :researchAssistant ;
+                   :belongsTo <ukg:MEE_Dept> ;
+                   :email "resul.sonmez@cbu.edu.tr" ;
+                   :fullName "Arş. Gör. Resul SÖNMEZ" ;
+                   :title "Araştırma Görevlisi" ;
+                   :worksIn <ukg:SF_ConstructionManufacturing> .
+
+
+###  ukg:SF_AppliedStatistics
+<ukg:SF_AppliedStatistics> rdf:type owl:NamedIndividual ,
+                                    :subField ;
+                           :subFieldName "Uygulamalı İstatistik ve Olasılık Anabilim Dalı" ;
+                           rdfs:label "Uygulamalı İstatistik ve Olasılık Anabilim Dalı"@tr .
+
+
+###  ukg:SF_ComputerScience
+<ukg:SF_ComputerScience> rdf:type owl:NamedIndividual ,
+                                  :subField ;
+                         :subFieldName "Bilgisayar Bilimleri Anabilim Dalı" ;
+                         rdfs:label "Bilgisayar Bilimleri Anabilim Dalı"@tr .
+
+
+###  ukg:SF_ConstructionManufacturing
+<ukg:SF_ConstructionManufacturing> rdf:type owl:NamedIndividual ,
+                                            :subField ;
+                                   :subFieldName "Konstrüksiyon ve İmalat Anabilim Dalı" ;
+                                   rdfs:label "Konstrüksiyon ve İmalat Anabilim Dalı"@tr .
+
+
+###  ukg:SF_Energy
+<ukg:SF_Energy> rdf:type owl:NamedIndividual ,
+                         :subField ;
+                :subFieldName "Enerji Anabilim Dalı" ;
+                rdfs:label "Enerji Anabilim Dalı"@tr .
+
+
+###  ukg:SF_Hardware
+<ukg:SF_Hardware> rdf:type owl:NamedIndividual ,
+                           :subField ;
+                  :subFieldName "Donanım Anabilim Dalı" ;
+                  rdfs:label "Donanım Anabilim Dalı"@tr .
+
+
+###  ukg:SF_IndustrialEngineering
+<ukg:SF_IndustrialEngineering> rdf:type owl:NamedIndividual ,
+                                        :subField ;
+                               :subFieldName "Endüstri Mühendisliği Anabilim Dalı" ;
+                               rdfs:label "Endüstri Mühendisliği Anabilim Dalı"@tr .
+
+
+###  ukg:SF_MachineTheory
+<ukg:SF_MachineTheory> rdf:type owl:NamedIndividual ,
+                                :subField ;
+                       :subFieldName "Makine Teorisi ve Dinamiği Anabilim Dalı" ;
+                       rdfs:label "Makine Teorisi ve Dinamiği Anabilim Dalı"@tr .
+
+
+###  ukg:SF_Mechanics
+<ukg:SF_Mechanics> rdf:type owl:NamedIndividual ,
+                            :subField ;
+                   :subFieldName "Mekanik Anabilim Dalı" ;
+                   rdfs:label "Mekanik Anabilim Dalı"@tr .
+
+
+###  ukg:SF_OperationsResearch
+<ukg:SF_OperationsResearch> rdf:type owl:NamedIndividual ,
+                                     :subField ;
+                            :subFieldName "Yöneylem Araştırması Anabilim Dalı" ;
+                            rdfs:label "Yöneylem Araştırması Anabilim Dalı"@tr .
+
+
+###  ukg:SF_Software
+<ukg:SF_Software> rdf:type owl:NamedIndividual ,
+                           :subField ;
+                  :subFieldName "Yazılım Anabilim Dalı" ;
+                  rdfs:label "Yazılım Anabilim Dalı"@tr .
+
+
+###  ukg:SF_Thermodynamics
+<ukg:SF_Thermodynamics> rdf:type owl:NamedIndividual ,
+                                 :subField ;
+                        :subFieldName "Termodinamik Anabilim Dalı" ;
+                        rdfs:label "Termodinamik Anabilim Dalı"@tr .
+
+
+###  ukg:Saim_Kural
+<ukg:Saim_Kural> rdf:type owl:NamedIndividual ,
+                          :professor ;
+                 :belongsTo <ukg:MEE_Dept> ;
+                 :email "saim.kural@cbu.edu.tr" ;
+                 :fullName "Dr. Öğr. Üyesi Saim KURAL" ;
+                 :title "Dr. Öğr. Üyesi" ;
+                 :worksIn <ukg:SF_MachineTheory> ;
+                 rdfs:comment "Bölüm Başkan Yardımcısı"@tr .
+
+
+###  ukg:Samet_Yilmaz
+<ukg:Samet_Yilmaz> rdf:type owl:NamedIndividual ,
+                            :researchAssistant ;
+                   :belongsTo <ukg:CSE_Dept> ;
+                   :email "samet.yilmaz@cbu.edu.tr" ;
+                   :fullName "Arş. Gör. Samet YILMAZ" ;
+                   :title "Araştırma Görevlisi" ;
+                   :worksIn <ukg:SF_Software> .
+
+
+###  ukg:Seda_Arabaci
+<ukg:Seda_Arabaci> rdf:type owl:NamedIndividual ,
+                            :professor ;
+                   :belongsTo <ukg:MEE_Dept> ;
+                   :email "seda.kirmaci@cbu.edu.tr" ;
+                   :fullName "Dr. Öğr. Üyesi Seda ARABACI" ;
+                   :title "Dr. Öğr. Üyesi" ;
+                   :worksIn <ukg:SF_Thermodynamics> ;
+                   rdfs:comment "Termodinamik Anabilim Dalı Öğretim Üyesi"@tr .
+
+
+###  ukg:Sevcan_Emek
+<ukg:Sevcan_Emek> rdf:type owl:NamedIndividual ,
+                           :professor ;
+                  :avesisURL "https://avesis.mcbu.edu.tr/sevcan.emek"^^<xsd:anyURI> ;
+                  :belongsTo <ukg:CSE_Dept> ;
+                  :email "sevcan.emek@cbu.edu.tr" ;
+                  :fullName "Dr. Öğr. Üyesi Sevcan EMEK" ;
+                  :teaches <ukg:CSE3137> ,
+                           <ukg:CSE3238> ,
+                           <ukg:CSE4123> ;
+                  :title "Dr. Öğr. Üyesi" ;
+                  :worksIn <ukg:SF_Software> ;
+                  rdfs:comment "Yazılım Anabilim Dalı Öğretim Üyesi"@tr .
+
+
+###  ukg:Simge_Irizalp
+<ukg:Simge_Irizalp> rdf:type owl:NamedIndividual ,
+                             :professor ;
+                    :belongsTo <ukg:MEE_Dept> ;
+                    :email "simge.gencalp@cbu.edu.tr" ;
+                    :fullName "Doç. Dr. Simge İRİZALP" ;
+                    :title "Doç. Dr." ;
+                    :worksIn <ukg:SF_ConstructionManufacturing> ;
+                    rdfs:comment "Bölüm Başkan Yardımcısı"@tr .
+
+
+###  ukg:Sinem
+<ukg:Sinem> rdf:type owl:NamedIndividual ,
+                     :student ;
+            :GPA "2.90"^^<xsd:float> ;
+            :belongsTo <ukg:MEE_Dept> ;
+            :fullName "Sinem" ;
+            :isEnrolledIn <ukg:MAK2113> ,
+                          <ukg:MAK2119> ;
+            :studentID "20210003" .
+
+
+###  ukg:Sirri_Polat
+<ukg:Sirri_Polat> rdf:type owl:NamedIndividual ,
+                           :researchAssistant ;
+                  :belongsTo <ukg:MEE_Dept> ;
+                  :email "sirri.polat@cbu.edu.tr" ;
+                  :fullName "Arş. Gör. Sırrı Can POLAT" ;
+                  :title "Araştırma Görevlisi" ;
+                  :worksIn <ukg:SF_MachineTheory> .
+
+
+###  ukg:Spring
+<ukg:Spring> rdf:type owl:NamedIndividual ,
+                      :academicTerm ;
+             rdfs:label "Spring Semester"@en .
+
+
+###  ukg:Suleyman_Yigit_Kaygisiz
+<ukg:Suleyman_Yigit_Kaygisiz> rdf:type owl:NamedIndividual ,
+                                       :researchAssistant ;
+                              :belongsTo <ukg:CSE_Dept> ;
+                              :email "suleyman.kaygisiz@cbu.edu.tr" ;
+                              :fullName "Arş. Gör. Süleyman Yiğit Kaygısız" ;
+                              :title "Araştırma Görevlisi" ;
+                              :worksIn <ukg:SF_ComputerScience> .
+
+
+###  ukg:Tugba_Ozacar_Ozturk
+<ukg:Tugba_Ozacar_Ozturk> rdf:type owl:NamedIndividual ,
+                                   :professor ;
+                          :avesisURL "https://avesis.mcbu.edu.tr/tugba.ozacar"^^<xsd:anyURI> ;
+                          :belongsTo <ukg:CSE_Dept> ;
+                          :email "tugba.ozacar@cbu.edu.tr" ;
+                          :fullName "Prof. Dr. Tuğba ÖZACAR ÖZTÜRK" ;
+                          :teaches <ukg:CSE3207> ,
+                                   <ukg:CSE3209> ;
+                          :title "Prof. Dr." ;
+                          :worksIn <ukg:SF_Software> ;
+                          rdfs:comment "Bölüm Başkanı, Yazılım Anabilim Dalı Başkanı"@tr .
+
+
+###  ukg:Turan_Goktug_Altundogan
+<ukg:Turan_Goktug_Altundogan> rdf:type owl:NamedIndividual ,
+                                       :researchAssistant ;
+                              :belongsTo <ukg:CSE_Dept> ;
+                              :email "turan.altundogan@cbu.edu.tr" ;
+                              :fullName "Arş. Gör. Dr. Turan Göktuğ ALTUNDOĞAN" ;
+                              :title "Araştırma Görevlisi" ;
+                              :worksIn <ukg:SF_Hardware> .
+
+
+###  ukg:Ugur_Ozmen
+<ukg:Ugur_Ozmen> rdf:type owl:NamedIndividual ,
+                          :professor ;
+                 :belongsTo <ukg:MEE_Dept> ;
+                 :email "ugur.ozmen@cbu.edu.tr" ;
+                 :fullName "Dr. Öğr. Üyesi Uğur ÖZMEN" ;
+                 :title "Dr. Öğr. Üyesi" ;
+                 :worksIn <ukg:SF_Mechanics> ;
+                 rdfs:comment "Mekanik Anabilim Dalı Öğretim Üyesi"@tr .
+
+
+###  ukg:Umut_Dokmen
+<ukg:Umut_Dokmen> rdf:type owl:NamedIndividual ,
+                           :researchAssistant ;
+                  :belongsTo <ukg:CSE_Dept> ;
+                  :email "umut.dokmen@cbu.edu.tr" ;
+                  :fullName "Arş. Gör. Umut DÖKMEN" ;
+                  :title "Araştırma Görevlisi" ;
+                  :worksIn <ukg:SF_ComputerScience> .
+
+
+###  ukg:Volkan_Altintas
+<ukg:Volkan_Altintas> rdf:type owl:NamedIndividual ,
+                               :professor ;
+                      :avesisURL "https://avesis.mcbu.edu.tr/volkan.altintas"^^<xsd:anyURI> ;
+                      :belongsTo <ukg:CSE_Dept> ;
+                      :email "volkan.altintas@cbu.edu.tr" ;
+                      :fullName "Dr. Öğr. Üyesi Volkan ALTINTAŞ" ;
+                      :teaches <ukg:CSE2136> ,
+                               <ukg:CSE3131> ;
+                      :title "Dr. Öğr. Üyesi" ;
+                      :worksIn <ukg:SF_Hardware> ;
+                      rdfs:comment "Donanım Anabilim Dalı Başkanı"@tr .
+
+
+###  ukg:Yigit_Aksoy
+<ukg:Yigit_Aksoy> rdf:type owl:NamedIndividual ,
+                           :professor ;
+                  :belongsTo <ukg:MEE_Dept> ;
+                  :email "yigit.aksoy@cbu.edu.tr" ;
+                  :fullName "Doç. Dr. Yiğit AKSOY" ;
+                  :title "Doç. Dr." ;
+                  :worksIn <ukg:SF_Thermodynamics> ;
+                  rdfs:comment "Termodinamik Anabilim Dalı Öğretim Üyesi"@tr .
+
+
+###  ukg:Zeynep_Cipiloglu_Yildiz
+<ukg:Zeynep_Cipiloglu_Yildiz> rdf:type owl:NamedIndividual ,
+                                       :professor ;
+                              :avesisURL "https://avesis.mcbu.edu.tr/zeynep.cipiloglu"^^<xsd:anyURI> ;
+                              :belongsTo <ukg:CSE_Dept> ;
+                              :email "zeynep.cipiloglu@cbu.edu.tr" ;
+                              :fullName "Dr. Öğr. Üyesi Zeynep ÇİPİLOĞLU YILDIZ" ;
+                              :teaches <ukg:CSE3139> ,
+                                       <ukg:CSE3242> ;
+                              :title "Dr. Öğr. Üyesi" ;
+                              :worksIn <ukg:SF_ComputerScience> ;
+                              rdfs:comment "Bölüm Başkan Yardımcısı"@tr .
+
+
+###  ukg:Zeynep_Demir
+<ukg:Zeynep_Demir> rdf:type owl:NamedIndividual ,
+                            :student ;
+                   :GPA "3.75"^^<xsd:float> ;
+                   :belongsTo <ukg:CSE_Dept> ;
+                   :fullName "Zeynep Demir" ;
+                   :isEnrolledIn <ukg:CSE3213> ,
+                                 <ukg:CSE3226> ,
+                                 <ukg:CSE3232> ;
+                   :studentID "20220010" .
+
+
+#################################################################
+#    Annotations
+#################################################################
+
+<ukg:CSE3136_CN> :hasPrerequisite <ukg:CSE2101> .
+
+
+<ukg:GPA> rdfs:label "GPA (0.0 - 4.0)"@en .
+
+
+<ukg:avesisURL> rdfs:label "AVESİS profile URL"@en .
+
+
+<ukg:courseCode> rdfs:label "course code"@en .
+
+
+<ukg:courseName> rdfs:label "course name"@en .
+
+
+<ukg:departmentName> rdfs:label "department name"@en .
+
+
+<ukg:email> rdfs:label "email address"@en .
+
+
+<ukg:fullName> rdfs:label "full name"@en .
+
+
+<ukg:semester> rdfs:label "semester (1-8)"@en .
+
+
+<ukg:studentID> rdfs:label "student ID"@en .
+
+
+<ukg:subFieldName> rdfs:label "sub-field name"@en .
+
+
+<ukg:title> rdfs:label "academic title"@en .
+
+
+#################################################################
+#    General axioms
+#################################################################
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( <ukg:professor>
+                <ukg:researchAssistant>
+                <ukg:student>
+              )
+] .
+
+
+[ rdf:type owl:AllDisjointProperties ;
+  owl:members ( <ukg:hasPrerequisite>
+                <ukg:isEnrolledIn>
+                <ukg:teaches>
+              )
+] .
+
+
+###  Generated by the OWL API (version 5.1.18) https://github.com/owlcs/owlapi/

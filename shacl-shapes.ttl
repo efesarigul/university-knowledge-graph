@@ -1,0 +1,202 @@
+@prefix sh:     <http://www.w3.org/ns/shacl#> .
+@prefix xsd:    <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdf:    <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix :       <http://www.semanticweb.org/ayca/ontologies/2026/3/university-kg#> .
+@prefix ukg:    <http://www.semanticweb.org/ayca/ontologies/2026/3/university-kg#> .
+@prefix shapes: <http://www.semanticweb.org/ayca/ontologies/2026/3/university-kg/shapes#> .
+
+# ─────────────────────────────────────────
+# 1. STUDENT SHAPE
+# ─────────────────────────────────────────
+shapes:StudentShape
+    a sh:NodeShape ;
+    sh:targetClass ukg:student ;
+
+    sh:property [
+        sh:path ukg:fullName ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:datatype xsd:string ;
+        sh:message "Every student must have exactly one full name (fullName)." ;
+    ] ;
+
+    sh:property [
+        sh:path ukg:studentID ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:datatype xsd:string ;
+        sh:message "Every student must have exactly one student ID (studentID)." ;
+    ] ;
+
+    sh:property [
+        sh:path ukg:belongsTo ;
+        sh:minCount 1 ;
+        sh:class ukg:department ;
+        sh:message "Every student must belong to at least one department (belongsTo)." ;
+    ] .
+
+
+# ─────────────────────────────────────────
+# 2. PROFESSOR SHAPE
+# ─────────────────────────────────────────
+shapes:ProfessorShape
+    a sh:NodeShape ;
+    sh:targetClass ukg:professor ;
+
+    sh:property [
+        sh:path ukg:fullName ;
+        sh:minCount 1 ;
+        sh:datatype xsd:string ;
+        sh:message "Every professor must have a full name (fullName)." ;
+    ] ;
+
+    sh:property [
+        sh:path ukg:email ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:datatype xsd:string ;
+        sh:pattern "^[^@]+@[^@]+\\.[^@]+$" ;
+        sh:message "A valid email address is required for every professor." ;
+    ] ;
+
+    sh:property [
+        sh:path ukg:title ;
+        sh:minCount 1 ;
+        sh:datatype xsd:string ;
+        sh:message "Every professor must have an academic title (title)." ;
+    ] ;
+
+    sh:property [
+        sh:path ukg:belongsTo ;
+        sh:minCount 1 ;
+        sh:class ukg:department ;
+        sh:message "Every professor must be affiliated with a department (belongsTo)." ;
+    ] ;
+
+    sh:property [
+        sh:path ukg:worksIn ;
+        sh:minCount 1 ;
+        sh:class ukg:subField ;
+        sh:message "Every professor must be assigned to at least one sub-field (worksIn)." ;
+    ] .
+
+
+# ─────────────────────────────────────────
+# 3. RESEARCH ASSISTANT SHAPE
+# ─────────────────────────────────────────
+shapes:ResearchAssistantShape
+    a sh:NodeShape ;
+    sh:targetClass ukg:researchAssistant ;
+
+    sh:property [
+        sh:path ukg:fullName ;
+        sh:minCount 1 ;
+        sh:datatype xsd:string ;
+        sh:message "Every research assistant must have a full name (fullName)." ;
+    ] ;
+
+    sh:property [
+        sh:path ukg:email ;
+        sh:minCount 1 ;
+        sh:datatype xsd:string ;
+        sh:message "Every research assistant must have an email address." ;
+    ] ;
+
+    sh:property [
+        sh:path ukg:title ;
+        sh:minCount 1 ;
+        sh:datatype xsd:string ;
+        sh:message "Every research assistant must have an academic title (title)." ;
+    ] ;
+
+    sh:property [
+        sh:path ukg:belongsTo ;
+        sh:minCount 1 ;
+        sh:class ukg:department ;
+        sh:message "Every research assistant must be affiliated with a department (belongsTo)." ;
+    ] .
+
+
+# ─────────────────────────────────────────
+# 4. COURSE SHAPE
+# ─────────────────────────────────────────
+shapes:CourseShape
+    a sh:NodeShape ;
+    sh:targetClass ukg:course ;
+
+    sh:property [
+        sh:path ukg:courseCode ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:datatype xsd:string ;
+        sh:message "Every course must have exactly one course code (courseCode)." ;
+    ] ;
+
+    sh:property [
+        sh:path ukg:courseName ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:datatype xsd:string ;
+        sh:message "Every course must have exactly one course name (courseName)." ;
+    ] ;
+
+    sh:property [
+        sh:path ukg:semester ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:message "Every course must have a semester value." ;
+    ] ;
+
+    sh:property [
+        sh:path ukg:hasCourse ;
+        sh:minCount 1 ;
+        sh:class ukg:department ;
+        sh:message "Every course must be offered by at least one department (hasCourse)." ;
+    ] ;
+
+    sh:property [
+        sh:path ukg:offeredIn ;
+        sh:minCount 1 ;
+        sh:class ukg:academicTerm ;
+        sh:message "Every course must be associated with an academic term (offeredIn)." ;
+    ] .
+
+
+# ─────────────────────────────────────────
+# 5. DEPARTMENT SHAPE
+# ─────────────────────────────────────────
+shapes:DepartmentShape
+    a sh:NodeShape ;
+    sh:targetClass ukg:department ;
+
+    sh:property [
+        sh:path ukg:departmentName ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:datatype xsd:string ;
+        sh:message "Every department must have exactly one name (departmentName)." ;
+    ] ;
+
+    sh:property [
+        sh:path ukg:hasSubField ;
+        sh:minCount 1 ;
+        sh:class ukg:subField ;
+        sh:message "Every department must have at least one sub-field (hasSubField)." ;
+    ] .
+
+
+# ─────────────────────────────────────────
+# 6. SUBFIELD SHAPE
+# ─────────────────────────────────────────
+shapes:SubFieldShape
+    a sh:NodeShape ;
+    sh:targetClass ukg:subField ;
+
+    sh:property [
+        sh:path ukg:subFieldName ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:datatype xsd:string ;
+        sh:message "Every sub-field must have exactly one name (subFieldName)." ;
+    ] .
